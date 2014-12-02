@@ -1,0 +1,100 @@
+<ion-view title="start" class="">
+    
+    <ion-content  
+		class=""
+    	padding="false">
+        
+		<div class="logo-large"></div>
+
+        <div class="with-pad npt cf fixed-form">
+                        
+            <form 
+                class=""
+                name="loginForm"
+                ng-submit="submit(credentials)"  
+                >
+                
+                <div class="new-form-style">
+
+                    <label class="item item-input user-svg">
+                            <input 
+                            type="text" 
+                            placeholder="Username..." 
+                            ng-model="credentials.username" 
+                            name="username"
+                            ng-minlength="3"
+                            ng-maxlength="20"
+                            ng-class="{'has-error': !loginForm.username.$valid && !loginForm.username.$pristine }"
+                            required>
+                    </label>
+
+                    <label class="item item-input password-svg">
+
+                        <input 
+                            type="password" 
+                            placeholder="Password..." 
+                            ng-model="credentials.password"
+                            name="password"
+                            ng-class="{'has-error': !loginForm.password.$valid && !loginForm.password.$pristine }"
+                            ng-minlength="6"
+                            ng-maxlength="126"
+                            required>
+
+                    </label>
+
+                </div>
+                
+                <div class="cl"></div>
+
+                <div class="signup-form-button mt15 mb15">
+                    
+                    <button 
+                        nav-clear
+                        type="submit" 
+                        id="submit" 
+                        class="button button-block pure-button button-trans mt0 mb0"
+                        ng-disabled="loginForm.$invalid">Sign In with Email</button>
+                    
+                    </div>
+                
+                
+                <a class="reset-password-link mt20" ng-click="forgotPassword()">
+                    Forgot your password? <span class="icn ion-arrow-right-b"></span>
+                </a>
+                
+
+            </form>
+            
+        </div>
+        
+        <div class="fixed-or mb10 cf">
+            <div class="or-box mt10 alt">
+                <span class="line left"></span>
+                <span class="line right"></span>
+                <span class="txt">OR</span>
+            </div>
+        </div>
+        
+        <div class="with-pad fixed-form cf">
+
+            <button class="button button-block pure-button button-1 button-svg-20 abs-svg-left np mb15" ng-click="join()">
+                <span class="custom-icon email"></span>
+                Register using Email</button>
+
+            <button class="button button-block pure-button button-facebook button-svg-20 abs-svg-left np mb15" ng-click="authenticate('facebook')">
+                <span class="custom-icon facebook"></span>
+                Connect with Facebook</button>
+
+            <button class="button button-block pure-button button-grey button-svg-20 abs-svg-left np mb0" ng-click="authenticate('google')">
+                <span class="custom-icon google"></span>
+                Connect with Google</button>
+
+
+        </div>
+
+
+
+
+    </ion-content>
+
+</ion-view>
