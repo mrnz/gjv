@@ -5,6 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 var APP = angular.module('starter', [
     'ionic',
+    'satellizer',
     'gjvUser'
   ])
 

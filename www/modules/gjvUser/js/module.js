@@ -18,20 +18,20 @@ angular.module('gjvUser', [])
       }
     })
 
-    .state('forgotpassword', {
-      url: "/forgot-password",
-      templateUrl: "modules/gjvUser/templates/forgot-password.html",
-      controller: 'VtUserForgotPasswordCtrl',
+    .state('join', {
+      url: "/join",
+      templateUrl: "modules/gjvUser/templates/join.html",
+      controller: 'JoinCtrl',
       data: {
         stateName: 'start',
         activeTab: 0
       }
     })
 
-    .state('join', {
-      url: "/join",
-      templateUrl: "modules/gjvUser/templates/join.html",
-      controller: 'VtUserJoinCtrl',
+    .state('forgotpassword', {
+      url: "/forgot-password",
+      templateUrl: "modules/gjvUser/templates/forgot-password.html",
+      controller: 'ForgotPasswordCtrl',
       data: {
         stateName: 'start',
         activeTab: 0
