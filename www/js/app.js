@@ -23,6 +23,7 @@ APP.run(function($ionicPlatform) {
   });
 })
 
+.constant('APIAddress','http://gdziejestvin.pl/api')
 
 
 
@@ -73,4 +74,12 @@ APP.run(function($ionicPlatform) {
       authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate',
     });
 
-  });
+  })
+
+
+.config(['$httpProvider', function ($httpProvider) {
+    
+    $httpProvider.defaults.headers.common['X-TOKEN'] = 'gdziejestvintoken';
+    $httpProvider.defaults.headers.common['X-USER'] = '954ec124678207080ddae2f390cb0757';
+    
+}])

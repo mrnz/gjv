@@ -1,4 +1,4 @@
-angular.module('gjvBrowse', [])
+angular.module('gjvBrowse', ['gjvData'])
 
 .config(function($stateProvider) {
   
@@ -37,6 +37,20 @@ angular.module('gjvBrowse', [])
         activeTab: 0
       }
     })
+
+    .state('info', {
+      url: "/brand/:brandName/model/:modelName/volume/:volumeName/info",
+      templateUrl: "modules/gjvBrowse/templates/info.html",
+      controller: 'InfoCtrl',
+      data: {
+        stateName: 'start',
+        googleAnalyticsName: '',
+        activeTab: 0
+      }
+    })
+
+
+
 
 })
 

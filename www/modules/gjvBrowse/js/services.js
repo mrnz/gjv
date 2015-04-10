@@ -1,61 +1,55 @@
 angular.module('gjvBrowse')
 
-.factory('dataFactory', function($http, $q){
+.factory('dataFactory', function($http, $q, APIAddress, URLFactory){
+	
 	return{
-		call: function(params){
-				
-			var defer = $q.defer();
-
-			$http(params)
-				.success(function(resultObj,status,headerFunc){
-					//console.log(result);console.log(status);
-					defer.resolve(resultObj)
-				})
-				.error(function(errorObj,status,headerFunc){
-					//console.log(errorObj);
-					//console.log(status);
-					defer.reject(errorObj)
-				});
-			return defer.promise;
-		},
 		brands: function(){
+			var result,
+				req = {
+					method: 'GET',
+					url: APIAddress+'/brands'
+				}
+			
+			//result = this.get(url, req);
 
-			var req = {
-				method: 'GET',
-				url: 'http://www.gdziejestvin.pl/api/brands',
-				headers: {
-   					'X-TOKEN': 'gdziejestvintoken',
-   					'X-USER' : "954ec124678207080ddae2f390cb0757"
- 				},
-			}
-			return this.call(req);
+			return URLFactory.call(req); 
 		
 		},
 		models: function(brand){
+			var result,
+				req = {
+					method: 'GET',
+					url: APIAddress+'/brands/'+brand+'/models'
+				}
+			
+			result = URLFactory.get(req);
 
-			var req = {
-				method: 'GET',
-				url: 'http://www.gdziejestvin.pl/api/brands/'+brand+'/models',
-				headers: {
-   					'X-TOKEN': 'gdziejestvintoken',
-   					'X-USER' : "954ec124678207080ddae2f390cb0757"
- 				},
-			}
-			return this.call(req);
+			return result;
 		
 		},
 		volumes: function(brand, model){
 
 			var req = {
 				method: 'GET',
-				url: 'http://www.gdziejestvin.pl/api/brands/'+brand+'/models/'+model+'/volumes',
-				headers: {
-   					'X-TOKEN': 'gdziejestvintoken',
-   					'X-USER' : "954ec124678207080ddae2f390cb0757"
- 				},
+				url: APIAddress+'/brands/'+brand+'/models/'+model+'/volumes'
 			}
-			return this.call(req);
+			return URLFactory.get(req);
 		
-		}
+		},
+		info: function(brand, model, volume){
+			console.log('---------');
+			console.log(brand)
+			console.log(model)
+			console.log(volume)
+			console.log('---------');
+			var req = {
+				method: 'GET',
+				url: APIAddress+'/brands/'+brand+'/models/'+model+'/volumes/'+volume+'/info'
+
+			}
+
+			return URLFactory.get(req);
+		
+		}		
 	}
 })
