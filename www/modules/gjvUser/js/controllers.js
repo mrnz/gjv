@@ -1,6 +1,6 @@
 angular.module('gjvUser')
 
-.controller('StartCtrl', function($scope, $state){
+.controller('StartCtrl', function($scope, $state, testFactory){
 	
 	$scope.join = function(){
 		$state.go('join'); 
@@ -8,6 +8,10 @@ angular.module('gjvUser')
 
 	$scope.forgotPassword = function(){
 		$state.go('forgotpassword');
+	}
+
+	$scope.authenticate = function(t){
+		testFactory.a();	
 	}
 
 })
@@ -23,7 +27,7 @@ angular.module('gjvUser')
 	$scope.cancel = function(){
 		$state.go('start');
 	}
-	
+
 })
 
 

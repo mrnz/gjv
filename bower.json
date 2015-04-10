@@ -2,7 +2,8 @@
   "name": "gjv",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.0-beta.13",
+    "ionic": "driftyco/ionic-bower#1.0.0-rc.2",
     "satellizer": "https://github.com/sahat/satellizer.git" 
   }
 }
+

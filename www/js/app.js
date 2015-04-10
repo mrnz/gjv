@@ -6,7 +6,8 @@
 var APP = angular.module('starter', [
     'ionic',
     'satellizer',
-    'gjvUser'
+    'gjvUser',
+    'gjvBrowse'
   ])
 
 APP.run(function($ionicPlatform) {
