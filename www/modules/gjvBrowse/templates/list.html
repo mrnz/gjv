@@ -1,0 +1,22 @@
+<ion-view title="" class="">
+    
+    <ion-content  
+		class="S"
+    	padding="false">
+	
+		<ion-list>
+		  	
+		  	<ion-item 
+		  		ng-repeat="item in items"
+		        class="item"
+		        ng-click="selectItem(this,item)"
+		        list-item="">
+					{{item}}
+		    
+		  	</ion-item>
+
+		</ion-list>
+
+    </ion-content>
+
+</ion-view>
