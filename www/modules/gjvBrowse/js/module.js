@@ -17,7 +17,7 @@ angular.module('gjvBrowse', ['gjvData'])
       url: "/brands",
       views: {
         'menuContent': {
-          templateUrl: "modules/gjvBrowse/templates/brands.html",
+          templateUrl: "modules/gjvBrowse/templates/list.html",
           controller: 'BrandsCtrl'
         }
       },
@@ -32,7 +32,7 @@ angular.module('gjvBrowse', ['gjvData'])
       url: "/brand/:brandName/models",
       views: {
         'menuContent': {
-          templateUrl: "modules/gjvBrowse/templates/models.html",
+          templateUrl: "modules/gjvBrowse/templates/list.html",
           controller: 'ModelsCtrl'
         }
       },
@@ -47,7 +47,7 @@ angular.module('gjvBrowse', ['gjvData'])
       url: "/brand/:brandName/model/:modelName/volumes",
       views: {
         'menuContent': {
-          templateUrl: "modules/gjvBrowse/templates/volumes.html",
+          templateUrl: "modules/gjvBrowse/templates/list.html",
           controller: 'VolumesCtrl'
         }
       },

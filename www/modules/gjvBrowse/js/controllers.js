@@ -6,22 +6,18 @@ angular.module('gjvBrowse')
 
 .controller('BrandsCtrl', function($scope, $state, dataFactory){
 	
-	$scope.brands = [];
+	$scope.items = [];
 
 	dataFactory.brands().then(
 		function(result){
-			$scope.brands = result.brands; 
-			console.log($scope.brands);
+			$scope.items = result.brands; 
 		},
 		function(reason){
 			console.log(reason);
 		}
 	);
 	
-	$scope.selectBrand = function (a,brandName,c) {
-		console.log(a);
-		console.log(brandName);
-
+	$scope.selectItem = function (ev,brandName) {
 		$state.go('menu.models', {brandName: brandName})
 	}
 
@@ -34,23 +30,19 @@ angular.module('gjvBrowse')
 	var brandName = $state.params.brandName; 
 
 
-	$scope.models = [];
+	$scope.items = [];
 
 	dataFactory.models(brandName).then(
 		function(result){
-			$scope.models = result.models; 
-			console.log($scope.models);
+			$scope.items = result.models; 
+			console.log($scope.items);
 		},
 		function(reason){
 			console.log(reason);
 		}
 	);
 	
-	$scope.selectBrand = function (a,modelName,c) {
-		console.log(a);
-		console.log(brandName);
-		console.log(modelName);
-
+	$scope.selectItem = function (ev,modelName) {
 		$state.go('menu.volumes', {brandName: brandName, modelName: modelName });
 	}
 
@@ -64,21 +56,19 @@ angular.module('gjvBrowse')
 	var brandName = $state.params.brandName,
 		modelName = $state.params.modelName; 
 
-	$scope.volumes = [];
+	$scope.items = [];
 
 	dataFactory.volumes( brandName, modelName ).then(
 		function success (result){
-			$scope.volumes = result.volumes; 
-			console.log($scope.volumes);
+			$scope.items = result.volumes; 
+			console.log($scope.items);
 		},
 		function error (reason){
 			console.log(reason);
 		}
 	);
 	
-	$scope.selectItem = function (a,volumeName) {
-		console.log(a);
-		console.log(volumeName);
+	$scope.selectItem = function (ev,volumeName) {
 		$state.go('menu.info', {brandName: brandName, modelName: modelName, volumeName: volumeName });
 	}
 
