@@ -9,10 +9,8 @@ angular.module('gjvBrowse')
 					method: 'GET',
 					url: APIAddress+'/brands'
 				}
-			
-			//result = this.get(url, req);
 
-			return URLFactory.call(req); 
+			return URLFactory.get(req); 
 		
 		},
 		models: function(brand){

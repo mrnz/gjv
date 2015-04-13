@@ -4,7 +4,7 @@ angular.module('gjvData', ['angular-cache'])
 .config(function (CacheFactoryProvider) {
 
     angular.extend( CacheFactoryProvider.defaults, { 
-    	maxAge: 1 * 1000,
+    	maxAge: 60 * 1000,
     	deleteOnExpire: 'passive',
     	storageMode: 'localStorage'
 

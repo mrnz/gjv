@@ -1,6 +1,6 @@
 angular.module('gjvUser')
 
-.controller('StartCtrl', function($scope, $state, testFactory){
+.controller('StartCtrl', function($scope, $state, userFactory){
 	
 	$scope.join = function(){
 		$state.go('join'); 
@@ -11,7 +11,7 @@ angular.module('gjvUser')
 	}
 
 	$scope.authenticate = function(t){
-		testFactory.a();	
+		userFactory.authenticate(t);	
 	}
 
 })

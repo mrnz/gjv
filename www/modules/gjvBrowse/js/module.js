@@ -5,45 +5,69 @@ angular.module('gjvBrowse', ['gjvData'])
   $stateProvider
 
     
-    .state('brands', {
+    .state('menu', {
+      url: "/menu",
+      templateUrl: "modules/gjvBrowse/templates/menu.html",
+      abstract: true,
+      controller: 'MenuCtrl',
+    })
+
+
+    .state('menu.brands', {
       url: "/brands",
-      templateUrl: "modules/gjvBrowse/templates/brands.html",
-      controller: 'BrandsCtrl',
+      views: {
+        'menuContent': {
+          templateUrl: "modules/gjvBrowse/templates/brands.html",
+          controller: 'BrandsCtrl'
+        }
+      },
       data: {
-        stateName: 'start',
+        stateName: 'BRANDS',
         googleAnalyticsName: '',
         activeTab: 0
       }
     })
 
-    .state('models', {
+    .state('menu.models', {
       url: "/brand/:brandName/models",
-      templateUrl: "modules/gjvBrowse/templates/models.html",
-      controller: 'ModelsCtrl',
+      views: {
+        'menuContent': {
+          templateUrl: "modules/gjvBrowse/templates/models.html",
+          controller: 'ModelsCtrl'
+        }
+      },
       data: {
-        stateName: 'start',
+        stateName: 'MODELS',
         googleAnalyticsName: '',
         activeTab: 0
       }
     })
 
-    .state('volumes', {
+    .state('menu.volumes', {
       url: "/brand/:brandName/model/:modelName/volumes",
-      templateUrl: "modules/gjvBrowse/templates/volumes.html",
-      controller: 'VolumesCtrl',
+      views: {
+        'menuContent': {
+          templateUrl: "modules/gjvBrowse/templates/volumes.html",
+          controller: 'VolumesCtrl'
+        }
+      },
       data: {
-        stateName: 'start',
+        stateName: 'VOLUMES',
         googleAnalyticsName: '',
         activeTab: 0
       }
     })
 
-    .state('info', {
+    .state('menu.info', {
       url: "/brand/:brandName/model/:modelName/volume/:volumeName/info",
-      templateUrl: "modules/gjvBrowse/templates/info.html",
-      controller: 'InfoCtrl',
+      views: {
+        'menuContent': {
+          templateUrl: "modules/gjvBrowse/templates/info.html",
+          controller: 'InfoCtrl'
+        }
+      },
       data: {
-        stateName: 'start',
+        stateName: 'INFO',
         googleAnalyticsName: '',
         activeTab: 0
       }

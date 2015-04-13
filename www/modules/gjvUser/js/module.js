@@ -12,7 +12,7 @@ angular.module('gjvUser', [])
       templateUrl: "modules/gjvUser/templates/start.html",
       controller: 'StartCtrl',
       data: {
-        stateName: 'start',
+        stateName: 'fdfsdf',
         googleAnalyticsName: '',
         activeTab: 0
       }
@@ -23,7 +23,7 @@ angular.module('gjvUser', [])
       templateUrl: "modules/gjvUser/templates/join.html",
       controller: 'JoinCtrl',
       data: {
-        stateName: 'start',
+        stateName: 'dasdsa',
         activeTab: 0
       }
     })
@@ -33,7 +33,7 @@ angular.module('gjvUser', [])
       templateUrl: "modules/gjvUser/templates/forgot-password.html",
       controller: 'ForgotPasswordCtrl',
       data: {
-        stateName: 'start',
+        stateName: 'dsadsa',
         activeTab: 0
       }
     })

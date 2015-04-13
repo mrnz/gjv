@@ -1,8 +1,11 @@
 angular.module('gjvBrowse')
 
+.controller('MenuCtrl', function($scope, $state){
+
+})
+
 .controller('BrandsCtrl', function($scope, $state, dataFactory){
 	
-	console.log('CTRL')
 	$scope.brands = [];
 
 	dataFactory.brands().then(
@@ -19,7 +22,7 @@ angular.module('gjvBrowse')
 		console.log(a);
 		console.log(brandName);
 
-		$state.go('models', {brandName: brandName})
+		$state.go('menu.models', {brandName: brandName})
 	}
 
 })
@@ -29,10 +32,7 @@ angular.module('gjvBrowse')
 	
 	// get brand name from URL 
 	var brandName = $state.params.brandName; 
-	
-	$scope.back = function(){
-		$state.go('brands', {d:'sda'}, {d:'sda'})
-	}
+
 
 	$scope.models = [];
 
@@ -51,7 +51,7 @@ angular.module('gjvBrowse')
 		console.log(brandName);
 		console.log(modelName);
 
-		$state.go('volumes', {brandName: brandName, modelName: modelName });
+		$state.go('menu.volumes', {brandName: brandName, modelName: modelName });
 	}
 
 })
@@ -79,8 +79,7 @@ angular.module('gjvBrowse')
 	$scope.selectItem = function (a,volumeName) {
 		console.log(a);
 		console.log(volumeName);
-		console.log('chuj')
-		$state.go('info', {brandName: brandName, modelName: modelName, volumeName: volumeName });
+		$state.go('menu.info', {brandName: brandName, modelName: modelName, volumeName: volumeName });
 	}
 
 })
