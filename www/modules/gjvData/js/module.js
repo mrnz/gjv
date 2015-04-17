@@ -12,16 +12,23 @@ angular.module('gjvData', ['angular-cache'])
 
 })
 
-.factory('URLFactory', function($http, $q, CacheFactory){
+.factory('URLFactory', function($http, $q, CacheFactory, TokenFactory){
 	
 	var cachedData = CacheFactory('cachedData');
 
 	return{
 		
 		call: function(params){
-			console.log('-+++++-')
-			console.log(params)		
-			var defer = $q.defer();
+	
+			var defer = $q.defer(),
+				isTokenSet = TokenFactory.setUserToken();
+
+			if(!isTokenSet){
+				//LOGOUT
+				TokenFactory.logOut(); 
+			}
+
+			
 
 			$http(params)
 				.success(function(resultObj,status,headerFunc){
@@ -35,13 +42,14 @@ angular.module('gjvData', ['angular-cache'])
 				.error(function(errorObj,status,headerFunc){
 					//console.log(errorObj);
 					//console.log(status);
+					if( status === 401 ){
+						TokenFactory.logOut();
+					}
+					
 					defer.reject(errorObj)
-					});
-			console.log('-+++++-')
-			return defer.promise;
-		},
-		cache: function(){
+				});
 
+			return defer.promise;
 		},
 		get: function( params ){
 
@@ -66,7 +74,58 @@ angular.module('gjvData', ['angular-cache'])
 			return result;
 		
 		}
-	}
-})
 
-;
+	}
+	
+})
+.factory('TokenFactory', function($http, $q, $auth, $state ){
+	return{
+		setUserToken: function(passedToken){
+			
+			var passedToken = passedToken,
+				localStorageToken;
+
+			if( typeof passedToken !== 'undefined' ){
+				console.log(passedToken)
+				// token passed - set it
+				$http.defaults.headers.common['X-USER'] = passedToken; 
+				return true;
+
+			}else{
+	
+				if(typeof $http.defaults.headers.common['X-USER'] === 'undefined'){
+					
+					// token undefined - try get it from localStorage;
+					localStorageToken = $auth.getToken();
+					
+					if( typeof localStorageToken !== 'undefined' ){
+						
+						// token in localStorage exist - set it 
+						$http.defaults.headers.common['X-USER'] = localStorageToken;
+						return true;
+
+					}else{
+						
+						//token doesn't exist - return FALSE
+						return false; 
+
+					}
+
+				}else{
+	
+					// token already set - nothing to do
+					return true;
+
+				}
+			
+			}
+
+		},
+		logOut: function(){
+			
+			$auth.logout();
+			$state.go('start'); 
+
+		}
+	}
+});

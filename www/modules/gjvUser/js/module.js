@@ -1,6 +1,6 @@
 // An AngularJS module that provides video functionality for the 180vita mobile applications.
 
-angular.module('gjvUser', ['satellizer'])
+angular.module('gjvUser', ['satellizer', 'gjvData'])
 
 .config(function($stateProvider) {
   
@@ -56,9 +56,9 @@ angular.module('gjvUser', ['satellizer'])
     $authProvider.loginSignup = true;
     $authProvider.loginRedirect = '/';
     $authProvider.logoutRedirect = '/';
-    $authProvider.signupRedirect = '/login';
+    $authProvider.signupRedirect = '/#/menu/brands';
     $authProvider.loginUrl = 'http://www.gdziejestvin.pl/api/login/email';
-    $authProvider.signupUrl = '/auth/signup';
+    $authProvider.signupUrl = 'http://www.gdziejestvin.pl/api/register';
     $authProvider.loginRoute = '/login';
     $authProvider.signupRoute = '/signup';
     $authProvider.tokenName = 'token';
