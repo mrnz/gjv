@@ -7,10 +7,13 @@ angular.module('gjvBrowse')
 .controller('BrandsCtrl', function($scope, $state, dataFactory){
 	
 	$scope.items = [];
-	console.log('sdadsa')
+	$scope.listEmpty = true;
+
 	dataFactory.brands().then(
 		function(result){
-			$scope.items = result.brands; 
+			$scope.listEmpty = false; 
+			$scope.items = result.brands;
+
 		},
 		function(reason){
 			console.log(reason);
@@ -29,11 +32,12 @@ angular.module('gjvBrowse')
 	// get brand name from URL 
 	var brandName = $state.params.brandName; 
 
-
 	$scope.items = [];
+	$scope.listEmpty = true; 
 
 	dataFactory.models(brandName).then(
 		function(result){
+			$scope.listEmpty = false;
 			$scope.items = result.models; 
 			console.log($scope.items);
 		},
@@ -57,9 +61,11 @@ angular.module('gjvBrowse')
 		modelName = $state.params.modelName; 
 
 	$scope.items = [];
+	$scope.listEmpty = true; 
 
 	dataFactory.volumes( brandName, modelName ).then(
 		function success (result){
+			$scope.listEmpty = false; 
 			$scope.items = result.volumes; 
 			console.log($scope.items);
 		},

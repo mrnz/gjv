@@ -15,6 +15,7 @@ angular.module('gjvBrowse', ['gjvData'])
 
     .state('menu.brands', {
       url: "/brands",
+      cache: false,
       views: {
         'menuContent': {
           templateUrl: "modules/gjvBrowse/templates/list.html",
@@ -30,6 +31,7 @@ angular.module('gjvBrowse', ['gjvData'])
 
     .state('menu.models', {
       url: "/brand/:brandName/models",
+      cache: false,
       views: {
         'menuContent': {
           templateUrl: "modules/gjvBrowse/templates/list.html",
@@ -44,6 +46,7 @@ angular.module('gjvBrowse', ['gjvData'])
     })
 
     .state('menu.volumes', {
+      cache: false,
       url: "/brand/:brandName/model/:modelName/volumes",
       views: {
         'menuContent': {

@@ -1,13 +1,16 @@
 angular.module('gjvUser')
 
-.factory('userFactory', function($http, $auth, $state, TokenFactory){
+.factory('userFactory', function($http, $q, $auth, $state, $ionicLoading, TokenFactory, messageFactory){
 	
 	return{
 		
 		authenticate: function(provider, user){
 			
-			var that = this;
-
+			var that = this,
+				defer = $q.defer();
+				
+			messageFactory.showLoading();
+			
 			that.satellizer(provider, user).then(
 
 				function success(result) {

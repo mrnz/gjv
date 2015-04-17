@@ -6,7 +6,8 @@
 var APP = angular.module('starter', [
     'ionic',
     'gjvUser',
-    'gjvBrowse'
+    'gjvBrowse',
+    'gjvMessage'
   ])
 
 APP.run(function($ionicPlatform, $auth) {
@@ -23,8 +24,8 @@ APP.run(function($ionicPlatform, $auth) {
   });
 })
 
-.constant('APIAddress','http://gdziejestvin.pl/api')
 
+.constant('APIAddress','http://gdziejestvin.pl/api')
 
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -37,11 +38,13 @@ APP.run(function($ionicPlatform, $auth) {
 })
 
 
-
-
 .config(['$httpProvider', function ($httpProvider) {
     
     $httpProvider.defaults.headers.common['X-TOKEN'] = 'gdziejestvintoken';
     
     
 }])
+
+.constant('$ionicLoadingConfig', {
+  template: 'Default Loading Template...'
+});
