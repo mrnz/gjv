@@ -7,7 +7,7 @@ angular.module('gjvBrowse')
 .controller('BrandsCtrl', function($scope, $state, dataFactory){
 	
 	$scope.items = [];
-
+	console.log('sdadsa')
 	dataFactory.brands().then(
 		function(result){
 			$scope.items = result.brands; 
