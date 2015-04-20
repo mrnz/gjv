@@ -1,8 +1,12 @@
 angular.module('gjvBrowse')
 
-.directive('listItem1', function() {
-  return {
-  	restrict: "A",
-    template: ''
-  };
-});
+.directive('imageOnLoad', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, elem, attrs) {
+            elem.bind('load', function() {
+            	elem.addClass('showImage');
+            });
+        }
+    };
+})

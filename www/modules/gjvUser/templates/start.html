@@ -17,7 +17,7 @@
                 <div class="new-form-style">
 
                     <label class="item item-input user-svg">
-                            <input 
+                        <input 
                             type="text" 
                             placeholder="Username..." 
                             ng-model="credentials.email" 
@@ -48,7 +48,8 @@
 
                 <div class="signup-form-button mt15 mb15">
                     
-                    <button 
+                    <button
+                        menu-close 
                         nav-clear
                         type="submit" 
                         id="submit" 
@@ -81,14 +82,19 @@
                 <span class="custom-icon email"></span>
                 Register using Email</button>
 
-            <button class="button button-block pure-button button-facebook button-svg-20 abs-svg-left np mb15" ng-click="authenticate('facebook')">
+            <button 
+                menu-close 
+                class="button button-block pure-button button-facebook button-svg-20 abs-svg-left np mb15" 
+                ng-click="authenticate('facebook')">
                 <span class="custom-icon facebook"></span>
                 Connect with Facebook</button>
 
-            <button class="button button-block pure-button button-grey button-svg-20 abs-svg-left np mb0" ng-click="authenticate('google')">
+            <button 
+                menu-close 
+                class="button button-block pure-button button-grey button-svg-20 abs-svg-left np mb0" 
+                ng-click="authenticate('google')">
                 <span class="custom-icon google"></span>
                 Connect with Google</button>
-
 
         </div>
 

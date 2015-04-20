@@ -4,17 +4,18 @@
 		class="S"
     	padding="false">
 	
-		<div class="dummy" ng-if="listEmpty">
+		<div class="listEmpty repeated-item" ng-if="listEmpty">
 			<br><br><br>
-			HHHHHHHHHHHHHHHHHh
+			LOADING <ion-spinner icon="ios"></ion-spinner>
 			<br><br><br>
 		</div>
 
 		<ion-list>
 		  	
-		  	<ion-item 
-		  		ng-repeat="item in items"
-		        class="item"
+		  	<ion-item
+		  		menu-close 
+		  		ng-repeat="item in items "
+		        class="item repeated-item"
 		        ng-click="selectItem(this,item)"
 		        list-item="">
 					{{item}}

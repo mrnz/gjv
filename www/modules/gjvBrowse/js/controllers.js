@@ -88,10 +88,14 @@ angular.module('gjvBrowse')
 		modelName = $state.params.modelName,
 		volumeName = $state.params.volumeName; 
 		console.log($state.params)
+
 	$scope.info = [];
+	$scope.ready = false;
+
 
 	dataFactory.info( brandName, modelName, volumeName ).then(
 		function success (result){
+			$scope.ready = true;
 			$scope.info = result.info; 
 		},
 		function error (reason){

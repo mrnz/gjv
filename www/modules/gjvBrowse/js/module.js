@@ -63,6 +63,7 @@ angular.module('gjvBrowse', ['gjvData'])
 
     .state('menu.info', {
       url: "/brand/:brandName/model/:modelName/volume/:volumeName/info",
+      cache: false,
       views: {
         'menuContent': {
           templateUrl: "modules/gjvBrowse/templates/info.html",

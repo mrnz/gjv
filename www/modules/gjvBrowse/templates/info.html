@@ -12,9 +12,42 @@
 		<br>
 		{{info.opis}}
 		<br>
-		<img src="http://www.gdziejestvin.pl/file/{{info.foto1}}" alt="">
+		
+
+
+		<div class="imageContainer">
+			
+			<ion-spinner 
+				ng-if="!ready" 
+				icon="spiral"
+				ng-class="{'spinerBgHide':ready == true}" 
+				class="spinerBg imageAnimation"></ion-spinner>
+			
+			<img 
+				ng-if="ready"
+				image-on-load
+				class="loadingImage imageAnimation"
+				ng-class="{showImage: showThis == true}"
+				ng-src="http://www.gdziejestvin.pl/file/{{info.foto1}}" alt="">	
+		</div>
+		
 		<br>
-		<img src="http://www.gdziejestvin.pl/file/{{info.foto2}}" alt="">
+
+		<div class="imageContainer">
+			
+			<ion-spinner 
+				ng-if="!ready" 
+				icon="spiral"
+				ng-class="{'spinerBgHide':ready == true}" 
+				class="spinerBg imageAnimation"></ion-spinner>
+			
+			<img 
+				ng-if="ready"
+				image-on-load
+				class="loadingImage imageAnimation"
+				ng-class="{showImage: showThis == true}"
+				ng-src="http://www.gdziejestvin.pl/file/{{info.foto2}}" alt="">	
+		</div>
 		
 
     </ion-content>
