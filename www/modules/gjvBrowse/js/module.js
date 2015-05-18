@@ -78,6 +78,22 @@ angular.module('gjvBrowse', ['gjvData'])
     })
 
 
+    .state('menu.addVehicule', {
+      url: "/addVehicule",
+      cache: false,
+      views: {
+        'menuContent': {
+          templateUrl: "modules/gjvBrowse/templates/addVehicule.html",
+          controller: 'AddVehiculeCtrl'
+        }
+      },
+      data: {
+        stateName: 'Add Vehicule',
+        googleAnalyticsName: '',
+        activeTab: 0
+      }
+    })
+
 
 
 })

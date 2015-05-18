@@ -1,6 +1,6 @@
 angular.module('gjvUser')
 
-.factory('userFactory', function($http, $q, $auth, $state, $ionicLoading, TokenFactory, messageFactory){
+.factory('userFactory', function($http, $q, $auth, $timeout, $state, $ionicLoading, TokenFactory, messageFactory){
 	
 	return{
 		
@@ -8,7 +8,9 @@ angular.module('gjvUser')
 			
 			var that = this,
 				defer = $q.defer();
-				
+			
+			TokenFactory.destroyToken();
+
 			messageFactory.showLoading();
 			
 			that.satellizer(provider, user).then(
@@ -17,13 +19,11 @@ angular.module('gjvUser')
 					that.postActionSuccess(result);
 				},
 				function error(reason) {
+					console.log(reason)
 					that.postActionError(reason);
 				}
 
 			)
-		}, 
-		emailRegister: function(){
-			
 		}, 
 		satellizer: function( provider, user ){
 
@@ -38,7 +38,7 @@ angular.module('gjvUser')
 		},
 
 		postActionSuccess: function(result){
-
+			
 			if( result.status === 200 ){;
 
 				TokenFactory.setUserToken();
@@ -51,14 +51,36 @@ angular.module('gjvUser')
 				$state.go('menu.brands');
 
 			}
+
+			if( result.status === 202 ){
+				
+				//User registered but email need to be confirmed
+				messageFactory.showLoading({
+					template: '<div>'+ result.data.message +'</div>',
+					duration: 3000
+				});
+
+				$timeout(function(){
+						$state.go('start');
+				}, 3000)
+			}
 			
 		},
 		
 		postActionError: function(reason){
+			
+			messageFactory.showLoading({
+				template: '<div>'+ reason.data.message +'</div>',
+				duration: 3000
+			});
 	
-			$state.go('start');
-	
-		}
+		},
+		passwordForgot: function(email){
+			console.log('email: ' + email);
+		},
+
+
+
 
 	};
 

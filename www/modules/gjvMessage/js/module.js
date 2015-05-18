@@ -7,14 +7,20 @@ angular.module('gjvMessage', [])
 		noBackdrop: false,
 		hideOnStateChange: true, 
 		delay: 300,
-		duration: false,
-		max: 10000
+		duration: 10000
 	};
 
 	return{
 		showLoading: function(settings){
 			
-			var def = defaultShowLoading; 
+			// Deep copy
+			var def = {
+				template: defaultShowLoading.template,
+				noBackdrop: defaultShowLoading.noBackdrop,
+				hideOnStateChange: defaultShowLoading.hideOnStateChange, 
+				delay: defaultShowLoading.delay,
+				duration: defaultShowLoading.duration
+			}
 			
 			angular.extend(def, settings);
 			

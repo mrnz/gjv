@@ -121,6 +121,10 @@ angular.module('gjvData', ['angular-cache'])
 			}
 
 		},
+		destroyToken: function() {
+			$auth.removeToken();
+			$http.defaults.headers.common['X-USER'] = undefined;
+		},
 		logOut: function(){
 			
 			$auth.logout();

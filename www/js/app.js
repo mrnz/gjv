@@ -30,8 +30,9 @@ APP.run(function($ionicPlatform, $auth) {
 
 .config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise( function(){
-      console.log('otherwiser');
+
+    $urlRouterProvider.otherwise( function(a,b,c,d){
+      console.log('otherwiser - from: '+b.$$urlr);
       return "/start";
     });
 

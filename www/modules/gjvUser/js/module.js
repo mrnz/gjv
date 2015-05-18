@@ -53,10 +53,10 @@ angular.module('gjvUser', ['satellizer', 'gjvData'])
 })
 .config(function($authProvider) {
 
-    $authProvider.loginSignup = true;
-    $authProvider.loginRedirect = '/';
-    $authProvider.logoutRedirect = '/';
-    $authProvider.signupRedirect = '/#/menu/brands';
+    $authProvider.loginSignup = false;
+    $authProvider.loginRedirect = false;
+    $authProvider.logoutRedirect = '/fr';
+    $authProvider.signupRedirect = '/#/s';
     $authProvider.loginUrl = 'http://www.gdziejestvin.pl/api/login/email';
     $authProvider.signupUrl = 'http://www.gdziejestvin.pl/api/register';
     $authProvider.loginRoute = '/login';

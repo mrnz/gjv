@@ -4,13 +4,9 @@ angular.module('gjvUser')
 
 
 	$scope.authenticate = function(provider, user){
-		
 		userFactory.authenticate( provider, user );
-
 	}; 
 
-
-	
 	$scope.join = function(){
 		$state.go('join'); 
 	};
@@ -31,7 +27,9 @@ angular.module('gjvUser')
 	}; 
 	
 	$scope.submit = function(credentials){
+		console.log('HERE')
 		userFactory.authenticate('emailRegister', credentials);
+
 	};
 
 	$scope.cancel = function(){
@@ -40,11 +38,15 @@ angular.module('gjvUser')
 
 })
 
-.controller('ForgotPasswordCtrl', function($scope, $state){
-	
+.controller('ForgotPasswordCtrl', function($scope, $state, userFactory){
+
 	$scope.cancel = function(){
 		$state.go('start');
 	}
+
+	$scope.submit = function(credentials) {
+		userFactory.passwordForgot(credentials.email)
+	};
 
 })
 

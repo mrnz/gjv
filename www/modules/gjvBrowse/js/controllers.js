@@ -2,6 +2,14 @@ angular.module('gjvBrowse')
 
 .controller('MenuCtrl', function($scope, $state){
 
+	$scope.vinFinder = function() {
+		console.log('claaa')
+	};
+
+	$scope.addVehicule = function() {
+		$state.go('menu.addVehicule')
+	};
+
 })
 
 .controller('BrandsCtrl', function($scope, $state, dataFactory){
@@ -16,7 +24,7 @@ angular.module('gjvBrowse')
 
 		},
 		function(reason){
-			console.log(reason);
+			
 		}
 	);
 	
@@ -105,3 +113,13 @@ angular.module('gjvBrowse')
 
 
 })
+
+
+.controller('AddVehiculeCtrl', function($scope, $state, dataFactory){
+	
+	
+	console.log('dsadsad')
+
+
+})
+
