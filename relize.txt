@@ -1,0 +1,16 @@
+sudo cordova build --release android
+
+1) keytool -genkey -v -keystore gdziejestvin.keystore -alias GJV -keyalg RSA -keysize 2048 -validity 10000
+
+
+$ keytool -genkey -v -keystore my-release-key.keystore -alias GdzieJestVin.apk -keyalg RSA -keysize 2048 -validity 10000
+
+2) jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore gdziejestvin.keystore platforms/android/ant-build/MainActivity-release-unsigned.apk GJV
+
+my-release-key.keystore
+
+
+3) jarsigner -verify -verbose -certs platforms/android/ant-build/MainActivity-release-unsigned.apk
+
+
+4) ~/android-sdk/build-tools/19.1.0/zipalign -v 4 platforms/android/ant-build/MainActivity-release-unsigned.apk gjv.apk

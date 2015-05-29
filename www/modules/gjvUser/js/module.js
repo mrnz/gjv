@@ -3,10 +3,7 @@
 angular.module('gjvUser', ['satellizer', 'gjvData'])
 
 .config(function($stateProvider) {
-  
   $stateProvider
-
-    
     .state('start', {
       url: "/start",
       templateUrl: "modules/gjvUser/templates/start.html",
@@ -17,7 +14,6 @@ angular.module('gjvUser', ['satellizer', 'gjvData'])
         activeTab: 0
       }
     })
-
     .state('join', {
       url: "/join",
       templateUrl: "modules/gjvUser/templates/join.html",
@@ -27,7 +23,6 @@ angular.module('gjvUser', ['satellizer', 'gjvData'])
         activeTab: 0
       }
     })
-
     .state('forgotpassword', {
       url: "/forgot-password",
       templateUrl: "modules/gjvUser/templates/forgot-password.html",
@@ -37,7 +32,6 @@ angular.module('gjvUser', ['satellizer', 'gjvData'])
         activeTab: 0
       }
     })
-    
     .state('log', {
       url: "/auth",
       templateUrl: "modules/gjvUser/templates/start.html",
@@ -48,79 +42,57 @@ angular.module('gjvUser', ['satellizer', 'gjvData'])
         activeTab: 0
       }
     })
-
-
 })
-.config(function($authProvider) {
+  .config(function($authProvider) {
 
-    $authProvider.loginSignup = false;
-    $authProvider.loginRedirect = false;
-    $authProvider.logoutRedirect = '/fr';
-    $authProvider.signupRedirect = '/#/s';
+    $authProvider.httpInterceptor = true; // Add Authorization header to HTTP request
+    $authProvider.loginOnSignup = true;
+    $authProvider.baseUrl = '' // API Base URL for the paths below.
+    $authProvider.loginRedirect = '/';
+    $authProvider.logoutRedirect = '/';
+    $authProvider.signupRedirect = '/login';
+    $authProvider.loginUrl = '/auth/login';
+    $authProvider.signupUrl = '/auth/signup';
     $authProvider.loginUrl = 'http://www.gdziejestvin.pl/api/login/email';
     $authProvider.signupUrl = 'http://www.gdziejestvin.pl/api/register';
-    $authProvider.loginRoute = '/login';
-    $authProvider.signupRoute = '/signup';
+    $authProvider.tokenRoot = false; // set the token parent element if the token is not the JSON root
     $authProvider.tokenName = 'token';
-    $authProvider.tokenPrefix = 'satellizer'; // Local storage name prefix
+    $authProvider.tokenPrefix = 'satellizer'; // Local Storage name prefix
     $authProvider.unlinkUrl = '/auth/unlink/';
+    $authProvider.unlinkMethod = 'get';
+    $authProvider.authHeader = 'Authorization';
+    $authProvider.authToken = 'Bearer';
+    $authProvider.withCredentials = true;
+    $authProvider.platform = 'mobile'; //'browser' or 'mobile'
+    $authProvider.storage = 'localStorage'; // or 'sessionStorage'    
 
     $authProvider.facebook({
-
-      //url: 'http://www.gdziejestvin.pl/api/login/facebook',
       url: 'http://www.gdziejestvin.pl/api/login/facebook',
       authorizationEndpoint: 'https://www.facebook.com/dialog/oauth',
-      redirectUri: window.location.origin + '/' || window.location.protocol + '//' + window.location.host + '/',
+      redirectUri: ($authProvider.platform === 'browser') ? (window.location.origin + '/' || window.location.protocol + '//' + window.location.host + '/') : 'https://www.facebook.com/connect/login_success.html',
       scope: 'email',
       scopeDelimiter: ',',
       requiredUrlParams: ['display', 'scope'],
       display: 'popup',
       type: '2.0',
-      popupOptions: { width: 481, height: 269 },
-      
-  
+      popupOptions: {
+        width: 481,
+        height: 269
+      },
       clientId: '1553730694898954'
     });
 
     $authProvider.google({
-      clientId: '522852666401-4v15cdps4mnhagqq2pr03ibahssgfg4l.apps.googleusercontent.com',
+      clientId: '862040010380-a1t480k0r6f0inmbntl8lnb96bd7vc9k.apps.googleusercontent.com',
+      //clientId: ($authProvider.platform === 'browser') ? '862040010380-svonhanrok0jir08991nu2tojknj7b4s.apps.googleusercontent.com' : '862040010380-a1t480k0r6f0inmbntl8lnb96bd7vc9k.apps.googleusercontent.com' ,
       url: 'http://www.gdziejestvin.pl/api/login/google',
-      // // authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
-      // redirectUri: window.location.origin  || window.location.protocol + '//' + window.location.host + '/',
-      // scope: 'email',
-      // scopeDelimiter: ',',
-      // requiredUrlParams: ['scope'],
-      // display: 'popup',
-      // type: '2.0',
-      });
-
-    $authProvider.github({
-      clientId: '0ba2600b1dbdb756688b'
+      authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
+      redirectUri: ($authProvider.platform === 'browser') ? (window.location.origin || window.location.protocol + '//' + window.location.host + '/') : 'urn:ietf:wg:oauth:2.0:oob',
+      scope: 'email',
+      scopeDelimiter: ',',
+      requiredUrlParams: ['scope'],
+      display: 'popup',
+      type: '2.0',
     });
 
-    $authProvider.linkedin({
-      clientId: '77cw786yignpzj'
-    });
-
-    $authProvider.yahoo({
-      clientId: 'dj0yJmk9dkNGM0RTOHpOM0ZsJmQ9WVdrOVlVTm9hVk0wTkRRbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD0wMA--'
-    });
-
-    $authProvider.live({
-      clientId: '000000004C12E68D'
-    });
-
-    $authProvider.twitter({
-      url: '/auth/twitter'
-    });
-
-    $authProvider.oauth2({
-      name: 'foursquare',
-      url: '/auth/foursquare',
-      redirectUri: window.location.origin,
-      clientId: 'MTCEJ3NGW2PNNB31WOSBFDSAD4MTHYVAZ1UKIULXZ2CVFC2K',
-      authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate',
-    });
-
-  })
-;
+  });
