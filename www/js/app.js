@@ -11,7 +11,7 @@ var APP = angular.module('starter', [
     'gjvMessage'
   ])
 
-APP.run(function($ionicPlatform, $auth) {
+APP.run(function($ionicPlatform, $auth, messageFactory) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -24,10 +24,15 @@ APP.run(function($ionicPlatform, $auth) {
     
 
     if( ionic.Platform.isWebView() ){
+
       //code for mobile 
-      console.log(navigator.connection.type );
-      document.addEventListener("offline", function () {
-        alert('ofline');
+      console.log(navigator.connection.type);
+
+      document.addEventListener("offline", function() {
+        messageFactory.showLoading({
+          template: '<div>No network</div>',
+          duration: 3000
+        });
       }, false);
 
       if( ionic.Platform.isAndroid() ){

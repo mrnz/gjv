@@ -70,7 +70,7 @@ angular.module('gjvUser')
 		postActionError: function(reason){
 			
 			messageFactory.showLoading({
-				template: '<div>'+ reason.data.message +'</div>',
+				template: '<div>'+ (reason.data.message || reason.message) +'</div>',
 				duration: 3000
 			});
 	
