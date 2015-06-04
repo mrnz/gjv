@@ -1,6 +1,6 @@
 // An AngularJS module that provides video functionality for the 180vita mobile applications.
 
-angular.module('gjvUser', ['satellizer', 'gjvData'])
+angular.module('gjvUser', ['satellizer', 'gjvData', 'ionic-material'])
 
 .config(function($stateProvider) {
   $stateProvider
@@ -46,11 +46,11 @@ angular.module('gjvUser', ['satellizer', 'gjvData'])
   .config(function($authProvider) {
 
     $authProvider.httpInterceptor = true; // Add Authorization header to HTTP request
-    $authProvider.loginOnSignup = true;
+    $authProvider.loginOnSignup = false;
     $authProvider.baseUrl = '' // API Base URL for the paths below.
-    $authProvider.loginRedirect = '/';
-    $authProvider.logoutRedirect = '/';
-    $authProvider.signupRedirect = '/login';
+    $authProvider.loginRedirect = '/dsadsadas';
+    $authProvider.logoutRedirect = '/aaaaaaaaaaa';
+    $authProvider.signupRedirect = '/sdadsadsadsadsa';
     $authProvider.loginUrl = '/auth/login';
     $authProvider.signupUrl = '/auth/signup';
     $authProvider.loginUrl = 'http://www.gdziejestvin.pl/api/login/email';
@@ -63,7 +63,7 @@ angular.module('gjvUser', ['satellizer', 'gjvData'])
     $authProvider.authHeader = 'Authorization';
     $authProvider.authToken = 'Bearer';
     $authProvider.withCredentials = true;
-    $authProvider.platform = 'mobile'; //'browser' or 'mobile'
+    $authProvider.platform = 'browser'; //'browser' or 'mobile'
     $authProvider.storage = 'localStorage'; // or 'sessionStorage'    
 
     $authProvider.facebook({

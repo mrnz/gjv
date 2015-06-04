@@ -53,7 +53,7 @@ angular.module('gjvUser')
 			}
 
 			if( result.status === 202 ){
-				
+				console.log('dsadsads')
 				//User registered but email need to be confirmed
 				messageFactory.showLoading({
 					template: '<div>'+ result.data.message +'</div>',

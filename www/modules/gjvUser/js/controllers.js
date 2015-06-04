@@ -1,6 +1,6 @@
 angular.module('gjvUser')
 
-.controller('StartCtrl', function($scope, $state, $http, userFactory){
+.controller('StartCtrl', function($scope, $state, $http, userFactory, ionicMaterialInk, ionicMaterialMotion){
 
 
 	$scope.authenticate = function(provider, user){
@@ -15,21 +15,19 @@ angular.module('gjvUser')
 		$state.go('forgotpassword');
 	};
 
-
+	ionicMaterialInk.displayEffect();
+	console.log(ionicMaterialMotion);
+	ionicMaterialMotion.blinds()
 })
 
 .controller('JoinCtrl', function($scope, $state, $auth, userFactory){
 
 	$scope.authenticate = function(provider, user){
-		
 		userFactory.authenticate( provider, user );
-
 	}; 
 	
 	$scope.submit = function(credentials){
-		console.log('HERE')
 		userFactory.authenticate('emailRegister', credentials);
-
 	};
 
 	$scope.cancel = function(){

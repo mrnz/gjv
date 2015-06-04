@@ -1,12 +1,12 @@
 <ion-view title="start" class="">
     
     <ion-content  
-		class="S"
-    	padding="false">
+		class="gjv-bg"
+    	padding="true">
         
 		<div class="logo-large"></div>
 
-        <div class="with-pad npt cf fixed-form">
+        
                         
             <form 
                 class=""
@@ -14,12 +14,14 @@
                 ng-submit="authenticate( 'email', credentials )"  
                 >
                 
-                <div class="new-form-style">
+                <div class="login-form">
 
-                    <label class="item item-input user-svg">
+                    <label class="item email item-input roundnes-top">
+
+                        <i class="icon ion-android-mail placeholder-icon"></i>
                         <input 
                             type="text" 
-                            placeholder="Username..." 
+                            placeholder="E-mail ..." 
                             ng-model="credentials.email" 
                             name="email"
                             ng-minlength="3"
@@ -28,8 +30,9 @@
                             required>
                     </label>
 
-                    <label class="item item-input password-svg">
-
+                    <label class="item item-input password roundnes-bottom">
+                    <i class="icon ion-android-lock placeholder-icon"></i>
+                        
                         <input 
                             type="password" 
                             placeholder="Password..." 
@@ -46,27 +49,27 @@
                 
                 <div class="cl"></div>
 
-                <div class="signup-form-button mt15 mb15">
+                <div class="signup-form-button">
                     
                     <button
                         menu-close 
                         nav-clear
                         type="submit" 
                         id="submit" 
-                        class="button button-block pure-button button-trans mt0 mb0"
+                        class="button button-royal button-block ink"
                         ng-disabled="loginForm.$invalid">Sign In with Email</button>
                     
                     </div>
                 
                 
-                <a class="reset-password-link mt20" ng-click="forgotPassword()">
+                <a class="reset-password-link" ng-click="forgotPassword()">
                     Forgot your password? <span class="icn ion-arrow-right-b"></span>
                 </a>
                 
 
             </form>
             
-        </div>
+        
         
         <div class="fixed-or mb10 cf">
             <div class="or-box mt10 alt">
@@ -75,26 +78,31 @@
                 <span class="txt">OR</span>
             </div>
         </div>
+
+   
         
         <div class="with-pad fixed-form cf">
-
-            <button class="button button-block pure-button button-1 button-svg-20 abs-svg-left np mb15" ng-click="join()">
-                <span class="custom-icon email"></span>
-                Register using Email</button>
-
             <button 
                 menu-close 
-                class="button button-block pure-button button-facebook button-svg-20 abs-svg-left np mb15" 
+                class="button button-block button-positive color-facebook ion-social-facebook ink icon-left" 
                 ng-click="authenticate('facebook')">
-                <span class="custom-icon facebook"></span>
+               
                 Connect with Facebook</button>
 
             <button 
                 menu-close 
-                class="button button-block pure-button button-grey button-svg-20 abs-svg-left np mb0" 
+                class="button button-block button-assertive color-google ion-social-google ink icon-left" 
                 ng-click="authenticate('google')">
-                <span class="custom-icon google"></span>
-                Connect with Google</button>
+                  
+                    Connect with Google</button>
+
+            <button 
+                menu-close 
+                class="button button-block color-email button-energized color-google ion-ios-email ink icon-left" 
+                ng-click="join()">
+                  
+                    Register using Email</button>
+
 
         </div>
 
