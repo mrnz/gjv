@@ -6,6 +6,10 @@ angular.module('gjvUser')
 		
 		authenticate: function(provider, user){
 			
+			if(!NETWORK){
+				messageFactory.showLoading({template: '<div>cancel</div>'});
+				return;
+			}
 			var that = this,
 				defer = $q.defer();
 			
