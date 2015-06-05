@@ -1,8 +1,3 @@
-
-
-
-
-
 // Socicon Font Path
 // --------------------------
 $socicon-font-path: "../fonts/socicon" !default;
@@ -10,117 +5,108 @@ $socicon-font-family: "socicon";
 $gjv-color: #3399CC;
 
 // @font-face {
-//  font-family: $socicon-font-family;
-//  src:url("#{$socicon-font-path}/socicon.eot");
-//  src:url("#{$socicon-font-path}/socicon.eot?#iefix") format("embedded-opentype"),
-//   url("#{$socicon-font-path}/socicon.ttf") format("truetype"),
-//   url("#{$socicon-font-path}/socicon.woff") format("woff"),
-//   url("#{$socicon-font-path}/socicon.svg#sociconregular") format("svg");
-//   font-weight: normal;
-//   font-style: normal;
-//   text-transform: initial;
-// }
-
+  //  font-family: $socicon-font-family;
+  //  src: url("#{$socicon-font-path}/socicon.eot");
+  //  src: url("#{$socicon-font-path}/socicon.eot?#iefix") format("embedded-opentype"), //   url("#{$socicon-font-path}/socicon.ttf") format("truetype"), //   url("#{$socicon-font-path}/socicon.woff") format("woff"), //   url("#{$socicon-font-path}/socicon.svg#sociconregular") format("svg");
+  //   font-weight: normal;
+  //   font-style: normal;
+  //   text-transform: initial;
+  //
+//}
 // .isoc {
-//   display: inline-block;
-//   font-family: $socicon-font-family;
-//   speak: none;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-variant: normal;
-//   text-transform: none;
-//   text-rendering: auto;
-//   line-height: 1;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
-
-
+  //   display: inline-block;
+  //   font-family: $socicon-font-family;
+  //   speak: none;
+  //   font-style: normal;
+  //   font-weight: normal;
+  //   font-variant: normal;
+  //   text-transform: none;
+  //   text-rendering: auto;
+  //   line-height: 1;
+  //   -webkit-font-smoothing: antialiased;
+  //   -moz-osx-font-smoothing: grayscale;
+  //
+//}
 // @import  'fonts/font-awesome';
-
-.gjv-bg{
-  background: darken($gjv-color,15%);
+.gjv-bg {
+  background: darken($gjv-color, 15%);
 }
-
-.login-form{
-  
-  .roundnes-top{
+.login-form {
+  .roundnes-top {
     border-radius: 10px 10px 0 0;
   }
-  .roundnes-bottom{
+  .roundnes-bottom {
     border-radius: 0 0 10px 10px;
-  }  
-  label{
-    &.email i{
+  }
+  label {
+    &.email i {
       padding-right: 10px;
     }
-    &.password i{
+    &.password i {
       padding: 0 14px 0 4px;
     }
-    i{
-      font-size:24px;
+    i {
+      font-size: 24px;
     }
   }
-
 }
 
+.reset-password-link, .fixed-or{
+  display: block;
+  position: relative;
+  text-align: center;
+}
 
-  button.color-facebook.button-positive {
-    background: #3B5997;
-    &:active{
-      //background: lighten(#3B5997, 10%); 
-    }
-    &:before{
-      font-size: 30px;
-    } 
+button.color-facebook.button-positive {
+  background: #3B5997;
+
+  &:active {
+    //background: lighten(#3B5997, 10%);
   }
-  button.color-google.button-assertive {
-    background: #DD4B39;
-    &:before{
-      font-size: 30px;
-     
-
-    } 
+  &:before {
+    font-size: 30px;
   }
-  button.color-email {
-    &:before{
-      font-size: 30px;
-    } 
+}
+button.color-google.button-assertive {
+  background: #DD4B39;
+
+  &:before {
+    font-size: 30px;
   }
-
-.listEmpty{
-	color: red !important;
-	position: absolute;
 }
-.loadingImage{
-	opacity: 0;
+button.color-email {
+  &:before {
+    font-size: 30px;
+  }
+}
+.listEmpty {
+  color: red !important;
+  position: absolute;
+}
+.loadingImage {
+  opacity: 0;
+}
+.imageAnimation {
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+.loadingImage.showImage {
+  opacity: 1;
+}
+.spinerBg {
+  position: absolute;
+  top: 10px;
+  opacity: 1;
+}
+.spinerBg.spinerBgHide {
+  opacity: 0;
+}
+.imageContainer {
+  position: relative;
 }
 
-
-.imageAnimation{
-  	-webkit-transition:0.5s linear all;
-  	-moz-transition:0.5s linear all;
-  	-o-transition:0.5s linear all;
-  	transition:0.5s linear all;
-}
-
-.loadingImage.showImage{
-	opacity: 1;
-}
-
-
-.spinerBg{
-	position: absolute;
-	top:10px;
-	opacity: 1;
-}
-.spinerBg.spinerBgHide{
-	opacity: 0;
-}
-
-.imageContainer{
-	position: relative;
-}
 /*
   We're using CSS transitions for when
   the enter and move events are triggered
@@ -128,11 +114,11 @@ $gjv-color: #3399CC;
   class
 */
 .repeated-item.ng-enter, .repeated-item.ng-move {
-  -webkit-transition:0.5s linear all;
-  -moz-transition:0.5s linear all;
-  -o-transition:0.5s linear all;
-  transition:0.5s linear all;
-  opacity:0;
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  opacity: 0;
 }
 
 /*
@@ -141,9 +127,8 @@ $gjv-color: #3399CC;
  are set so that the animation knows what to
  animate.
 */
-.repeated-item.ng-enter.ng-enter-active,
-.repeated-item.ng-move.ng-move-active {
-  opacity:1;
+.repeated-item.ng-enter.ng-enter-active, .repeated-item.ng-move.ng-move-active {
+  opacity: 1;
 }
 
 /*
@@ -152,15 +137,18 @@ $gjv-color: #3399CC;
   that has the .repeated-item class
 */
 .repeated-item.ng-leave {
-  -webkit-animation:0.5s my_animation;
-  -moz-animation:0.5s my_animation;
-  -o-animation:0.5s my_animation;
-  animation:0.5s my_animation;
+  -webkit-animation: 0.5s my_animation;
+  -moz-animation: 0.5s my_animation;
+  -o-animation: 0.5s my_animation;
+  animation: 0.5s my_animation;
 }
-
 @keyframes my_animation {
-  from { opacity:1; }
-  to { opacity:0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 /*
@@ -168,16 +156,26 @@ $gjv-color: #3399CC;
   its own definition of keyframe animation code...
 */
 @-webkit-keyframes my_animation {
-  from { opacity:1; }
-  to { opacity:0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
-
 @-moz-keyframes my_animation {
-  from { opacity:1; }
-  to { opacity:0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
-
 @-o-keyframes my_animation {
-  from { opacity:1; }
-  to { opacity:0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

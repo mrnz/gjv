@@ -21,7 +21,7 @@
                         <i class="icon ion-android-mail placeholder-icon"></i>
                         <input 
                             type="text" 
-                            placeholder="E-mail ..." 
+                            placeholder="{{ 'INPUT_PLACEHOLDER_EMAIL' | translate }}" 
                             ng-model="credentials.email" 
                             name="email"
                             ng-minlength="3"
@@ -35,7 +35,7 @@
                         
                         <input 
                             type="password" 
-                            placeholder="Password..." 
+                            placeholder="{{ 'INPUT_PLACEHOLDER_PASSWORD' | translate }}" 
                             ng-model="credentials.password"
                             name="password"
                             ng-class="{'has-error': !loginForm.password.$valid && !loginForm.password.$pristine }"
@@ -46,7 +46,7 @@
                     </label>
 
                 </div>
-                
+
                 <div class="cl"></div>
 
                 <div class="signup-form-button">
@@ -57,27 +57,21 @@
                         type="submit" 
                         id="submit" 
                         class="button button-royal button-block ink"
-                        ng-disabled="loginForm.$invalid">Sign In with Email</button>
+                        ng-disabled="loginForm.$invalid">{{ 'BUTTON_SIGN_UP_EMAIL' | translate }}</button>
                     
                     </div>
                 
                 
                 <a class="reset-password-link" ng-click="forgotPassword()">
-                    Forgot your password? <span class="icn ion-arrow-right-b"></span>
+                    {{ 'TEXT_FORGOT' | translate }} <span class="icn ion-arrow-right-b"></span>
                 </a>
                 
 
             </form>
-            
+            <div class="fixed-or">{{ 'TEXT_OR' | translate }}</div>    
         
         
-        <div class="fixed-or mb10 cf">
-            <div class="or-box mt10 alt">
-                <span class="line left"></span>
-                <span class="line right"></span>
-                <span class="txt">OR</span>
-            </div>
-        </div>
+        
 
    
         
@@ -86,22 +80,19 @@
                 menu-close 
                 class="button button-block button-positive color-facebook ion-social-facebook ink icon-left" 
                 ng-click="authenticate('facebook')">
-               
-                Connect with Facebook</button>
+                {{ 'BUTTON_CONNECT_FB' | translate }}</button>
 
             <button 
                 menu-close 
                 class="button button-block button-assertive color-google ion-social-google ink icon-left" 
                 ng-click="authenticate('google')">
-                  
-                    Connect with Google</button>
+                {{ 'BUTTON_CONNECT_GOOGLE' | translate }}</button>
 
             <button 
                 menu-close 
                 class="button button-block color-email button-energized color-google ion-ios-email ink icon-left" 
                 ng-click="join()">
-                  
-                    Register using Email</button>
+                {{ 'BUTTON_REGISTER_EMAIL' | translate }}</button>
 
 
         </div>

@@ -12,6 +12,11 @@
 .login-form label i {
   font-size: 24px; }
 
+.reset-password-link, .fixed-or {
+  display: block;
+  position: relative;
+  text-align: center; }
+
 button.color-facebook.button-positive {
   background: #3B5997; }
   button.color-facebook.button-positive:before {

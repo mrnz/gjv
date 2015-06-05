@@ -21,6 +21,7 @@ angular.module('gjvMessage', [])
           	return;
           }else{
           	settings.template = '<div>No network</div>';
+            settings.duration = 3000;
           }
          
         }

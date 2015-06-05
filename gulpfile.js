@@ -32,7 +32,6 @@ gulp.task('ip', shell.task([
   'sudo chmod 777 plugins/ -R'
 ]))
 
-
 gulp.task('rp', shell.task([
   'sudo chmod 777 plugins/ -R',
   'sudo cordova plugin rm com.ionic.keyboard',

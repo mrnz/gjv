@@ -4,7 +4,10 @@
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.0.0-rc.2",
     "satellizer": "https://github.com/mrnz/satellizer.git",
-    "angular-cache": "latest" 
+    "angular-cache": "latest",
+    "angular-translate":"latest"
+  },
+  "dependencies": {
+    "angular-translate": "~2.7.2"
   }
 }
-

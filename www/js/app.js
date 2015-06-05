@@ -9,13 +9,16 @@ var APP = angular.module('starter', [
   'gjvUser',
   'gjvBrowse',
   'gjvMessage',
-  'gjvCordova'
+  'gjvCordova',
+  'gjvTranslate'
 ])
 
-APP.run(function($rootScope, $ionicPlatform, $auth, messageFactory, $cordovaNetwork, $cordovaAppRate, $cordovaAppVersion, $cordovaSplashscreen, $cordovaStatusbar, $cordovaToast) {
+APP.run(function($rootScope, $ionicPlatform, $auth, messageFactory, $cordovaNetwork, $cordovaAppRate, $cordovaAppVersion, $cordovaSplashscreen, $cordovaStatusbar, $cordovaToast, translate) {
   $ionicPlatform.ready(function() {
 
     if (ionic.Platform.isWebView()) {
+
+      translate.setPreferredLanguage();      
 
       $rootScope.$on('$cordovaNetwork', function(a, b) {
         NETWORK = false;
@@ -71,15 +74,20 @@ APP.run(function($rootScope, $ionicPlatform, $auth, messageFactory, $cordovaNetw
   function($httpProvider) {
 
     $httpProvider.defaults.headers.common['X-TOKEN'] = 'gdziejestvintoken';
-    $httpProvider.interceptors.push(function($q, APIAddress, $window, $timeout) {
+    $httpProvider.interceptors.push(function($rootScope, $q, APIAddress, $window, $timeout) {
       return {
         'request': function(config) {
 
           // only for external requests 
           if (config.url.indexOf('http') === 0 && (!NETWORK)) {
             var q = $q.defer();
-            q.reject({data: {message: 'cancel'}});
+            q.reject({
+              data: {
+                message: 'cancel'
+              }
+            });
             return q.promise;
+
           } else {
             return config;
           }
