@@ -32,7 +32,7 @@ angular.module('gjvTranslate', ['pascalprecht.translate'])
 
   $translateProvider.preferredLanguage('en');
   $translateProvider.fallbackLanguage('en');
-	$translateProvider.useSanitizeValueStrategy('sanitize');
+	//$translateProvider.useSanitizeValueStrategy('sanitize');
 	
 })
 
@@ -44,7 +44,6 @@ angular.module('gjvTranslate', ['pascalprecht.translate'])
 
         function(result) {
           $translate.use(result.value.split("-")[0]);
-          alert(JSON.stringify(result.value.split("-")[0]));
         },
         function(error) {
           // error
