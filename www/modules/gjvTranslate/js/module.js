@@ -7,8 +7,7 @@ angular.module('gjvTranslate', ['pascalprecht.translate'])
     INPUT_PLACEHOLDER_EMAIL: 'E-mail...',
 
     BUTTON_SIGN_UP_EMAIL: 'Sign in with e-mail',
-    BUTTON_CONNECT_FB: 'Connect with facebook',
-    BUTTON_CONNECT_GOOGLE: 'Connect with google',
+    BUTTON_CONNECT: 'Connect with',
     BUTTON_REGISTER_EMAIL: 'Register using Email',
 
     TEXT_FORGOT: 'Forgot your password?',
@@ -22,8 +21,7 @@ angular.module('gjvTranslate', ['pascalprecht.translate'])
     INPUT_PLACEHOLDER_EMAIL: 'E-mail...',
 
     BUTTON_SIGN_UP_EMAIL: 'Zaloguj się',
-    BUTTON_CONNECT_FB: 'Zaloguj sie przez facebook',
-    BUTTON_CONNECT_GOOGLE: 'Zaloguj sie przez google',
+    BUTTON_CONNECT: 'Zaloguj sie przez',
     BUTTON_REGISTER_EMAIL: 'Zarejestruj sie przez e-mail',
 		
 		TEXT_FORGOT: 'Zapomniales hasła?',

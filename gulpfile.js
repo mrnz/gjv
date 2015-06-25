@@ -10,8 +10,12 @@ var shell = require('gulp-shell')
 
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/*.scss']
 };
+
+gulp.task('watch', function() {
+  gulp.watch(paths.sass, ['mysass']);
+});
 
 gulp.task('cm', shell.task([
   'sudo chmod 777 plugins/ -R',
@@ -78,9 +82,6 @@ gulp.task('install-plugins', function() {
 });
 
 
-gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
-});
 
 gulp.task('install', ['git-check'], function() {
   return bower.commands.install()

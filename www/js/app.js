@@ -20,8 +20,8 @@ APP.run(function($rootScope, $ionicPlatform, $auth, messageFactory, $cordovaNetw
 
       translate.setPreferredLanguage();      
 
-      $rootScope.$on('$cordovaNetwork', function(a, b) {
-        NETWORK = false;
+      $rootScope.$on('$cordovaNetwork', function(a, value) {
+        NETWORK = value;
       });
 
       if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -59,15 +59,17 @@ APP.run(function($rootScope, $ionicPlatform, $auth, messageFactory, $cordovaNetw
 
 
 .constant('APIAddress', 'http://www.gdziejestvin.pl/api')
+.constant('Settings', {
+  'appName': 'VIN Finder'
+})
+
 
 
 .config(function($stateProvider, $urlRouterProvider) {
-
   $urlRouterProvider.otherwise(function(a, b, c, d) {
     console.log('otherwiser - from: ' + b.$$urlr);
     return "/start";
   });
-
 })
 
 .config(['$httpProvider',

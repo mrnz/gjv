@@ -5,14 +5,15 @@ angular.module('gjvUser')
 	return{
 		
 		authenticate: function(provider, user){
-			
-			if(!NETWORK){
-				messageFactory.showLoading({template: '<div>cancel</div>'});
-				return;
-			}
 			var that = this,
 				defer = $q.defer();
-			
+						
+			if(!NETWORK){
+				messageFactory.showLoading({template: '<div>cancel</div>'});
+				defer.resolve(false);
+				return defer.promise;
+			}
+
 			TokenFactory.destroyToken();
 
 			messageFactory.showLoading();
@@ -21,13 +22,15 @@ angular.module('gjvUser')
 
 				function success(result) {
 					that.postActionSuccess(result);
+					defer.resolve(true);
 				},
 				function error(reason) {
 					console.log(reason)
 					that.postActionError(reason);
+					defer.resolve(false);
 				}
-
 			)
+			return defer.promise;
 		}, 
 		satellizer: function( provider, user ){
 

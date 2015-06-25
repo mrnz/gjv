@@ -2,15 +2,20 @@
   	
   	<ion-side-menu-content>
     
-    	<ion-nav-bar class="bar-stable">
+    	<ion-nav-bar class="bar-stable" align-title="center">
        	
-       	<ion-nav-title>
-      	FIXED title
-    	</ion-nav-title>
-    		<ion-nav-back-button></ion-nav-back-button>
+       	<ion-nav-title >
+          VIN Finder
+      	</ion-nav-title>
 
-      		<ion-nav-buttons side="left">
-        		<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+
+        <ion-nav-back-button class="button-clear">
+          <i class="icon ion-ios-arrow-back"></i> Back
+        </ion-nav-back-button>
+
+
+      		<ion-nav-buttons side="right">
+        		<button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
       	
       		</ion-nav-buttons>
 		
@@ -20,28 +25,23 @@
   	
   	</ion-side-menu-content>
 
-  <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
+  <ion-side-menu side="right">
+<!--     <ion-header-bar class="bar-stable">
       <h1 class="title">SUPER</h1>
-    </ion-header-bar>
+    </ion-header-bar> -->
     <ion-content>
       <ion-list>
         
-          <ion-item nav-clear menu-close ng-click="vinFinder()">
-              Vin finder
+          <ion-item nav-clear menu-close ng-click="redirect('menu.brands')">
+            Vin finder
           </ion-item>
           
-          <ion-item nav-clear menu-close ng-click="addVehicule()">
-              Add vehicule
+          <ion-item nav-clear menu-close ng-click="share()">
+             Share
           </ion-item>
 
           <ion-item nav-clear menu-close ng-click="share()">
-              Share
-          </ion-item>
-
-
-          <ion-item nav-clear menu-close ng-click="share()">
-              Language
+            Options
           </ion-item>
 
           <ion-item nav-clear menu-close ng-click="share()">
@@ -52,6 +52,9 @@
               Contact - mail
           </ion-item>
 
+          <ion-item nav-clear menu-close ng-click="addVehicule()">
+              Add vehicule
+          </ion-item>
 
 
           <!-- <ion-item nav-clear menu-close href="#/app/playlists"></ion-item> -->

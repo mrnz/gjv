@@ -2,8 +2,8 @@ angular.module('gjvBrowse')
 
 .controller('MenuCtrl', function($scope, $state){
 
-	$scope.vinFinder = function() {
-		console.log('claaa')
+	$scope.redirect = function(stateName) {
+		$state.go(stateName);
 	};
 
 	$scope.addVehicule = function() {
@@ -12,10 +12,11 @@ angular.module('gjvBrowse')
 
 })
 
-.controller('BrandsCtrl', function($scope, $state, dataFactory){
+.controller('BrandsCtrl', function($scope, $state, dataFactory, Settings){
 	
 	$scope.items = [];
 	$scope.listEmpty = true;
+	$scope.title = Settings.appName
 
 	dataFactory.brands().then(
 		function(result){
@@ -41,8 +42,8 @@ angular.module('gjvBrowse')
 	var brandName = $state.params.brandName; 
 
 	$scope.items = [];
-	$scope.listEmpty = true; 
-
+	$scope.listEmpty = true;
+	$scope.title = brandName;
 	dataFactory.models(brandName).then(
 		function(result){
 			$scope.listEmpty = false;
@@ -70,6 +71,7 @@ angular.module('gjvBrowse')
 
 	$scope.items = [];
 	$scope.listEmpty = true; 
+	$scope.title = modelName;
 
 	dataFactory.volumes( brandName, modelName ).then(
 		function success (result){
@@ -99,7 +101,7 @@ angular.module('gjvBrowse')
 
 	$scope.info = [];
 	$scope.ready = false;
-
+	$scope.title = brandName; 
 
 	dataFactory.info( brandName, modelName, volumeName ).then(
 		function success (result){

@@ -2,24 +2,161 @@
     
     <ion-content  
 		class="gjv-bg"
-    	padding="true">
-        
-		<div class="logo-large"></div>
+    	padding="false"
+        scroll="false">
 
-        
-                        
-            <form 
-                class=""
-                name="loginForm"
-                ng-submit="authenticate( 'email', credentials )"  
-                >
+
+        <div class="halves top">
+            <div id="top-wrapper">
+              <div class="logo">LOGO FIN FINDER</div>
+            </div>
+            <div id="buttons-wrapper">
+                <button 
+                    menu-close 
+                    class="button button-positive color-facebook social-button ink" 
+                    ng-click="authenticate('facebook')">
+                    <i class="ion-social-facebook"></i>
+                    <br>
+                    <span class="connect">{{ 'BUTTON_CONNECT' | translate }}</span>
+                    <br>
+                    <span class="provider-name">Facebook</span>
+                </button>
+
+                <button 
+                    menu-close 
+                    class="button button-assertive color-google social-button ink icon-left" 
+                    ng-click="authenticate('google')">
+                    <i class="ion-social-google"></i>
+                    <br>
+                    <span class="connect">{{ 'BUTTON_CONNECT' | translate }}</span>
+                    <br>
+                    <span class="provider-name">Google</span>
+                </button>                  
+            </div>
+        </div>
+        <div class="halves bottom">
+            <div id="bottom-wrapper">
+                <table class="signup-line">
+                    <tr>
+                        <td>
+                            <span class="first-line">Sign up with your <span ng-click="openModal()">Email address</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="second-line">Have an account? <span ng-click="openModal2()">Log In</span></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+     
+    </ion-content>
+
+</ion-view>
+
+
+
+
+<script id="my-modal.html" type="text/ng-template">
+    
+    <ion-modal-view class="signup-modal" >
+        <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+        <ion-content scroll="false">
+            <div class="modal-content-wrapper">
+
+                <div class="inner-modal-content-wrapper">
+                <div class="title-name">
+                    Sign Up
+                </div>
+                <form 
+                    class=""
+                    name="joinForm"
+                    ng-submit="submit(credentials)">
                 
-                <div class="login-form">
+                    <div class="new-form-style">
 
-                    <label class="item email item-input roundnes-top">
+                        <label class="item item-input user-svg">
+                            <input 
+                                type="text" 
+                                placeholder="Username..." 
+                                ng-model="credentials.username" 
+                                name="username"
+                                ng-minlength="3"
+                                ng-maxlength="20"
+                                ng-class="{'has-error': !joinForm.username.$valid && !joinForm.username.$pristine }"
+                                required>
+                        </label>
 
-                        <i class="icon ion-android-mail placeholder-icon"></i>
-                        <input 
+
+                        <label class="item item-input email-svg">
+
+                            <input 
+                                type="text" 
+                                placeholder="Email..." 
+                                name="email" 
+                                ng-pattern="/^([a-zA-Z0-9!#$%&'*+-/=?^_`{|}~_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/"
+                                ng-class="{'has-error': !joinForm.email.$valid && !joinForm.email.$pristine }"
+                                ng-model="credentials.email"
+                                required>
+
+                        </label>
+
+                        <label class="item item-input password-svg">
+
+                            <input 
+                                type="password" 
+                                placeholder="Password..." 
+                                ng-model="credentials.password"
+                                name="password"
+                                ng-class="{'has-error': !joinForm.password.$valid && !joinForm.password.$pristine }"
+                                ng-minlength="6"
+                                ng-maxlength="126"
+                                required>
+
+                        </label>
+                    
+                    </div>
+                    
+                    <button 
+                        type="submit" 
+                        id="submit" 
+                        class=""
+                        ng-disabled="joinForm.$invalid">Sign Up</button>
+                 
+                
+                    <div class="clear"></div>
+
+                </form> 
+                
+            </div>     
+            </div>     
+        </ion-content>
+        <span class="bottomLink" ng-click="switchTo(2)">Already have an account? Sign In!</span>  
+      </ion-modal-view>
+    </script>
+
+
+<script id="my-modal2.html" type="text/ng-template">
+
+    <ion-modal-view class="signup-modal" >
+        <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+        <ion-content scroll="false">
+            <div class="modal-content-wrapper">
+
+                <div class="inner-modal-content-wrapper">
+                <div class="title-name">
+                    Sign In
+                </div>
+                <form 
+                    class=""
+                    name="loginForm"
+                    ng-submit="authenticate( 'email', credentials )">
+                
+                <div class="new-form-style">
+
+                    <label class="item item-input user-svg">
+                         <input 
                             type="text" 
                             placeholder="{{ 'INPUT_PLACEHOLDER_EMAIL' | translate }}" 
                             ng-model="credentials.email" 
@@ -30,9 +167,9 @@
                             required>
                     </label>
 
-                    <label class="item item-input password roundnes-bottom">
-                    <i class="icon ion-android-lock placeholder-icon"></i>
-                        
+
+                    <label class="item item-input email-svg">
+
                         <input 
                             type="password" 
                             placeholder="{{ 'INPUT_PLACEHOLDER_PASSWORD' | translate }}" 
@@ -45,61 +182,26 @@
 
                     </label>
 
+                   
+                
                 </div>
+                <button 
+                    type="submit" 
+                    id="submit" 
+                    class="button submit-button"
+                    ng-disabled="loginForm.$invalid">Sign Up</button>
+             
+            
+               <div class="clear"></div>
 
-                <div class="cl"></div>
+            </form> 
 
-                <div class="signup-form-button">
-                    
-                    <button
-                        menu-close 
-                        nav-clear
-                        type="submit" 
-                        id="submit" 
-                        class="button button-royal button-block ink"
-                        ng-disabled="loginForm.$invalid">{{ 'BUTTON_SIGN_UP_EMAIL' | translate }}</button>
-                    
-                    </div>
-                
-                
-                <a class="reset-password-link" ng-click="forgotPassword()">
-                    {{ 'TEXT_FORGOT' | translate }} <span class="icn ion-arrow-right-b"></span>
-                </a>
-                
+            
 
-            </form>
-            <div class="fixed-or">{{ 'TEXT_OR' | translate }}</div>    
-        
-        
-        
+            </div>
+            </div>     
+        </ion-content>
+        <span class="bottomLink"  ng-click="switchTo(1)">Don't have an account yet? Sign Up!</span>
+      </ion-modal-view>
 
-   
-        
-        <div class="with-pad fixed-form cf">
-            <button 
-                menu-close 
-                class="button button-block button-positive color-facebook ion-social-facebook ink icon-left" 
-                ng-click="authenticate('facebook')">
-                {{ 'BUTTON_CONNECT_FB' | translate }}</button>
-
-            <button 
-                menu-close 
-                class="button button-block button-assertive color-google ion-social-google ink icon-left" 
-                ng-click="authenticate('google')">
-                {{ 'BUTTON_CONNECT_GOOGLE' | translate }}</button>
-
-            <button 
-                menu-close 
-                class="button button-block color-email button-energized color-google ion-ios-email ink icon-left" 
-                ng-click="join()">
-                {{ 'BUTTON_REGISTER_EMAIL' | translate }}</button>
-
-
-        </div>
-
-
-
-
-    </ion-content>
-
-</ion-view>
+    </script>

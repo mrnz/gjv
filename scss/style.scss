@@ -1,8 +1,86 @@
 // Socicon Font Path
 // --------------------------
-$socicon-font-path: "../fonts/socicon" !default;
+$socicon-font-path: ".../lib/robotodraft/fonts/socicon" !default;
 $socicon-font-family: "socicon";
-$gjv-color: #3399CC;
+
+
+/* BEGIN Thin */
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/Thin/RobotoDraft-Thin.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/Thin/RobotoDraft-Thin.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/Thin/RobotoDraft-Thin.ttf?v=1.0.0") format("truetype");
+  font-weight: 100;
+  font-style: normal; }
+/* END Thin */
+/* BEGIN Light */
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/Light/RobotoDraft-Light.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/Light/RobotoDraft-Light.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/Light/RobotoDraft-Light.ttf?v=1.0.0") format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+/* END Light */
+/* BEGIN Regular */
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/Regular/RobotoDraft-Regular.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/Regular/RobotoDraft-Regular.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/Regular/RobotoDraft-Regular.ttf?v=1.0.0") format("truetype");
+  font-weight: 400;
+  font-style: normal; }
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/Regular/RobotoDraft-Regular.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/Regular/RobotoDraft-Regular.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/Regular/RobotoDraft-Regular.ttf?v=1.0.0") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+/* END Regular */
+/* BEGIN Italic */
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/Italic/RobotoDraft-Italic.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/Italic/RobotoDraft-Italic.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/Italic/RobotoDraft-Italic.ttf?v=1.0.0") format("truetype");
+  font-weight: 400;
+  font-style: italic; }
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/Italic/RobotoDraft-Italic.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/Italic/RobotoDraft-Italic.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/Italic/RobotoDraft-Italic.ttf?v=1.0.0") format("truetype");
+  font-weight: normal;
+  font-style: italic; }
+/* END Italic */
+/* BEGIN Medium */
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/Medium/RobotoDraft-Medium.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/Medium/RobotoDraft-Medium.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/Medium/RobotoDraft-Medium.ttf?v=1.0.0") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+/* END Medium */
+/* BEGIN Bold */
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/Bold/RobotoDraft-Bold.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/Bold/RobotoDraft-Bold.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/Bold/RobotoDraft-Bold.ttf?v=1.0.0") format("truetype");
+  font-weight: 700;
+  font-style: normal; }
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/Bold/RobotoDraft-Bold.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/Bold/RobotoDraft-Bold.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/Bold/RobotoDraft-Bold.ttf?v=1.0.0") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+/* END Bold */
+/* BEGIN Bold Italic */
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/BoldItalic/RobotoDraft-BoldItalic.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/BoldItalic/RobotoDraft-BoldItalic.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/BoldItalic/RobotoDraft-BoldItalic.ttf?v=1.0.0") format("truetype");
+  font-weight: 700;
+  font-style: italic; }
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/BoldItalic/RobotoDraft-BoldItalic.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/BoldItalic/RobotoDraft-BoldItalic.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/BoldItalic/RobotoDraft-BoldItalic.ttf?v=1.0.0") format("truetype");
+  font-weight: bold;
+  font-style: italic; }
+/* END Bold Italic */
+/* BEGIN Black */
+@font-face {
+  font-family: RobotoDraft;
+  src: url("../lib/robotodraft/fonts/Black/RobotoDraft-Black.woff2?v=1.0.0") format("woff2"), url("../lib/robotodraft/fonts/Black/RobotoDraft-Black.woff?v=1.0.0") format("woff"), url("../lib/robotodraft/fonts/Black/RobotoDraft-Black.ttf?v=1.0.0") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+/* END Black */
+
 
 // @font-face {
   //  font-family: $socicon-font-family;
@@ -29,7 +107,7 @@ $gjv-color: #3399CC;
 //}
 // @import  'fonts/font-awesome';
 .gjv-bg {
-  background: darken($gjv-color, 15%);
+  //background: darken($gjv-color, 15%);
 }
 .login-form {
   .roundnes-top {
@@ -50,6 +128,91 @@ $gjv-color: #3399CC;
     }
   }
 }
+.logo-large{
+  .main-logo{
+    background: url('../img/vin_152.png');  
+    width: 152px;
+    height: 152px;
+    margin: 10px auto;
+  }
+  
+}
+.signup-modal{
+  background: lighten(black, 20%);
+  opacity: 1;
+  .button-clear {
+    position: absolute; 
+    top: 0px;
+    right: 0px;
+    z-index: 20;
+    span:before{
+      margin: 10px;
+      font-size: 25px !important;
+      color: #fff;
+    }
+  }
+}
+.modal{
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  .modal-content-wrapper{
+    display: table;
+    color: #fff;
+    position: absolute;
+    padding: 30px;
+    height: 100%;
+    width: 100%;
+    .inner-modal-content-wrapper{
+      display: table-cell;
+      vertical-align: middle;
+      .title-name{
+        font-size: 30px; 
+        padding-bottom: 40px;
+      }
+      form{
+        .item-input{
+          color: #fff;
+          background: transparent;
+          border:0;
+          border-bottom: 1px solid #fff;
+          input{
+            color: #fff;
+          }
+        }
+        .submit-button{
+          margin-top: 60px;
+          border: 1px solid;
+          border-radius: 300px;
+          color: #fff;
+          float:right;
+          background: transparent;
+        }
+        .clear{
+          visibility: hidden;
+          display: block;
+          font-size: 0;
+          content: " ";
+          clear: both;
+          height: 0;
+        }  
+      }
+    }
+  }
+  .bottomLink{
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    font-size: 16px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    z-index: 999;
+  }
+}
 
 .reset-password-link, .fixed-or{
   display: block;
@@ -57,23 +220,102 @@ $gjv-color: #3399CC;
   text-align: center;
 }
 
-button.color-facebook.button-positive {
-  background: #3B5997;
 
-  &:active {
-    //background: lighten(#3B5997, 10%);
+$buttos-height-half: 75px;
+div.halves{
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: 50%;
+  &.top{
+    top: 0px;
+    z-index: 2;
+    #top-wrapper{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: $buttos-height-half;
+      .logo{
+        height: 30px;
+        line-height: 30px;
+        font-size: 30px;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        text-align: center;
+        margin-top: -15px;
+        background: red;
+      }
+    }
+    #buttons-wrapper{
+      position: absolute;
+      bottom: -$buttos-height-half;
+      height: $buttos-height-half*2;
+      width: 100%;
+      button.social-button{
+        width: 50%;
+        line-height: normal;
+        padding: 20px 0;
+        font-size: 16px;
+        border-width: 0px;
+        border-radius: 0px;
+        height: 100%;
+        i{
+          font-size: 40px;
+          display: block;
+        }
+        .provider-name{
+          font-weight: bold;
+        }
+        &.color-facebook.button-positive {
+          background: #2D4A96;
+          float: left;
+          &:active {
+
+          }
+        }
+        &.color-google.button-assertive {
+          background: #DD4B39;
+          float: left;
+          &:before {
+            font-size: 30px;
+          }
+        }
+      }
+    }
   }
-  &:before {
-    font-size: 30px;
+  &.bottom{
+    bottom: 0px;
+    z-index: 1;
+    #bottom-wrapper{
+      position: absolute;
+      top: $buttos-height-half;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      .signup-line{
+        height: 100px;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        text-align: center;
+        margin-top: -50px;
+        td{
+          vertical-align: middle;
+          span{
+            span{
+              color: #00ACED;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
   }
 }
-button.color-google.button-assertive {
-  background: #DD4B39;
 
-  &:before {
-    font-size: 30px;
-  }
-}
+
 button.color-email {
   &:before {
     font-size: 30px;
