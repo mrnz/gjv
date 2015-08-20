@@ -8,16 +8,13 @@
           VIN Finder
       	</ion-nav-title>
 
-
         <ion-nav-back-button class="button-clear">
           <i class="icon ion-ios-arrow-back"></i> Back
         </ion-nav-back-button>
 
-
-      		<ion-nav-buttons side="right">
-        		<button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
-      	
-      		</ion-nav-buttons>
+     		<ion-nav-buttons side="right">
+       		<button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
+     		</ion-nav-buttons>
 		
     	</ion-nav-bar>
     	
@@ -32,28 +29,44 @@
     <ion-content>
       <ion-list>
         
-          <ion-item nav-clear menu-close ng-click="redirect('menu.brands')">
+          <!-- <ion-item nav-clear menu-close ng-click="redirect('menu.brands')">
             Vin finder
-          </ion-item>
+          </ion-item> -->
           
-          <ion-item nav-clear menu-close ng-click="share()">
-             Share
+          <!-- <ion-item nav-clear menu-close ng-click="redirect('menu.share')">
+             
+          </ion-item> -->
+
+          <ion-item nav-clear>
+            <div class="shareTitle">Share</div>
+            <table class="share-table">
+              <tr>
+                <td>
+                  <span ng-click="share('fb')" class="circle facebook"><i class="ion-social-facebook"></i></span>
+                </td>
+                <td>
+                  <span class="circle twitter" ng-click="share('twitter')"><i class="ion-social-twitter"></i></span>
+                </td>
+                <td>
+                  <span class="circle whatsapp" ng-click="share('whatsapp')"><i class="ion-social-whatsapp"></i></span>
+                </td>
+                <td>
+                  <span class="circle email" ng-click="share('email')"><i class="ion-android-mail"></i></span>
+                </td>
+                <td>
+                  <span class="circle sms" ng-click="share('sms')"><i class="ion-android-textsms"></i></span>
+                </td>
+              </tr>
+
+            </table>  
           </ion-item>
 
-          <ion-item nav-clear menu-close ng-click="share()">
-            Options
-          </ion-item>
-
-          <ion-item nav-clear menu-close ng-click="share()">
+          <ion-item nav-clear menu-close ng-click="rateapp()">
               Rate the app  
           </ion-item>
 
-          <ion-item nav-clear menu-close ng-click="share()">
-              Contact - mail
-          </ion-item>
-
-          <ion-item nav-clear menu-close ng-click="addVehicule()">
-              Add vehicule
+          <ion-item nav-clear menu-close ng-click="logout()">
+              Log Out
           </ion-item>
 
 

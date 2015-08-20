@@ -240,9 +240,43 @@ div.halves {
         margin-top: -50px; }
         div.halves.bottom #bottom-wrapper .signup-line td {
           vertical-align: middle; }
-          div.halves.bottom #bottom-wrapper .signup-line td span span {
-            color: #00ACED;
-            font-weight: bold; }
+          div.halves.bottom #bottom-wrapper .signup-line td div {
+            height: 35px;
+            line-height: 35px; }
+            div.halves.bottom #bottom-wrapper .signup-line td div span {
+              display: inline-block;
+              height: 35px;
+              line-height: 35px;
+              color: #00ACED;
+              font-weight: bold;
+              cursor: pointer; }
+              div.halves.bottom #bottom-wrapper .signup-line td div span:active {
+                color: #006387; }
+
+.share-table {
+  width: 100%; }
+  .share-table .shareTitle {
+    text-align: center; }
+  .share-table tr td {
+    text-align: center; }
+    .share-table tr td .circle {
+      height: 30px;
+      width: 30px;
+      display: inline-block;
+      border-radius: 20px;
+      text-align: center;
+      line-height: 30px;
+      color: #fff; }
+      .share-table tr td .circle.facebook {
+        background: #2D4A96; }
+      .share-table tr td .circle.twitter {
+        background: #00aced; }
+      .share-table tr td .circle.whatsapp {
+        background: #51C539; }
+      .share-table tr td .circle.email {
+        background: #51C539; }
+      .share-table tr td .circle.sms {
+        background: #51C539; }
 
 button.color-email:before {
   font-size: 30px; }

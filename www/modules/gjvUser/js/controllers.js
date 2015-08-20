@@ -1,23 +1,24 @@
 angular.module('gjvUser')
 
-.controller('StartCtrl', function($scope, $state, $http, userFactory, $ionicModal){
+.controller('StartCtrl', function($scope, $state, $http, userFactory, $ionicModal, TokenFactory){
+	console.log('is auth: '+TokenFactory.isAuthenticated())
 
-
+	if(TokenFactory.isAuthenticated()){
+    $state.go('menu.brands');
+  }
+  
 	$scope.authenticate = function(provider, user){
+		//TokenFactory.logOut()
 		userFactory.authenticate( provider, user ).then(function(a) {
 			if(a)close();
 		});
 	}; 
 
 	$scope.submit = function(credentials){
-		console.log('-----')
-		console.log(credentials)
-		// userFactory.authenticate('emailRegister', credentials).then(function(a) {
-		// 	if(a)close();
-		// });
-	};
-
-	$scope.join = function(){
+		userFactory.authenticate('emailRegister', credentials).then(function(a) {
+			if(a)close();
+		});
+	};	$scope.join = function(){
 		$state.go('join'); 
 	};
 
@@ -64,7 +65,9 @@ angular.module('gjvUser')
   };
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {
-    $scope.modal.remove();
+    if($scope.modal){
+    	$scope.modal.remove();	
+    }
   });
   // Execute action on hide modal
   $scope.$on('modal.hidden', function() {
@@ -74,37 +77,10 @@ angular.module('gjvUser')
   $scope.$on('modal.removed', function() {
     // Execute action
   });
-  // var close = function() {
-  // 	$scope.modal.hide();
-  // };
+  var close = function() {
+  	if($scope.modal){
+    	$scope.modal.hide();
+    }
+  	
+  };
 })
-
-.controller('JoinCtrl', function($scope, $state, $auth, userFactory){
-
-	$scope.authenticate = function(provider, user){
-		userFactory.authenticate( provider, user );
-	}; 
-	
-	$scope.submit = function(credentials){
-		userFactory.authenticate('emailRegister', credentials);
-	};
-
-	$scope.cancel = function(){
-		$state.go('start');
-	};
-
-})
-
-.controller('ForgotPasswordCtrl', function($scope, $state, userFactory){
-
-	$scope.cancel = function(){
-		$state.go('start');
-	}
-
-	$scope.submit = function(credentials) {
-		userFactory.passwordForgot(credentials.email)
-	};
-
-})
-
-

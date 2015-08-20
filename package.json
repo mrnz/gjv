@@ -17,8 +17,9 @@
   },
   "cordovaPlugins": [
     "com.ionic.keyboard",
-    "org.apache.cordova.inappbrowser",
-    "org.pushandplay.cordova.apprate"
+    "org.pushandplay.cordova.apprate",
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-whitelist"
   ],
   "cordovaPlatforms": [
     "android"

@@ -1,58 +1,43 @@
 // An AngularJS module that provides video functionality for the 180vita mobile applications.
 
-angular.module('gjvUser', ['satellizer', 'gjvData', 'ionic-material'])
+angular.module('gjvUser', ['satellizer', 'gjvData'])
 
-.config(function($stateProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('start', {
-      url: "/start",
+      url: "/",
+      cache: false,
       templateUrl: "modules/gjvUser/templates/start.html",
       controller: 'StartCtrl',
       data: {
-        stateName: 'fdfsdf',
+        stateName: 'start',
         googleAnalyticsName: '',
         activeTab: 0
       }
-    })
-    .state('join', {
-      url: "/join",
-      templateUrl: "modules/gjvUser/templates/join.html",
-      controller: 'JoinCtrl',
-      data: {
-        stateName: 'dasdsa',
-        activeTab: 0
-      }
-    })
-    .state('forgotpassword', {
-      url: "/forgot-password",
-      templateUrl: "modules/gjvUser/templates/forgot-password.html",
-      controller: 'ForgotPasswordCtrl',
-      data: {
-        stateName: 'dsadsa',
-        activeTab: 0
-      }
-    })
-    .state('log', {
-      url: "/auth",
-      templateUrl: "modules/gjvUser/templates/start.html",
-      controller: 'StartCtrl',
-      data: {
-        stateName: 'fdfsdf',
-        googleAnalyticsName: '',
-        activeTab: 0
-      }
-    })
+    });
+    $urlRouterProvider.otherwise(
+        '/'
+    );
+    // .state('forgotpassword', {
+    //   url: "/forgot-password",
+    //   templateUrl: "modules/gjvUser/templates/forgot-password.html",
+    //   controller: 'ForgotPasswordCtrl',
+    //   data: {
+    //     stateName: 'dsadsa',
+    //     activeTab: 0
+    //   }
+    // })
 })
   .config(function($authProvider) {
 
     $authProvider.httpInterceptor = true; // Add Authorization header to HTTP request
     $authProvider.loginOnSignup = false;
     $authProvider.baseUrl = '' // API Base URL for the paths below.
-    $authProvider.loginRedirect = '/dsadsadas';
-    $authProvider.logoutRedirect = '/aaaaaaaaaaa';
-    $authProvider.signupRedirect = '/sdadsadsadsadsa';
-    $authProvider.loginUrl = '/auth/login';
-    $authProvider.signupUrl = '/auth/signup';
+    $authProvider.loginRedirect = '';
+    $authProvider.logoutRedirect = '';
+    $authProvider.signupRedirect = '';
+    // $authProvider.loginUrl = '/auth/login';
+    // $authProvider.signupUrl = '/auth/signup';
     $authProvider.loginUrl = 'http://www.gdziejestvin.pl/api/login/email';
     $authProvider.signupUrl = 'http://www.gdziejestvin.pl/api/register';
     $authProvider.tokenRoot = false; // set the token parent element if the token is not the JSON root
@@ -62,8 +47,8 @@ angular.module('gjvUser', ['satellizer', 'gjvData', 'ionic-material'])
     $authProvider.unlinkMethod = 'get';
     $authProvider.authHeader = 'Authorization';
     $authProvider.authToken = 'Bearer';
-    $authProvider.withCredentials = true;
-    $authProvider.platform = 'browser'; //'browser' or 'mobile'
+    $authProvider.withCredentials = false;
+    $authProvider.platform = 'mobile'; //'browser' or 'mobile'
     $authProvider.storage = 'localStorage'; // or 'sessionStorage'    
 
     $authProvider.facebook({

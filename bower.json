@@ -2,7 +2,7 @@
   "name": "gjv",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.0-rc.2",
+    "ionic": "1.1.0",
     "satellizer": "https://github.com/mrnz/satellizer.git",
     "angular-cache": "latest",
     "angular-translate":"latest"

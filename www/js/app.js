@@ -10,15 +10,43 @@ var APP = angular.module('starter', [
   'gjvBrowse',
   'gjvMessage',
   'gjvCordova',
-  'gjvTranslate'
+  'gjvTranslate',
+  'gjvShare',
+  'gjvOptions'
 ])
 
-APP.run(function($rootScope, $ionicPlatform, $auth, messageFactory, $cordovaNetwork, $cordovaAppRate, $cordovaAppVersion, $cordovaSplashscreen, $cordovaStatusbar, $cordovaToast, translate) {
+    
+APP.run(function($rootScope,$state, $ionicPlatform, $auth, messageFactory, $cordovaNetwork, $cordovaAppRate, $cordovaAppVersion, $cordovaSplashscreen, $cordovaStatusbar, $cordovaToast, translate, TokenFactory) {
+  
+  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+
+      if(toState.name === 'start'){
+        if(TokenFactory.isAuthenticated()){
+          event.preventDefault(); 
+          $state.go('menu.brands');
+        }
+      }
+  })
+
   $ionicPlatform.ready(function() {
 
     if (ionic.Platform.isWebView()) {
 
-      translate.setPreferredLanguage();      
+      function onBackKeyDown(event) {
+        console.warn('back Button hit')
+        if($state.current.name === 'start'){
+          event.preventDefault();
+          navigator.Backbutton.goBack(function() {
+            console.log('success');
+          }, function() {
+            console.log('fail');
+          });
+        }
+      };
+
+      document.addEventListener("backbutton", onBackKeyDown, false);
+      
+      translate.setPreferredLanguage();
 
       $rootScope.$on('$cordovaNetwork', function(a, value) {
         NETWORK = value;
@@ -59,16 +87,16 @@ APP.run(function($rootScope, $ionicPlatform, $auth, messageFactory, $cordovaNetw
 
 
 .constant('APIAddress', 'http://www.gdziejestvin.pl/api')
-.constant('Settings', {
-  'appName': 'VIN Finder'
-})
+  .constant('Settings', {
+    'appName': 'VIN Finder'
+  })
 
 
 
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise(function(a, b, c, d) {
-    console.log('otherwiser - from: ' + b.$$urlr);
-    return "/start";
+    console.log('otherwise - from: ' + b.$$urlr);
+    return "/";
   });
 })
 
@@ -100,10 +128,6 @@ APP.run(function($rootScope, $ionicPlatform, $auth, messageFactory, $cordovaNetw
         }
       };
     });
-
-
-
-
   }
 ])
 

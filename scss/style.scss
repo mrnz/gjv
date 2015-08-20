@@ -303,10 +303,19 @@ div.halves{
         margin-top: -50px;
         td{
           vertical-align: middle;
-          span{
+          div{
+            height: 35px;
+            line-height: 35px;
             span{
+              display: inline-block;
+              height: 35px;
+              line-height: 35px;
               color: #00ACED;
               font-weight: bold;
+              cursor: pointer;
+              &:active{
+                color: darken(#00ACED, 20%);
+              }
             }
           }
         }
@@ -314,6 +323,43 @@ div.halves{
     }
   }
 }
+
+.share-table{
+  width: 100%;
+  .shareTitle{
+    text-align: center;
+  }
+  tr{
+    td{
+      text-align: center;
+      .circle{
+        height: 30px;
+        width: 30px;
+        display: inline-block;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+        &.facebook{
+          background: #2D4A96;
+        }
+        &.twitter{
+          background: #00aced;
+        }
+        &.whatsapp{
+          background: #51C539; 
+        }
+        &.email{
+          background: #51C539;  
+        }
+        &.sms{
+         background: #51C539; 
+        }
+      }
+    }
+  }
+}
+
 
 
 button.color-email {

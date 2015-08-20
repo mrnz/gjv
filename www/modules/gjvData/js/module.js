@@ -58,13 +58,13 @@ angular.module('gjvData', ['angular-cache'])
 
 			// if undefined get data from API
 			if( typeof data === 'undefined'){
-				console.log('API');
+				//console.log('API');
 				result = this.call( params );
 			}
 			// if not undefined return data from cache
 			else{
 				
-				console.log('CACHE');
+				//console.log('CACHE');
 				var defer = $q.defer();
 			 	defer.resolve(data);
 			 	result = defer.promise;
@@ -80,6 +80,7 @@ angular.module('gjvData', ['angular-cache'])
 })
 .factory('TokenFactory', function($http, $q, $auth, $state ){
 	return{
+
 		setUserToken: function(passedToken){
 			
 			var passedToken = passedToken,
@@ -126,10 +127,11 @@ angular.module('gjvData', ['angular-cache'])
 			$http.defaults.headers.common['X-USER'] = undefined;
 		},
 		logOut: function(){
-			
 			$auth.logout();
 			$state.go('start'); 
-
+		},
+		isAuthenticated: function() {
+			return $auth.isAuthenticated();
 		}
 	}
 });
