@@ -1,6 +1,6 @@
 angular.module('gjvUser')
 
-.controller('StartCtrl', function($scope, $state, $http, userFactory, $ionicModal, TokenFactory){
+.controller('StartCtrl', function($scope, $state, $http, userFactory, $ionicModal, TokenFactory, ionicMaterialInk){
 
 	ionicMaterialInk.displayEffect();
 

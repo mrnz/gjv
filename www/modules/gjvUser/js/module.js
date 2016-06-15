@@ -48,7 +48,7 @@ angular.module('gjvUser', ['satellizer', 'gjvData'])
     $authProvider.authHeader = 'Authorization';
     $authProvider.authToken = 'Bearer';
     $authProvider.withCredentials = false;
-    $authProvider.platform = 'browser'; //'browser' or 'mobile'
+    $authProvider.platform = 'mobile'; //'browser' or 'mobile'
     $authProvider.storage = 'localStorage'; // or 'sessionStorage'    
 
     $authProvider.facebook({
