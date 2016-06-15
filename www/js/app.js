@@ -12,7 +12,8 @@ var APP = angular.module('starter', [
   'gjvCordova',
   'gjvTranslate',
   'gjvShare',
-  'gjvOptions'
+  'gjvOptions',
+  'ionic-material'
 ])
 
     

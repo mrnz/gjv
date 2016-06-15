@@ -1,6 +1,9 @@
 angular.module('gjvUser')
 
 .controller('StartCtrl', function($scope, $state, $http, userFactory, $ionicModal, TokenFactory){
+
+	ionicMaterialInk.displayEffect();
+
 	console.log('is auth: '+TokenFactory.isAuthenticated())
 
 	if(TokenFactory.isAuthenticated()){
@@ -45,6 +48,7 @@ angular.module('gjvUser')
 	    scope: $scope,
 	    animation: 'slide-in-up'
 	  }).then(function(modal) {
+	    ionicMaterialInk.displayEffect();
 	    $scope.modal = modal;
 	    $scope.modal.show();
 	  });
@@ -55,6 +59,7 @@ angular.module('gjvUser')
 	    scope: $scope,
 	    animation: 'slide-in-up'
 	  }).then(function(modal) {
+	    ionicMaterialInk.displayEffect();
 	    $scope.modal = modal;
 	    $scope.modal.show();
 	  });

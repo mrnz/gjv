@@ -1,6 +1,6 @@
 angular.module('gjvBrowse')
 
-.controller('MenuCtrl', function($scope, $state, shareFactory, TokenFactory){
+.controller('MenuCtrl', function($scope, $state, shareFactory, TokenFactory, $timeout, ionicMaterialInk, ionicMaterialMotion){
 
 	$scope.redirect = function(stateName) {
 		$state.go(stateName);
@@ -13,6 +13,7 @@ angular.module('gjvBrowse')
 	$scope.share = function(provider) {
 		return shareFactory.share(provider);
 	};
+
 	$scope.rateapp = function() {
     var devicePlatform = ionic.Platform.platform();
     console.log(devicePlatform)
@@ -22,27 +23,27 @@ angular.module('gjvBrowse')
       window.open('market://details?id=com.boombit.RunningCircles','_system');
     }
   };
+
   $scope.logout = function() {
   	TokenFactory.logOut();
   };
+
 })
 
-.controller('BrandsCtrl', function($scope, $state, dataFactory, Settings){
+.controller('BrandsCtrl', function($scope, $state, dataFactory, Settings, $timeout, ionicMaterialInk, ionicMaterialMotion){
 	
 	$scope.items = [];
 	$scope.listEmpty = true;
 	$scope.title = Settings.appName
 
-	dataFactory.brands().then(
-		function(result){
-			$scope.listEmpty = false; 
-			$scope.items = result.brands;
-
-		},
-		function(reason){
-			
-		}
-	);
+	dataFactory.brands().then(function(result){
+		$scope.listEmpty = false; 
+		$scope.items = result.brands;
+		$timeout(function() {
+			ionicMaterialInk.displayEffect();
+			ionicMaterialMotion.blinds();
+		}, 300);
+	},function(reason){});
 	
 	$scope.selectItem = function (ev,brandName) {
 		$state.go('menu.models', {brandName: brandName})
@@ -51,24 +52,25 @@ angular.module('gjvBrowse')
 })
 
 
-.controller('ModelsCtrl', function($scope, $state, dataFactory){
+.controller('ModelsCtrl', function($scope, $state, dataFactory, $timeout, ionicMaterialInk, ionicMaterialMotion){
 	
-	// get brand name from URL 
 	var brandName = $state.params.brandName; 
 
 	$scope.items = [];
 	$scope.listEmpty = true;
 	$scope.title = brandName;
-	dataFactory.models(brandName).then(
-		function(result){
-			$scope.listEmpty = false;
-			$scope.items = result.models; 
-			console.log($scope.items);
-		},
-		function(reason){
-			console.log(reason);
-		}
-	);
+
+	dataFactory.models(brandName).then(function(result){
+
+		$scope.listEmpty = false;
+		$scope.items = result.models; 
+
+		$timeout(function() {
+			ionicMaterialInk.displayEffect();
+			ionicMaterialMotion.blinds();
+		}, 300);
+
+	},function(reason){console.log(reason);});
 	
 	$scope.selectItem = function (ev,modelName) {
 		$state.go('menu.volumes', {brandName: brandName, modelName: modelName });
@@ -78,26 +80,27 @@ angular.module('gjvBrowse')
 
 
 
-.controller('VolumesCtrl', function($scope, $state, dataFactory){
+.controller('VolumesCtrl', function($scope, $state, dataFactory, $timeout, ionicMaterialInk, ionicMaterialMotion){
 	
 	// get brand name and model name from URL 
 	var brandName = $state.params.brandName,
-		modelName = $state.params.modelName; 
+			modelName = $state.params.modelName;
 
 	$scope.items = [];
 	$scope.listEmpty = true; 
 	$scope.title = modelName;
 
-	dataFactory.volumes( brandName, modelName ).then(
-		function success (result){
+	dataFactory.volumes( brandName, modelName ).then(function success (result){
+		
 			$scope.listEmpty = false; 
 			$scope.items = result.volumes; 
-			console.log($scope.items);
-		},
-		function error (reason){
-			console.log(reason);
-		}
-	);
+			$timeout(function() {
+				ionicMaterialInk.displayEffect();
+				ionicMaterialMotion.blinds();
+			}, 300);
+
+		
+	},function error (reason){console.log(reason);});
 	
 	$scope.selectItem = function (ev,volumeName) {
 		$state.go('menu.info', {brandName: brandName, modelName: modelName, volumeName: volumeName });
@@ -106,27 +109,20 @@ angular.module('gjvBrowse')
 })
 
 
-.controller('InfoCtrl', function($scope, $state, dataFactory){
+.controller('InfoCtrl', function($scope, $state, dataFactory, $timeout, ionicMaterialInk, ionicMaterialMotion){
 	
-	// get brand name and model name from URL 
 	var brandName = $state.params.brandName,
-		modelName = $state.params.modelName,
-		volumeName = $state.params.volumeName; 
-		console.log($state.params)
+			modelName = $state.params.modelName,
+			volumeName = $state.params.volumeName; 
 
 	$scope.info = [];
 	$scope.ready = false;
 	$scope.title = brandName; 
 
-	dataFactory.info( brandName, modelName, volumeName ).then(
-		function success (result){
-			$scope.ready = true;
-			$scope.info = result.info; 
-		},
-		function error (reason){
-			console.log(reason);
-		}
-	);
+	dataFactory.info( brandName, modelName, volumeName ).then(function (result){
+		$scope.ready = true;
+		$scope.info = result.info; 
+	},function error (reason){console.log(reason);});
 
 
 })

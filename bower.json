@@ -5,9 +5,10 @@
     "ionic": "1.1.0",
     "satellizer": "https://github.com/mrnz/satellizer.git",
     "angular-cache": "latest",
-    "angular-translate":"latest"
+    "angular-translate": "latest"
   },
   "dependencies": {
-    "angular-translate": "~2.7.2"
+    "angular-translate": "~2.7.2",
+    "ionic-material": "~0.4.2"
   }
 }

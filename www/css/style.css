@@ -88,17 +88,21 @@
 /* END Black */
 .login-form .roundnes-top {
   border-radius: 10px 10px 0 0; }
+
 .login-form .roundnes-bottom {
   border-radius: 0 0 10px 10px; }
+
 .login-form label.email i {
   padding-right: 10px; }
+
 .login-form label.password i {
   padding: 0 14px 0 4px; }
+
 .login-form label i {
   font-size: 24px; }
 
 .logo-large .main-logo {
-  background: url('../img/vin_152.png');
+  background: url("../img/vin_152.png");
   width: 152px;
   height: 152px;
   margin: 10px auto; }
@@ -251,7 +255,7 @@ div.halves {
               font-weight: bold;
               cursor: pointer; }
               div.halves.bottom #bottom-wrapper .signup-line td div span:active {
-                color: #006387; }
+                color: #006287; }
 
 .share-table {
   width: 100%; }
@@ -344,7 +348,6 @@ button.color-email:before {
 @keyframes my_animation {
   from {
     opacity: 1; }
-
   to {
     opacity: 0; } }
 
@@ -355,20 +358,17 @@ button.color-email:before {
 @-webkit-keyframes my_animation {
   from {
     opacity: 1; }
-
   to {
     opacity: 0; } }
 
 @-moz-keyframes my_animation {
   from {
     opacity: 1; }
-
   to {
     opacity: 0; } }
 
 @-o-keyframes my_animation {
   from {
     opacity: 1; }
-
   to {
     opacity: 0; } }
