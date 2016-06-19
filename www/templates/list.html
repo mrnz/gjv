@@ -1,0 +1,33 @@
+<ion-view title="{{title}}" class="">
+    
+    <ion-content  
+    	padding="false">
+	
+		<div class="listEmpty repeated-item" ng-if="listEmpty">
+			<br><br><br>
+			LOADING <ion-spinner icon="ios"></ion-spinner>
+			<br><br><br>
+		</div>
+
+		<ion-list class="animate-blinds">
+		  	
+		  	<ion-item
+		  		menu-close 
+		  		ng-repeat="item in items "
+		      class="item repeated-item ink"
+		      ng-click="selectItem(this,item.name)"
+		      list-item="">
+
+					<button class="button button-balanced button-fab activated" menu-toggle="right" ng-class="{'hide-first': !item.first}">
+										{{item.name[0]}}	
+          </button>
+
+					{{item.name}}
+		    
+		  	</ion-item>
+
+		</ion-list>
+
+    </ion-content>
+
+</ion-view>

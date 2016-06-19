@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "angular-translate": "~2.7.2",
-    "ionic-material": "~0.4.2"
+    "ionic-material": "~0.4.2",
+    "ion-gallery": "~0.1.14"
   }
 }

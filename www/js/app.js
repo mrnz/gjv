@@ -6,14 +6,11 @@
 var NETWORK = true;
 var APP = angular.module('starter', [
   'ionic',
-  'gjvUser',
-  'gjvBrowse',
-  'gjvMessage',
-  'gjvCordova',
-  'gjvTranslate',
-  'gjvShare',
-  'gjvOptions',
-  'ionic-material'
+  'ionic-material',
+  'ion-gallery',
+  'angular-cache',
+  'satellizer',
+  'pascalprecht.translate'
 ])
 
     
@@ -88,50 +85,20 @@ APP.run(function($rootScope,$state, $ionicPlatform, $auth, messageFactory, $cord
 
 
 .constant('APIAddress', 'http://www.gdziejestvin.pl/api')
-  .constant('Settings', {
+.constant('Settings', {
     'appName': 'VIN Finder'
-  })
-
-
-
-.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise(function(a, b, c, d) {
-    console.log('otherwise - from: ' + b.$$urlr);
-    return "/";
-  });
 })
-
-.config(['$httpProvider',
-  function($httpProvider) {
-
-    $httpProvider.defaults.headers.common['X-TOKEN'] = 'gdziejestvintoken';
-    $httpProvider.interceptors.push(function($rootScope, $q, APIAddress, $window, $timeout) {
-      return {
-        'request': function(config) {
-
-          // only for external requests 
-          if (config.url.indexOf('http') === 0 && (!NETWORK)) {
-            var q = $q.defer();
-            q.reject({
-              data: {
-                message: 'cancel'
-              }
-            });
-            return q.promise;
-
-          } else {
-            return config;
-          }
-        },
-
-        'response': function(response) {
-          return response;
-        }
-      };
-    });
-  }
-])
-
 .constant('$ionicLoadingConfig', {
   template: 'Default Loading Template...'
 })
+
+
+
+
+
+
+
+
+
+
+

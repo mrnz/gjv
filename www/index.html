@@ -3,79 +3,64 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <title>VIN Finder</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
     
     <link href="lib/ionic/release/css/ionic.css" rel="stylesheet">
         
     <link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
-    
+    <link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    
- 
- 
-
-
-    
-    
-    
-
-    
-    
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/release/js/ionic.bundle.js"></script>
-
-    <script src="lib/angular-translate/angular-translate.min.js"></script>
-
+    
+    <script src="lib/ionic/release/js/ionic.bundle.min.js"></script>
     <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/angular-translate/angular-translate.min.js"></script>
+    <script src="lib/angular-cache/dist/angular-cache.min.js"></script>
+    <script src="lib/ion-gallery/dist/ion-gallery.js"></script>
+    <script src="lib/satellizer/satellizer.js"></script>
     <script src="cordova.js"></script>
 
-    <!-- SATELLIZER -->
-    <script src="lib/satellizer/satellizer.js"></script>
-
-    <!-- ANGULAR-CACHE -->
-    <script src="lib/angular-cache/dist/angular-cache.min.js"></script>
-
-    <!-- USER MODULE -->
-    <script src="modules/gjvMessage/js/module.js"></script>
-
-    <!-- MESSAGE MODULE -->
-    <script src="modules/gjvData/js/module.js"></script>
     
-    <!-- SHARE MODULE -->
-    <script src="modules/gjvShare/js/module.js"></script>
 
-    <!-- TRANSLATE MODULE -->
-    <script src="modules/gjvTranslate/js/module.js"></script>    
-
-    <!-- TRANSLATE MODULE -->
-    <script src="modules/gjvOptions/js/module.js"></script>    
-
-    <!-- USER MODULE -->
-    <script src="modules/gjvUser/js/module.js"></script>
-    <script src="modules/gjvUser/js/services.js"></script>
-    <script src="modules/gjvUser/js/controllers.js"></script>
-
-    <!-- USER MODULE -->
-    <script src="modules/gjvCordova/js/module.js"></script>
-    <script src="modules/gjvCordova/js/services.js"></script>
-
-    <!-- BROWSE MODULE -->
-    <script src="modules/gjvBrowse/js/module.js"></script>
-    <script src="modules/gjvBrowse/js/services.js"></script>
-    <script src="modules/gjvBrowse/js/directives.js"></script>
-    <script src="modules/gjvBrowse/js/controllers.js"></script>
-
-
-    <!-- your app's js -->
+    
     <script src="js/app.js"></script>
+    
+    <script src="js/configs/translateConfig.js"></script>
+    <script src="js/configs/appRateConfig.js"></script>
+    <script src="js/configs/galleryConfig.js"></script>
+    <script src="js/configs/cacheConfig.js"></script>
+    <script src="js/configs/satellizerConfig.js"></script>
+    <script src="js/configs/routerConfig.js"></script>
+    <script src="js/configs/httpConfig.js"></script>
+
+
+    <script src="js/controllers/startCtrl.js"></script>
+    <script src="js/controllers/menuCtrl.js"></script>
+    <script src="js/controllers/modelsCtrl.js"></script>
+    <script src="js/controllers/brandsCtrl.js"></script>
+    <script src="js/controllers/volumesCtrl.js"></script>
+    <script src="js/controllers/infoCtrl.js"></script>
+    <script src="js/controllers/addVehiculeCtrl.js"></script>
+
+    <script src="js/factories/dataFactory.js"></script>
+    <script src="js/factories/userFactory.js"></script>
+    <script src="js/factories/socialShareFactory.js"></script>
+    <script src="js/factories/messageFactory.js"></script>
+    <script src="js/factories/translateFactory.js"></script>
+    <script src="js/factories/cordovaFactory.js"></script>
+
+    <script src="js/factories/URLFactory.js"></script>
+    <script src="js/factories/tokenFactory.js"></script>
+
+    <script src="js/directives/imageOnLoad.js"></script>
+
+    <script src="js/providers/appRateProvider.js"></script>
+    
   </head>
   <body ng-app="starter">
 

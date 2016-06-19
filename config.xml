@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.blank454815" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>blank</name>
+<widget id="pl.gdziejestvin.vinfinder" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>VIN Finder</name>
   <description>
         An Ionic Framework and Cordova project.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="whereisvin@gmail.com" href="https://uk.linkedin.com/in/pmarciniak">
+      VIN Finder Team
     </author>
   <content src="index.html"/>
   <allow-navigation href="http://*/*" />

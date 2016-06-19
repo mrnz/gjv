@@ -86,6 +86,14 @@
   font-style: normal; }
 
 /* END Black */
+.menu-open .avatar {
+  left: auto !important;
+  right: 16px !important;
+  border-radius: 15% !important; }
+
+.hide-first {
+  opacity: 0; }
+
 .login-form .roundnes-top {
   border-radius: 10px 10px 0 0; }
 
@@ -191,15 +199,13 @@ div.halves {
       right: 0px;
       bottom: 75px; }
       div.halves.top #top-wrapper .logo {
-        height: 30px;
-        line-height: 30px;
-        font-size: 30px;
+        height: 154px;
         width: 100%;
         position: absolute;
-        top: 50%;
+        top: -50%;
         text-align: center;
-        margin-top: -15px;
-        background: red; }
+        margin-top: 50%;
+        background: url("../img/logo.png") no-repeat center center; }
     div.halves.top #buttons-wrapper {
       position: absolute;
       bottom: -75px;

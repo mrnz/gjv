@@ -1,0 +1,55 @@
+<ion-view title="{{title}}" class="">
+    
+    <ion-content  
+		class="S"
+    	padding="false">
+
+		{{info.marka}}
+		<br>
+		{{info.model}}
+		<br>
+		{{info.typ}}
+		<br>
+		{{info.opis}}
+		<br>
+		
+
+
+<!-- 		<div class="imageContainer">
+			
+			<ion-spinner 
+				ng-if="!ready" 
+				icon="spiral"
+				ng-class="{'spinerBgHide':ready == true}" 
+				class="spinerBg imageAnimation"></ion-spinner>
+			
+			<img 
+				ng-if="ready"
+				image-on-load
+				class="loadingImage imageAnimation"
+				ng-class="{showImage: showThis == true}"
+				ng-src="http://www.gdziejestvin.pl/file/{{info.foto1}}" alt="">	
+		</div>
+		
+		<br>
+
+		<div class="imageContainer">
+			
+			<ion-spinner 
+				ng-if="!ready" 
+				icon="spiral"
+				ng-class="{'spinerBgHide':ready == true}" 
+				class="spinerBg imageAnimation"></ion-spinner>
+			
+			<img 
+				ng-if="ready"
+				image-on-load
+				class="loadingImage imageAnimation"
+				ng-class="{showImage: showThis == true}"
+				ng-src="http://www.gdziejestvin.pl/file/{{info.foto2}}" alt="">	
+		</div> -->
+			<ion-gallery ion-gallery-items="items" ion-gallery-row="2"></ion-gallery>
+
+    </ion-content>
+
+</ion-view>

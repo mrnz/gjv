@@ -106,6 +106,14 @@ $socicon-font-family: "socicon";
   //
 //}
 // @import  'fonts/font-awesome';
+.menu-open .avatar{
+  left: auto !important;
+  right: 16px !important;
+  border-radius: 15% !important;
+}
+.hide-first{
+  opacity: 0;
+}
 .gjv-bg {
   //background: darken($gjv-color, 15%);
 }
@@ -237,15 +245,13 @@ div.halves{
       right: 0px;
       bottom: $buttos-height-half;
       .logo{
-        height: 30px;
-        line-height: 30px;
-        font-size: 30px;
+        height: 154px;
         width: 100%;
         position: absolute;
-        top: 50%;
+        top: -50%;
         text-align: center;
-        margin-top: -15px;
-        background: red;
+        margin-top: 50%;
+        background: url("../img/logo.png") no-repeat center center;
       }
     }
     #buttons-wrapper{

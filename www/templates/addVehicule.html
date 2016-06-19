@@ -1,0 +1,104 @@
+<ion-view title="" class="">
+    
+    <ion-content  
+		class="S"
+    	padding="false">
+
+
+			Wiesz gdzie znajduje się VIN auta którego nie ma w naszej bazie? Podziel się z nami swoją wiedzą i pomóż na rozwijac ten projekt.
+
+ 			<form 
+                class=""
+                name="addVehiculeForm"
+                ng-submit="authenticate( 'email', credentials )"  
+                >
+                
+                <div class="new-form-style">
+
+ 					<label class="item item-input item-floating-label">
+
+                        <span class="input-label">Brand</span>
+
+                        <input 
+                            type="text" 
+                            placeholder="Brand..." 
+                            ng-model="data.brand" 
+                            name="brand"
+                            ng-minlength="1"
+                            ng-maxlength="126"
+                            ng-class="{'has-error': !addVehiculeForm.brand.$valid && !addVehiculeForm.brand.$pristine }"
+                            required>
+                    </label>
+
+                    <label class="item item-input item-floating-label">
+
+                        <span class="input-label">Model</span>
+
+                        <input 
+                            type="text" 
+                            placeholder="Model..." 
+                            ng-model="data.model"
+                            name="password"
+                            ng-class="{'has-error': !addVehiculeForm.model.$valid && !addVehiculeForm.model.$pristine }"
+                            ng-minlength="1"
+                            ng-maxlength="126"
+                            required>
+
+                    </label>
+
+
+                    <label class="item item-input item-floating-label">
+						
+						<span class="input-label">Volume</span>
+                        
+                        <input 
+                            type="text" 
+                            placeholder="Volume..." 
+                            ng-model="data.volume"
+                            name="password"
+                            ng-class="{'has-error': !addVehiculeForm.volume.$valid && !addVehiculeForm.volume.$pristine }"
+                            ng-minlength="1"
+                            ng-maxlength="126"
+                            required>
+
+                    </label>
+
+                    <label class="item item-input item-floating-label">
+						
+						<span class="input-label">Description</span>
+                    	
+                    	<textarea 
+                    		placeholder="Description..."
+                    		name="description"
+                    		rows="4"
+                    		ng-model="data.description"></textarea>
+                    
+                    </label>
+
+                </div>
+                
+                <div class="cl"></div>
+
+                <div class="signup-form-button mt15 mb15">
+                    
+                    <button
+                        menu-close 
+                        nav-clear
+                        type="submit" 
+                        id="submit" 
+                        class="button button-block pure-button button-trans mt0 mb0"
+                        ng-disabled="loginForm.$invalid">Sign In with Email</button>
+                    
+                    </div>
+                
+                
+                <a class="reset-password-link mt20" ng-click="forgotPassword()">
+                    Forgot your password? <span class="icn ion-arrow-right-b"></span>
+                </a>
+                
+
+            </form>		
+
+    </ion-content>
+
+</ion-view>
