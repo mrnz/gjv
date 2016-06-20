@@ -7,12 +7,12 @@ angular.module('starter')
 	'userFactory', 
 	'$ionicModal', 
 	'TokenFactory', 
-	'ionicMaterialInk', 
-	function($scope, $state, $http, userFactory, $ionicModal, TokenFactory, ionicMaterialInk){
+	'effectMaterialFactory', 
+	function($scope, $state, $http, userFactory, $ionicModal, TokenFactory, effectMaterialFactory){
 
-		ionicMaterialInk.displayEffect();
+		effectMaterialFactory.switchOnEffects();
 
-		console.log('is auth: '+TokenFactory.isAuthenticated())
+		console.log('is auth: '+TokenFactory.isAuthenticated());
 
 		if(TokenFactory.isAuthenticated()){
 	    $state.go('menu.brands');
@@ -26,8 +26,10 @@ angular.module('starter')
 		}; 
 
 		$scope.submit = function(credentials){
-			userFactory.authenticate('emailRegister', credentials).then(function(a) {
-				if(a)close();
+			userFactory.authenticate('emailRegister', credentials).then(function(success) {
+				if(success){
+					close();	
+				}
 			});
 		};	$scope.join = function(){
 			$state.go('join'); 
@@ -56,7 +58,7 @@ angular.module('starter')
 		    scope: $scope,
 		    animation: 'slide-in-up'
 		  }).then(function(modal) {
-		    ionicMaterialInk.displayEffect();
+		   	effectMaterialFactory.switchOnEffects();
 		    $scope.modal = modal;
 		    $scope.modal.show();
 		  });
@@ -67,7 +69,7 @@ angular.module('starter')
 		    scope: $scope,
 		    animation: 'slide-in-up'
 		  }).then(function(modal) {
-		    ionicMaterialInk.displayEffect();
+		    effectMaterialFactory.switchOnEffects();
 		    $scope.modal = modal;
 		    $scope.modal.show();
 		  });
