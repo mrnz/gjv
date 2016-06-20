@@ -11,8 +11,7 @@ var APP = angular.module('starter', [
   'angular-cache',
   'satellizer',
   'pascalprecht.translate'
-])
-
+]);
     
 APP.run([
   '$rootScope', 
@@ -38,23 +37,23 @@ APP.run([
           $state.go('menu.brands');
         }
       }
-  })
+  });
 
   $ionicPlatform.ready(function() {
+    
+    var onBackKeyDown = function (event) {
+      console.warn('back Button hit');
+      if($state.current.name === 'start'){
+        event.preventDefault();
+        navigator.Backbutton.goBack(function() {
+          console.log('success');
+        }, function() {
+          console.log('fail');
+        });
+      }
+    };
 
     if (ionic.Platform.isWebView()) {
-
-      function onBackKeyDown(event) {
-        console.warn('back Button hit')
-        if($state.current.name === 'start'){
-          event.preventDefault();
-          navigator.Backbutton.goBack(function() {
-            console.log('success');
-          }, function() {
-            console.log('fail');
-          });
-        }
-      };
 
       document.addEventListener("backbutton", onBackKeyDown, false);
       
@@ -104,7 +103,7 @@ APP.run([
 })
 .constant('$ionicLoadingConfig', {
   template: 'Default Loading Template...'
-})
+});
 
 
 
