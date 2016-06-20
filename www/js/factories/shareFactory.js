@@ -24,22 +24,23 @@ angular.module('starter')
       	console.log(err);
       };
       
-      console.log('provider: ' + provider)
+      console.log('provider: ' + provider);
+
       switch (provider) {
 		    case 'fb':
-					$cordovaSocialSharing.shareViaFacebook(message, image, link).then(function(result) {successCallback(result)}, function(err) {errorCallback(err)});
+					$cordovaSocialSharing.shareViaFacebook(message, image, link).then(function(result) {successCallback(result);}, function(err) {errorCallback(err);});
 		      break;
 		    case 'twitter':
-		      $cordovaSocialSharing.shareViaTwitter(message, image, link).then(function(result) {successCallback(result)}, function(err) {errorCallback(err)});
+		      $cordovaSocialSharing.shareViaTwitter(message, image, link).then(function(result) {successCallback(result);}, function(err) {errorCallback(err);});
 		      break;
 		    case 'sms':
-		      $cordovaSocialSharing.shareViaSMS(message, number).then(function(result) {successCallback(result)}, function(err) {errorCallback(err)});
+		      $cordovaSocialSharing.shareViaSMS(message, number).then(function(result) {successCallback(result);}, function(err) {errorCallback(err);});
 		      break;
 		    case 'email':
-		      $cordovaSocialSharing.shareViaEmail(message, subject, toArr, ccArr, bccArr, image).then(function(result) {successCallback(result)}, function(err) {errorCallback(err)});
+		      $cordovaSocialSharing.shareViaEmail(message, subject, toArr, ccArr, bccArr, image).then(function(result) {successCallback(result);}, function(err) {errorCallback(err);});
 		      break;
 		    case 'whatsapp':
-		      $cordovaSocialSharing.shareViaWhatsApp(message, image, link).then(function(result) {successCallback(result)}, function(err) {errorCallback(err)});
+		      $cordovaSocialSharing.shareViaWhatsApp(message, image, link).then(function(result) {successCallback(result);}, function(err) {errorCallback(err);});
 		      break;
 			}
 		}
