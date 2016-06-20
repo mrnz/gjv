@@ -38,12 +38,12 @@ angular.module('starter')
           hideOnStateChange: defaultShowLoading.hideOnStateChange,
           delay: defaultShowLoading.delay,
           duration: defaultShowLoading.duration
-        }
+        };
 
         angular.extend(def, settings);
 
         $ionicLoading.show(def);
 
       }
-    }
+    };
 }]);
