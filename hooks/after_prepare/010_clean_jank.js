@@ -65,7 +65,7 @@ ncp(androidPlatformsDir+'/dist/', androidPlatformsDir+'/', function (err) {
  	}
  	var iosPlatformsDir = path.resolve(__dirname, '../../platforms/ios/www/dist/');
 	var androidPlatformsDir = path.resolve(__dirname, '../../platforms/android/assets/www/dist/');
-	deleteFolderRecursive(iosPlatformsDir)
-	deleteFolderRecursive(androidPlatformsDir)
+	deleteFolderRecursive(iosPlatformsDir);
+	deleteFolderRecursive(androidPlatformsDir);
 });
 
