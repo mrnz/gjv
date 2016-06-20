@@ -5,10 +5,8 @@ angular.module('starter')
 	'$state', 
 	'dataFactory', 
 	'Settings', 
-	'$timeout', 
-	'ionicMaterialInk', 
-	'ionicMaterialMotion', 
-	function($scope, $state, dataFactory, Settings, $timeout, ionicMaterialInk, ionicMaterialMotion){
+	'effectMaterialFactory',
+	function($scope, $state, dataFactory, Settings, effectMaterialFactory){
 	
 		$scope.items = [];
 		$scope.listEmpty = true;
@@ -18,10 +16,8 @@ angular.module('starter')
 
 			$scope.listEmpty = false; 
 			$scope.items = dataFactory.formatListData(result.brands);
-			$timeout(function() {
-				ionicMaterialInk.displayEffect();
-				ionicMaterialMotion.blinds();
-			}, 300);
+			effectMaterialFactory.switchOnEffectsWithDelay(300);
+			
 		},function(reason){});
 		
 		$scope.selectItem = function (ev,brandName) {

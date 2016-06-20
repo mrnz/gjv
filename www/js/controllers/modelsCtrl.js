@@ -3,10 +3,8 @@ angular.module('starter')
 	'$scope', 
 	'$state', 
 	'dataFactory', 
-	'$timeout', 
-	'ionicMaterialInk', 
-	'ionicMaterialMotion', 
-	function($scope, $state, dataFactory, $timeout, ionicMaterialInk, ionicMaterialMotion){
+	'effectMaterialFactory',
+	function($scope, $state, dataFactory){
 	
 		var brandName = $state.params.brandName; 
 
@@ -19,10 +17,7 @@ angular.module('starter')
 			$scope.listEmpty = false;
 			$scope.items = dataFactory.formatListData(result.models);
 
-			$timeout(function() {
-				ionicMaterialInk.displayEffect();
-				ionicMaterialMotion.blinds();
-			}, 300);
+			effectMaterialFactory.switchOnEffectsWithDelay(300);
 
 		},function(reason){console.log(reason);});
 		
