@@ -34,17 +34,18 @@ angular.module('starter')
 					defer.resolve(true);
 				},
 				function error(reason) {
-					console.log(reason)
+					console.log(reason);
 					that.postActionError(reason);
 					defer.resolve(false);
 				}
-			)
+			
+			);
 			return defer.promise;
 		}, 
 		satellizer: function( provider, user ){
 
 			if(provider === 'email'){
-				return $auth.login( user )
+				return $auth.login( user );
 			}else if(provider === 'emailRegister'){
 				return $auth.signup(user);
 			}else{
@@ -55,13 +56,13 @@ angular.module('starter')
 
 		postActionSuccess: function(result){
 			
-			if( result.status === 200 ){;
+			if( result.status === 200 ){
 
 				TokenFactory.setUserToken();
 				$state.go('menu.brands');
 
 			}
-			if( result.status === 201 ){;
+			if( result.status === 201 ){
 
 				TokenFactory.setUserToken();
 				$state.go('menu.brands');
@@ -69,7 +70,7 @@ angular.module('starter')
 			}
 
 			if( result.status === 202 ){
-				console.log('dsadsads')
+				console.log('dsadsads');
 				//User registered but email need to be confirmed
 				messageFactory.showLoading({
 					template: '<div>'+ result.data.message +'</div>',
@@ -78,7 +79,7 @@ angular.module('starter')
 
 				$timeout(function(){
 						$state.go('start');
-				}, 3000)
+				}, 3000);
 			}
 			
 		},
