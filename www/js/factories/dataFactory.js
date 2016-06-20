@@ -13,7 +13,7 @@ angular.module('starter')
 				req = {
 					method: 'GET',
 					url: APIAddress+'/brands'
-				}
+				};
 
 			return URLFactory.get(req); 
 		
@@ -23,7 +23,7 @@ angular.module('starter')
 				req = {
 					method: 'GET',
 					url: APIAddress+'/brands/'+brand+'/models'
-				}
+				};
 			
 			result = URLFactory.get(req);
 
@@ -35,7 +35,7 @@ angular.module('starter')
 			var req = {
 				method: 'GET',
 				url: APIAddress+'/brands/'+brand+'/models/'+model+'/volumes'
-			}
+			};
 			return URLFactory.get(req);
 		
 		},
@@ -43,7 +43,7 @@ angular.module('starter')
 			var req = {
 				method: 'GET',
 				url: APIAddress+'/brands/'+brand+'/models/'+model+'/volumes/'+volume+'/info'
-			}
+			};
 
 			return URLFactory.get(req);
 		
@@ -60,5 +60,5 @@ angular.module('starter')
 				return temp;
 			});
 		}		
-	}
+	};
 }]);
