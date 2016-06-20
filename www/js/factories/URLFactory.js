@@ -31,7 +31,7 @@ angular.module('starter')
 					// put data in cache
 					cachedData.put( params.url, resultObj );
 
-					defer.resolve(resultObj)
+					defer.resolve(resultObj);
 				})
 				.error(function(errorObj,status,headerFunc){
 					//console.log(errorObj);
@@ -40,7 +40,7 @@ angular.module('starter')
 						TokenFactory.logOut();
 					}
 					
-					defer.reject(errorObj)
+					defer.reject(errorObj);
 				});
 
 			return defer.promise;
@@ -69,6 +69,6 @@ angular.module('starter')
 		
 		}
 
-	}
+	};
 	
 }]);
