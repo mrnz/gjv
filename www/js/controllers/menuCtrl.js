@@ -15,7 +15,7 @@ angular.module('starter')
   	};
 
   	$scope.addVehicule = function() {
-  		$state.go('menu.addVehicule')
+  		$state.go('menu.addVehicule');
   	};
 
   	$scope.share = function(provider) {
@@ -24,7 +24,7 @@ angular.module('starter')
 
   	$scope.rateapp = function() {
       var devicePlatform = ionic.Platform.platform();
-      console.log(devicePlatform)
+      console.log(devicePlatform);
       if (devicePlatform == "iOS") {
         window.open('https://itunes.apple.com/us/app/YOUR-APP-SLUG-HERE/id000000000?mt=8&uo=4',  "_system"); 
       } else if (devicePlatform == "android") {
