@@ -1,17 +1,13 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var bower = require('bower');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
-var minify = require('gulp-minify');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
-var sh = require('shelljs');
-var shell = require('gulp-shell')
+var shell = require('gulp-shell');
 var ngmin = require('gulp-ngmin');
 var uglify = require('gulp-uglify');
-var pump = require('pump');
-var ngAnnotate = require('gulp-ng-annotate')
+var ngAnnotate = require('gulp-ng-annotate');
 var usemin = require('gulp-usemin');
 var templateCache = require('gulp-angular-templatecache');
 var gulpCopy = require('gulp-copy');
@@ -42,7 +38,7 @@ gulp.task('ip', shell.task([
   'sudo cordova plugin add https://github.com/apache/cordova-plugin-statusbar',
   'sudo cordova plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin',
   'sudo chmod 777 plugins/ -R'
-]))
+]));
 
 gulp.task('rp', shell.task([
   'sudo chmod 777 plugins/ -R',
@@ -56,7 +52,7 @@ gulp.task('rp', shell.task([
   'sudo cordova plugin rm cordova-plugin-statusbar',
   'sudo cordova plugin rm nl.x-services.plugins.toast',
   'sudo chmod 777 plugins/ -R'
-]))
+]));
 
 gulp.task('default', ['sass']);
 
@@ -73,22 +69,16 @@ gulp.task('sass', function(done) {
     .on('end', done);
 });
 
-gulp.task('install-plugins', function() {
-  console.log('INSTALL')
-});
-
-
-
-
-
 gulp.task('copyfonts', function() {
    gulp.src(['./www/lib/ionic/release/fonts/**/*.{ttf,woff,eof,svg}'])
    .pipe(gulp.dest('./www/dist/fonts'));
 });
+
 gulp.task('copyimg', function() {
    gulp.src(['./www/img/**/*'])
    .pipe(gulp.dest('./www/dist/img'));
 });
+
 gulp.task('templates', function () {
   return gulp.src('./www/templates/**/*.html')
     .pipe(templateCache({module:'starter'}))
