@@ -5,15 +5,17 @@ angular.module('starter')
 	'ionicMaterialInk', 
 	'ionicMaterialMotion',
 	function($timeout, ionicMaterialInk, ionicMaterialMotion){
+		var switchOnFunc = function() {
+			ionicMaterialInk.displayEffect();
+			ionicMaterialMotion.blinds();
+		};
 		return {
 			switchOnEffects: function() {
-				ionicMaterialInk.displayEffect();
-				ionicMaterialMotion.blinds();
+				switchOnFunc();
 			},
 			switchOnEffectsWithDelay: function(delay) {
 				$timeout(function() {
-					ionicMaterialInk.displayEffect();
-					ionicMaterialMotion.blinds();
+					switchOnFunc();
 				}, delay);
 			},
 		}
