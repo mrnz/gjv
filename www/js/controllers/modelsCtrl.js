@@ -4,7 +4,7 @@ angular.module('starter')
 	'$state', 
 	'dataFactory', 
 	'effectMaterialFactory',
-	function($scope, $state, dataFactory){
+	function($scope, $state, dataFactory, effectMaterialFactory){
 	
 		var brandName = $state.params.brandName; 
 

@@ -58,7 +58,7 @@ gulp.task('default', ['sass']);
 
 
 gulp.task('sass', function(done) {
-  gulp.src('./scss/style.scss')
+  gulp.src(['./scss/style.scss'])
     .pipe(sass())
     .pipe(gulp.dest('./www/css/'))
     .pipe(minifyCss({
