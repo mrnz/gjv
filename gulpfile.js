@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
+var minifyCss = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var shell = require('gulp-shell');
 var ngmin = require('gulp-ngmin');
@@ -19,6 +19,7 @@ var paths = {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch('./www/templates/*.html', ['templates']);
 });
 
 gulp.task('cm', shell.task([
