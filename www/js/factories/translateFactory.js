@@ -13,8 +13,8 @@ angular.module('starter')
             $translate.use(result.value.split("-")[0]);
           },
           function(error) {
-            // error
+            if (error) { /* Error can safely be ignored here */ }
           });
       }
-    }
+    };
 }]);
