@@ -5,6 +5,7 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var shell = require('gulp-shell');
+var exec = require('child_process').exec;
 var ngmin = require('gulp-ngmin');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
@@ -21,6 +22,14 @@ gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
   gulp.watch('./www/templates/*.html', ['templates']);
 });
+
+// gulp.task('cm', function (cb) {
+//   exec('ls | ls', function (err, stdout, stderr) {
+//     console.log(stdout);
+//     console.log(stderr);
+//     cb(err);
+//   });
+// })
 
 gulp.task('cm', shell.task([
   'sudo chmod 777 plugins/ -R',
