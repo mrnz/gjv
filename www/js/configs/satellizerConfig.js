@@ -4,7 +4,7 @@ angular.module('starter')
 
   $authProvider.httpInterceptor = true; // Add Authorization header to HTTP request
   $authProvider.loginOnSignup = false;
-  $authProvider.baseUrl = '' // API Base URL for the paths below.
+  $authProvider.baseUrl = ''; // API Base URL for the paths below.
   $authProvider.loginRedirect = '';
   $authProvider.logoutRedirect = '';
   $authProvider.signupRedirect = '';

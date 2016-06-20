@@ -24,6 +24,6 @@ angular.module('starter')
 		
 		$scope.selectItem = function (ev,volumeName) {
 			$state.go('menu.info', {brandName: brandName, modelName: modelName, volumeName: volumeName });
-		}
+		};
 
 }]);
