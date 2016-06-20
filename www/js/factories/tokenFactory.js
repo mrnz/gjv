@@ -10,11 +10,10 @@ angular.module('starter')
 
 		setUserToken: function(passedToken){
 			
-			var passedToken = passedToken,
-				localStorageToken;
+			var localStorageToken;
 
 			if( typeof passedToken !== 'undefined' ){
-				console.log(passedToken)
+				console.log(passedToken);
 				// token passed - set it
 				$http.defaults.headers.common['X-USER'] = passedToken; 
 				return true;
@@ -60,5 +59,5 @@ angular.module('starter')
 		isAuthenticated: function() {
 			return $auth.isAuthenticated();
 		}
-	}
+	};
 }]);
