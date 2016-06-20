@@ -3,10 +3,8 @@ angular.module('starter')
 		'$scope', 
 		'$state', 
 		'dataFactory', 
-		'$timeout', 
-		'ionicMaterialInk', 
-		'ionicMaterialMotion', 
-		function($scope, $state, dataFactory, $timeout, ionicMaterialInk, ionicMaterialMotion){
+		'effectMaterialFactory',
+		function($scope, $state, dataFactory, effectMaterialFactory){
 	
 		// get brand name and model name from URL 
 		var brandName = $state.params.brandName,
@@ -20,11 +18,7 @@ angular.module('starter')
 			
 			$scope.listEmpty = false; 
 			$scope.items = dataFactory.formatListData(result.volumes);
-			$timeout(function() {
-				ionicMaterialInk.displayEffect();
-				ionicMaterialMotion.blinds();
-			}, 300);
-
+			effectMaterialFactory.switchOnEffectsWithDelay(300);
 			
 		},function error (reason){console.log(reason);});
 		
