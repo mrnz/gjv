@@ -1,6 +1,15 @@
 angular.module('starter')
 
-.factory('userFactory', function($http, $q, $auth, $timeout, $state, $ionicLoading, TokenFactory, messageFactory){
+.factory('userFactory', [
+	'$http', 
+	'$q', 
+	'$auth', 
+	'$timeout', 
+	'$state', 
+	'$ionicLoading', 
+	'TokenFactory', 
+	'messageFactory',
+	function($http, $q, $auth, $timeout, $state, $ionicLoading, TokenFactory, messageFactory){
 	
 	return{
 		
@@ -84,12 +93,8 @@ angular.module('starter')
 		},
 		passwordForgot: function(email){
 			console.log('email: ' + email);
-		},
-
-
-
+		}
 
 	};
 
-})
-;
+}]);

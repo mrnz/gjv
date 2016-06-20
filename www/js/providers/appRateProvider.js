@@ -62,5 +62,5 @@ angular.module('starter')
         }
       };
     }];
-  }])
+  }]);
 

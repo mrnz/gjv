@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.directive('imageOnLoad', function() {
+.directive('imageOnLoad',[function() {
     return {
         restrict: 'A',
         link: function(scope, elem, attrs) {
@@ -9,4 +9,4 @@ angular.module('starter')
             });
         }
     };
-})
+}]);

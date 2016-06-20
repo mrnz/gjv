@@ -14,7 +14,21 @@ var APP = angular.module('starter', [
 ])
 
     
-APP.run(function($rootScope,$state, $ionicPlatform, $auth, messageFactory, $cordovaNetwork, $cordovaAppRate, $cordovaAppVersion, $cordovaSplashscreen, $cordovaStatusbar, $cordovaToast, translate, TokenFactory) {
+APP.run([
+  '$rootScope', 
+  '$state', 
+  '$ionicPlatform', 
+  '$auth', 
+  'messageFactory', 
+  '$cordovaNetwork', 
+  '$cordovaAppRate', 
+  '$cordovaAppVersion', 
+  '$cordovaSplashscreen', 
+  '$cordovaStatusbar', 
+  '$cordovaToast', 
+  'translate', 
+  'TokenFactory', 
+  function($rootScope,$state, $ionicPlatform, $auth, messageFactory, $cordovaNetwork, $cordovaAppRate, $cordovaAppVersion, $cordovaSplashscreen, $cordovaStatusbar, $cordovaToast, translate, TokenFactory) {
   
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
 
@@ -81,7 +95,7 @@ APP.run(function($rootScope,$state, $ionicPlatform, $auth, messageFactory, $cord
     }
 
   });
-})
+}])
 
 
 .constant('APIAddress', 'http://www.gdziejestvin.pl/api')

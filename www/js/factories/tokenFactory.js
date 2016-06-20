@@ -1,6 +1,11 @@
 angular.module('starter')
 
-.factory('TokenFactory', function($http, $q, $auth, $state ){
+.factory('TokenFactory', [
+	'$http', 
+	'$q', 
+	'$auth', 
+	'$state', 
+	function($http, $q, $auth, $state ){
 	return{
 
 		setUserToken: function(passedToken){
@@ -56,4 +61,4 @@ angular.module('starter')
 			return $auth.isAuthenticated();
 		}
 	}
-});
+}]);

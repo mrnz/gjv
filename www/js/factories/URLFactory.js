@@ -1,7 +1,12 @@
 angular.module('starter')
 
 
-.factory('URLFactory', function($http, $q, CacheFactory, TokenFactory){
+.factory('URLFactory',[
+	'$http', 
+	'$q', 
+	'CacheFactory', 
+	'TokenFactory', 
+	function($http, $q, CacheFactory, TokenFactory){
 	
 	var cachedData = CacheFactory('cachedData');
 
@@ -66,4 +71,4 @@ angular.module('starter')
 
 	}
 	
-});
+}]);

@@ -1,6 +1,11 @@
 angular.module('starter')
 
-.factory('$cordovaNetwork', function($rootScope, $timeout, messageFactory, $cordovaToast) {
+.factory('$cordovaNetwork',[ 
+  '$rootScope', 
+  '$timeout', 
+  'messageFactory', 
+  '$cordovaToast', 
+  function($rootScope, $timeout, messageFactory, $cordovaToast) {
 
   var network = true;
 
@@ -72,7 +77,7 @@ angular.module('starter')
       $rootScope.$$listeners["$cordovaNetwork:online"] = [];
     }
   };
-})
+}])
 
 .factory('$cordovaAppVersion', ['$q',
   function($q) {

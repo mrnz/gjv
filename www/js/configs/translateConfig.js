@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.config(function($translateProvider) {
+.config(['$translateProvider', function($translateProvider) {
 
   $translateProvider.translations('en', {
     INPUT_PLACEHOLDER_PASSWORD: 'Password...',
@@ -32,4 +32,4 @@ angular.module('starter')
   $translateProvider.fallbackLanguage('en');
 	//$translateProvider.useSanitizeValueStrategy('sanitize');
 	
-})
+}]);

@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.config(function($authProvider) {
+.config(['$authProvider',function($authProvider) {
 
   $authProvider.httpInterceptor = true; // Add Authorization header to HTTP request
   $authProvider.loginOnSignup = false;
@@ -51,4 +51,4 @@ angular.module('starter')
     type: '2.0',
   });
 
-})
+}]);

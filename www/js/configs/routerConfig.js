@@ -1,12 +1,12 @@
 angular.module('starter')
-.config(function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   
   $stateProvider
 
     .state('start', {
       url: "/",
       cache: false,
-      templateUrl: "templates/start.html",
+      templateUrl: "start.html",
       controller: 'StartCtrl',
       data: {
         stateName: 'start',
@@ -17,7 +17,7 @@ angular.module('starter')
  
     .state('menu', {
       url: "/menu",
-      templateUrl: "templates/menu.html",
+      templateUrl: "menu.html",
       abstract: true,
       controller: 'MenuCtrl',
     })
@@ -28,7 +28,7 @@ angular.module('starter')
       cache: false,
       views: {
         'menuContent': {
-          templateUrl: "templates/list.html",
+          templateUrl: "list.html",
           controller: 'BrandsCtrl'
         }
       },
@@ -44,7 +44,7 @@ angular.module('starter')
       cache: false,
       views: {
         'menuContent': {
-          templateUrl: "templates/list.html",
+          templateUrl: "list.html",
           controller: 'ModelsCtrl'
         }
       },
@@ -60,7 +60,7 @@ angular.module('starter')
       url: "/brand/:brandName/model/:modelName/volumes",
       views: {
         'menuContent': {
-          templateUrl: "templates/list.html",
+          templateUrl: "list.html",
           controller: 'VolumesCtrl'
         }
       },
@@ -76,7 +76,7 @@ angular.module('starter')
       cache: false,
       views: {
         'menuContent': {
-          templateUrl: "templates/info.html",
+          templateUrl: "info.html",
           controller: 'InfoCtrl'
         }
       },
@@ -93,7 +93,7 @@ angular.module('starter')
       cache: false,
       views: {
         'menuContent': {
-          templateUrl: "templates/addVehicule.html",
+          templateUrl: "addVehicule.html",
           controller: 'AddVehiculeCtrl'
         }
       },
@@ -110,4 +110,4 @@ angular.module('starter')
   });
 
 
-})
+}]);

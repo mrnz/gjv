@@ -1,5 +1,5 @@
 angular.module('starter')
-.config(function ($cordovaAppRateProvider) {
+.config(['$cordovaAppRateProvider', function ($cordovaAppRateProvider) {
 
   document.addEventListener("deviceready", function () {
 
@@ -14,5 +14,5 @@ angular.module('starter')
     $cordovaAppRateProvider.setPreferences(prefs)
 
  }, false);
-});
+}]);
 

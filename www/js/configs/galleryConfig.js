@@ -1,5 +1,5 @@
 angular.module('starter')
-.config(function(ionGalleryConfigProvider) {
+.config(['ionGalleryConfigProvider',function(ionGalleryConfigProvider) {
   
   ionGalleryConfigProvider.setGalleryConfig({
   	action_label: 'Close',
@@ -10,5 +10,5 @@ angular.module('starter')
     fixed_row_size: true
   });
 
-})
+}]);
 
