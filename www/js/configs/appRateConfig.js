@@ -11,7 +11,7 @@ angular.module('starter')
       windowsURL: 'ms-windows-store:Review?name=<...>'
     };
 
-    $cordovaAppRateProvider.setPreferences(prefs)
+    $cordovaAppRateProvider.setPreferences(prefs);
 
  }, false);
 }]);
