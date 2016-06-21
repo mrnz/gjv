@@ -6,7 +6,6 @@ var minifyCss = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var shell = require('gulp-shell');
 var exec = require('child_process').exec;
-var ngmin = require('gulp-ngmin');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
 var usemin = require('gulp-usemin');

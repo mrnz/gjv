@@ -1,14 +1,11 @@
 language: node_js
 node_js:
 - '5'
-before_install:
-- gem update --system
-- gem install compass
 before_script:
-- npm install -g grunt
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 - sleep 3
+- ./node_modules/.bin/bower install --allow-root
 # - ./node_modules/protractor/bin/webdriver-manager update --standalone --firefox
 # - ./node_modules/protractor/bin/webdriver-manager start 2>&1 &
 # - sleep 3
