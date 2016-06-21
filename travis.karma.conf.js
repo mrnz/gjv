@@ -1,7 +1,7 @@
 module.exports = function(config) {
   config.set({
     basePath: './',
-    frameworks: ['jasmine', 'sinon'],
+    frameworks: ['jasmine'],
     files: [
         'www/lib/ionic/release/js/ionic.bundle.min.js',
         'www/lib/angular-translate/angular-translate.min.js',
@@ -30,7 +30,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['firefox'],
+    browsers: ['chrome_without_security'],
 	customLaunchers: {
 	  chrome_without_security: {
 	    base: 'Chrome',
