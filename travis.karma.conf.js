@@ -30,7 +30,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['chrome_without_security'],
+    browsers: ['Firefox'],
 	customLaunchers: {
 	  chrome_without_security: {
 	    base: 'Chrome',
