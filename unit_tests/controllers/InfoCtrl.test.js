@@ -53,7 +53,7 @@ describe('InfoCtrl test', function () {
       });
 
       it('title should be Opel', function () {
-        expect(scope.title).toEqual('1999');
+        expect(scope.title).toEqual('Opel');
       });
       
     });
