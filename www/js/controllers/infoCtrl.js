@@ -3,10 +3,7 @@ angular.module('starter')
 	'$scope', 
 	'$state', 
 	'dataFactory', 
-	'$timeout', 
-	'ionicMaterialInk', 
-	'ionicMaterialMotion', 
-	function($scope, $state, dataFactory, $timeout, ionicMaterialInk, ionicMaterialMotion){
+	function($scope, $state, dataFactory){
 	
 		var brandName = $state.params.brandName,
 				modelName = $state.params.modelName,
@@ -16,7 +13,8 @@ angular.module('starter')
 		$scope.ready = false;
 		$scope.title = brandName; 
 		$scope.items = [];
-		dataFactory.info( brandName, modelName, volumeName ).then(function (result){
+		
+    dataFactory.info( brandName, modelName, volumeName ).then(function (result){
 			$scope.ready = true;
 			$scope.info = result.info; 
 			var base = 'http://www.gdziejestvin.pl/file/';
