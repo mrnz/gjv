@@ -23,6 +23,9 @@ gulp.task('watch', function() {
   gulp.watch('./www/templates/*.html', ['templates']);
 });
 
+gulp.task('unit-travis', shell.task('./node_modules/.bin/karma start travis.karma.conf.js') ); 
+gulp.task('unit', shell.task('./node_modules/.bin/karma start karma.conf.js') ); 
+
 // gulp.task('cm', function (cb) {
 //   exec('ls | ls', function (err, stdout, stderr) {
 //     console.log(stdout);

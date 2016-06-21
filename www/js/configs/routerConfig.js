@@ -14,7 +14,7 @@ angular.module('starter')
         activeTab: 0
       }
     })
- 
+
     .state('menu', {
       url: "/menu",
       templateUrl: "menu.html",
@@ -105,7 +105,7 @@ angular.module('starter')
     });
 
   $urlRouterProvider.otherwise(function(a, b, c, d) {
-    console.log('otherwise - from: ' + b.$$urlr);
+    // console.log('otherwise - from: ' + b.$$urlr);
     return "/";
   });
 
