@@ -1,4 +1,7 @@
 angular.module('starter')
-.controller('AddVehiculeCtrl', ['$scope','$state','dataFactory',function($scope, $state, dataFactory){
-	
+.controller('AddVehiculeCtrl', ['$scope',function($scope){
+	$scope.a = 'test;'
+	$scope.test = function() {
+		return 'test is this';
+	};
 }]);

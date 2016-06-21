@@ -6,7 +6,6 @@ var minifyCss = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var shell = require('gulp-shell');
 var exec = require('child_process').exec;
-var ngmin = require('gulp-ngmin');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
 var usemin = require('gulp-usemin');
@@ -22,6 +21,9 @@ gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
   gulp.watch('./www/templates/*.html', ['templates']);
 });
+
+gulp.task('unit-travis', shell.task('./node_modules/.bin/karma start travis.karma.conf.js') ); 
+gulp.task('unit', shell.task('./node_modules/.bin/karma start karma.conf.js') ); 
 
 // gulp.task('cm', function (cb) {
 //   exec('ls | ls', function (err, stdout, stderr) {

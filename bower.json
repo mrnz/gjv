@@ -2,14 +2,20 @@
   "name": "gjv",
   "private": "true",
   "devDependencies": {
-    "ionic": "1.1.0",
+    "ionic": "1.3.1",
     "satellizer": "https://github.com/mrnz/satellizer.git",
     "angular-cache": "latest",
     "angular-translate": "latest"
   },
   "dependencies": {
-    "angular-translate": "~2.7.2",
-    "ionic-material": "~0.4.2",
-    "ion-gallery": "~0.1.14"
+    "angular-translate": "latest",
+    "ionic-material": "latest",
+    "ion-gallery": "latest"
+  },
+  "resolutions": {
+    "ionic": "1.3.1",
+    "angular": "1.5.3",
+    "angular-animate": "1.5.3",
+    "angular-sanitize": "1.5.3"
   }
 }

@@ -5,18 +5,7 @@ angular.module('starter')
   '$state', 
   'shareFactory', 
   'TokenFactory', 
-  '$timeout', 
-  'ionicMaterialInk', 
-  'ionicMaterialMotion', 
-  function($scope, $state, shareFactory, TokenFactory, $timeout, ionicMaterialInk, ionicMaterialMotion){
-
-  	$scope.redirect = function(stateName) {
-  		$state.go(stateName);
-  	};
-
-  	$scope.addVehicule = function() {
-  		$state.go('menu.addVehicule');
-  	};
+  function($scope, $state, shareFactory, TokenFactory){
 
   	$scope.share = function(provider) {
   		return shareFactory.share(provider);
