@@ -4,11 +4,11 @@ angular.module('starter')
 .factory('URLFactory',[
 	'$http', 
 	'$q', 
-	'CacheFactory', 
+	'appCacheFactory', 
 	'TokenFactory', 
-	function($http, $q, CacheFactory, TokenFactory){
-	
-	var cachedData = CacheFactory('cachedData');
+	function($http, $q, appCacheFactory, TokenFactory){
+
+	var cachedData = appCacheFactory;
 
 	return{
 		
@@ -34,8 +34,7 @@ angular.module('starter')
 					defer.resolve(resultObj);
 				})
 				.error(function(errorObj,status,headerFunc){
-					//console.log(errorObj);
-					//console.log(status);
+
 					if( status === 401 ){
 						TokenFactory.logOut();
 					}
@@ -52,13 +51,13 @@ angular.module('starter')
 
 			// if undefined get data from API
 			if( typeof data === 'undefined'){
-				//console.log('API');
+				console.log('API');
 				result = this.call( params );
 			}
 			// if not undefined return data from cache
 			else{
 				
-				//console.log('CACHE');
+				console.log('CACHE');
 				var defer = $q.defer();
 			 	defer.resolve(data);
 			 	result = defer.promise;
