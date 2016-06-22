@@ -24,7 +24,7 @@ angular.module('starter')
 				{src: foto1, sub: 'sub 1'},
 				{src: foto2, sub: 'sub 2'}
 			];
-		},function error (reason){console.log(reason);});
+		},function(reason){});
 
 
 }]);

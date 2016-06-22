@@ -8,8 +8,6 @@ describe('AddVehiculeCtrl', function () {
     beforeEach(inject(function($rootScope, $controller) {
       scope = $rootScope.$new();
       $controller('AddVehiculeCtrl', {$scope: scope});
-      spyOn(scope, 'test');
-
     }));
   
   describe('Constructor', function () {
