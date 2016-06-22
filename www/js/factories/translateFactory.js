@@ -3,19 +3,23 @@ angular.module('starter')
 .factory('translate', [
   '$cordovaGlobalization', 
   '$translate', 
-  function($cordovaGlobalization, $translate) {
+  '$q',
+  function($cordovaGlobalization, $translate, $q) {
     return {
       setPreferredLanguage: function() {
         
-        $cordovaGlobalization.getPreferredLanguage().then(
+        var defer = $q.defer();
 
+        $cordovaGlobalization.getPreferredLanguage().then(
           function(result) {
             $translate.use(result.value.split("-")[0]);
+            defer.resolve(result.value.split("-")[0]);
           },
           function(error) {
-            if (error) { /* Error can safely be ignored here */ }
+            defer.reject(error);
           }
         );
+        return defer.promise;
       }
     };
 }]);
