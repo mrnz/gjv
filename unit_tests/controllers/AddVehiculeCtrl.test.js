@@ -9,7 +9,7 @@ describe('AddVehiculeCtrl', function () {
       scope = $rootScope.$new();
       $controller('AddVehiculeCtrl', {$scope: scope});
       spyOn(scope, 'test');
-      scope.test(21)
+
     }));
   
   describe('Constructor', function () {
@@ -17,11 +17,7 @@ describe('AddVehiculeCtrl', function () {
     it('assigns a name', function () {
       expect(scope.a).toEqual('test;');
     });
-
-    it('test spy jasmine', function () {
-      expect(scope.test).toHaveBeenCalledWith(21);
-    });
-      ;
+    
   });
 
 });

@@ -19,7 +19,7 @@ angular.module('starter')
 
 			effectMaterialFactory.switchOnEffectsWithDelay(300);
 
-		},function(reason){console.log(reason);});
+		},function(reason){});
 		
 		$scope.selectItem = function (ev,modelName) {
 			$state.go('menu.volumes', {brandName: brandName, modelName: modelName });

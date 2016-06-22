@@ -20,7 +20,7 @@ angular.module('starter')
 			$scope.items = dataFactory.formatListData(result.volumes);
 			effectMaterialFactory.switchOnEffectsWithDelay(300);
 			
-		},function error (reason){console.log(reason);});
+		},function(reason){});
 		
 		$scope.selectItem = function (ev,volumeName) {
 			$state.go('menu.info', {brandName: brandName, modelName: modelName, volumeName: volumeName });
