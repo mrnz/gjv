@@ -8,9 +8,11 @@ describe('InfoCtrl test', function () {
  
         scope = $rootScope.$new();
         state = $state;
+
         state.params.brandName = 'Opel'
         state.params.modelName = 'Corsa'
         state.params.volumeName = '1999'
+        
         dataFactory = {
           info: function() {
             var defer = $q.defer();

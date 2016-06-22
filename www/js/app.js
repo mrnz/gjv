@@ -19,6 +19,7 @@ APP.run([
   '$ionicPlatform', 
   '$auth', 
   'messageFactory', 
+  '$cordovaGlobalization',
   '$cordovaNetwork', 
   '$cordovaAppRate', 
   '$cordovaAppVersion', 
@@ -27,8 +28,8 @@ APP.run([
   '$cordovaToast', 
   'translate', 
   'TokenFactory', 
-  function($rootScope,$state, $ionicPlatform, $auth, messageFactory, $cordovaNetwork, $cordovaAppRate, $cordovaAppVersion, $cordovaSplashscreen, $cordovaStatusbar, $cordovaToast, translate, TokenFactory) {
-  
+  function($rootScope,$state, $ionicPlatform, $auth, messageFactory, $cordovaGlobalization, $cordovaNetwork, $cordovaAppRate, $cordovaAppVersion, $cordovaSplashscreen, $cordovaStatusbar, $cordovaToast, translate, TokenFactory) {
+
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
 
       if(toState.name === 'start'){
@@ -58,6 +59,7 @@ APP.run([
       document.addEventListener("backbutton", onBackKeyDown, false);
       
       translate.setPreferredLanguage();
+      $cordovaAppRate.setPreferredLanguage();
 
       $rootScope.$on('$cordovaNetwork', function(a, value) {
         NETWORK = value;

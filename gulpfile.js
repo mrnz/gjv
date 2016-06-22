@@ -100,7 +100,8 @@ gulp.task('templates', function () {
 gulp.task('usemin',['copyfonts', 'copyimg', 'templates'], function () {
   return gulp.src('./www/index.html')
       .pipe(usemin({
-        js: [concat('js/all.js'), ngAnnotate(), uglify()],
+        // js: [concat('js/all.js'), ngAnnotate(), uglify()],
+        js: [concat('js/all.js')],
         jsLibs: [concat('js/libs.js')],
         css: [concat('css/style.css')],
         

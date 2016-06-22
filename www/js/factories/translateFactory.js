@@ -14,7 +14,8 @@ angular.module('starter')
           },
           function(error) {
             if (error) { /* Error can safely be ignored here */ }
-          });
+          }
+        );
       }
     };
 }]);

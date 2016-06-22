@@ -1,13 +1,13 @@
 angular.module('starter')
 .config(['$cordovaAppRateProvider', function ($cordovaAppRateProvider) {
-
+	
   document.addEventListener("deviceready", function () {
 
     var prefs = {
-      language: 'en',
+      language: 'pl',
       appName: 'MY APP',
       iosURL: '<my_app_id>',
-      androidURL: 'market://details?id=<package_name>',
+      androidURL: 'market://details?id=pl.gdziejestvin.vinfinder',
       windowsURL: 'ms-windows-store:Review?name=<...>'
     };
 

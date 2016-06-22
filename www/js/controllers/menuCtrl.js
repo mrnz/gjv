@@ -5,20 +5,24 @@ angular.module('starter')
   '$state', 
   'shareFactory', 
   'TokenFactory', 
-  function($scope, $state, shareFactory, TokenFactory){
+  '$cordovaAppRate',
+  function($scope, $state, shareFactory, TokenFactory, $cordovaAppRate){
 
   	$scope.share = function(provider) {
   		return shareFactory.share(provider);
   	};
 
   	$scope.rateapp = function() {
-      var devicePlatform = ionic.Platform.platform();
-      console.log(devicePlatform);
-      if (devicePlatform == "iOS") {
-        window.open('https://itunes.apple.com/us/app/YOUR-APP-SLUG-HERE/id000000000?mt=8&uo=4',  "_system"); 
-      } else if (devicePlatform == "android") {
-        window.open('market://details?id=com.boombit.RunningCircles','_system');
+      var isWebView = ionic.Platform.isWebView();
+     
+      if (isWebView) {
+      
+        $cordovaAppRate.promptForRating(true).then(function (result) {
+
+        });
+      
       }
+      
     };
 
     $scope.logout = function() {

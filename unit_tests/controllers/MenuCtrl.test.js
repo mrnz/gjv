@@ -6,27 +6,40 @@ describe('MenuCtrl', function () {
 
     beforeEach(inject(function($rootScope, $controller, $q, $state) {
  
-        scope = $rootScope.$new();
-        state = $state;
+      scope = $rootScope.$new();
+      state = $state;
+      
+      var defer = $q.defer();
+      defer.resolve('result');
 
-        shareFactory = {
-        	share: function() {}
-        };
-        TokenFactory = {
-	        logOut: function() {}
-        };
+      shareFactory = {
+      	share: function() {}
+      };
+      TokenFactory = {
+        logOut: function() {}
+      };
+      $cordovaAppRate = {
+        promptForRating: function() {}
+      };
 
-        var options = { 
-        	$scope: scope, 
-          $state: state, 
-          shareFactory: shareFactory, 
-          TokenFactory: TokenFactory
-        };        
-        
-        spyOn(TokenFactory, 'logOut'); 
-        spyOn(shareFactory, 'share'); 
-        
-        $controller('MenuCtrl', options);
+      var options = { 
+      	$scope: scope, 
+        $state: state, 
+        shareFactory: shareFactory, 
+        TokenFactory: TokenFactory,
+        $cordovaAppRate: $cordovaAppRate,
+      };        
+ 
+      spyOn(ionic.Platform, "isWebView").and.callFake(function() {
+        return true;
+      });
+      
+      spyOn($cordovaAppRate, 'promptForRating').and.returnValue( defer.promise );
+      spyOn(TokenFactory, 'logOut'); 
+      spyOn(shareFactory, 'share'); 
+      
+      $controller('MenuCtrl', options);
+      
     }));
 
     describe('Functions test', function () {
@@ -46,17 +59,17 @@ describe('MenuCtrl', function () {
         scope.$digest();
         expect( TokenFactory.logOut ).toHaveBeenCalled();
 
-
       });      
-      
-      // it('selectItem should change a state', function () {
-      //   scope.selectItem('','Opel');
-      //   scope.$apply();
-      //   expect( state.current.views.menuContent.controller ).toEqual( 'InfoCtrl' );
-      //   expect( state.params.volumeName ).toEqual('Opel');
-      // });      
 
-             
+      it('rate app should call ionic.Platform', function () {
+
+        scope.rateapp(); 
+        scope.$digest();
+        expect( $cordovaAppRate.promptForRating ).toHaveBeenCalled();
+
+
+      }); 
+  
     });
 
 });
