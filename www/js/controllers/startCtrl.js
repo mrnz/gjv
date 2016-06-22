@@ -3,12 +3,11 @@ angular.module('starter')
 .controller('StartCtrl', [
 	'$scope', 
 	'$state', 
-	'$http', 
 	'userFactory', 
 	'$ionicModal', 
 	'TokenFactory', 
 	'effectMaterialFactory', 
-	function($scope, $state, $http, userFactory, $ionicModal, TokenFactory, effectMaterialFactory){
+	function($scope, $state, userFactory, $ionicModal, TokenFactory, effectMaterialFactory){
 
 		effectMaterialFactory.switchOnEffects();
 
@@ -31,14 +30,7 @@ angular.module('starter')
 					close();	
 				}
 			});
-		};	$scope.join = function(){
-			$state.go('join'); 
-		};
-
-		$scope.forgotPassword = function(){
-			$state.go('forgotpassword');
-		};
-
+		};	
 
 		$scope.switchTo = function(toWhat) {
 			$scope.closeModal();
@@ -46,6 +38,7 @@ angular.module('starter')
 				if(toWhat === 1){
 					$scope.openModal();
 				}else{
+					console.log('dsadsa')
 					$scope.openModal2();
 				}
 			}, 500);
@@ -78,20 +71,16 @@ angular.module('starter')
 	  $scope.closeModal = function() {
 	    $scope.modal.hide();
 	  };
-	  //Cleanup the modal when we're done with it!
+	  
 	  $scope.$on('$destroy', function() {
 	    if($scope.modal){
 	    	$scope.modal.remove();	
 	    }
 	  });
-	  // Execute action on hide modal
-	  $scope.$on('modal.hidden', function() {
-	    // Execute action
-	  });
-	  // Execute action on remove modal
-	  $scope.$on('modal.removed', function() {
-	    // Execute action
-	  });
+	  
+	  // $scope.$on('modal.hidden', function() {});
+	  // $scope.$on('modal.removed', function() {});
+
 	  var close = function() {
 	  	if($scope.modal){
 	    	$scope.modal.hide();
