@@ -51,6 +51,7 @@ angular.module('starter')
 		    scope: $scope,
 		    animation: 'slide-in-up'
 		  }).then(function(modal) {
+		   	console.log(modal)
 		   	effectMaterialFactory.switchOnEffects();
 		    $scope.modal = modal;
 		    $scope.modal.show();

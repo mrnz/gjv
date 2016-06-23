@@ -1,19 +1,22 @@
 describe('StartCtrl test', function () {
 
-    var scope, state;
+    var scope, state, $ionicModal, effectMaterialFactory;
 
     beforeEach(module('starter'));
 
-    beforeEach(inject(function($rootScope, $controller, $q, $state) {
- 
+    beforeEach(inject(function($rootScope, $controller, $q, $state, _$ionicModal_, _effectMaterialFactory_) {
+
+        effectMaterialFactory = _effectMaterialFactory_;
+        $ionicModal = _$ionicModal_;
         scope = $rootScope.$new();
         state = $state;
         scope.modal = {
+            remove: function() {},
             hide: function() {},
-            remove: function() {}
+            show: function() {}
         }
         var defer = $q.defer();
-        defer.resolve('result');
+        defer.resolve(scope.modal);
          
         TokenFactory = {
         	isAuthenticated: function() {return false;}
@@ -25,11 +28,14 @@ describe('StartCtrl test', function () {
             authenticate: function() {}
         }
 
-        $ionicModal = {
-
-        };
+    
         
         spyOn(userFactory, 'authenticate').and.returnValue( defer.promise );
+        spyOn(scope.modal, 'hide').and.callFake( function() {return true;} );
+        spyOn(scope.modal, 'remove').and.callFake( function() {return true;} );
+        spyOn(effectMaterialFactory, 'switchOnEffects').and.returnValue( true );
+        spyOn($ionicModal, 'fromTemplateUrl').and.returnValue( defer.promise );
+        
         // spyOn(userFactory, 'info').and.callThrough(); 
  
 
@@ -64,7 +70,39 @@ describe('StartCtrl test', function () {
 
         expect(userFactory.authenticate).toHaveBeenCalled();
 
-      }); 
+      });
+
+      it('after closeModal modal.hide should be called', function () {
+
+        scope.closeModal(); 
+        expect(scope.modal.hide).toHaveBeenCalled();
+
+      });
+
+      it('after closeModal modal.hide should be called', function () {
+
+        scope.openModal();
+        scope.$digest(); 
+        expect(effectMaterialFactory.switchOnEffects).toHaveBeenCalled();
+
+      });
+
+      it('after closeModal modal.hide should be called', function () {
+
+        scope.openModal2();
+        scope.$digest(); 
+        expect(effectMaterialFactory.switchOnEffects).toHaveBeenCalled();
+
+      });       
+
+      it('after closeModal modal.hide should be called', function () {
+
+        scope.switchTo();
+        scope.$digest(); 
+        expect(effectMaterialFactory.switchOnEffects).toHaveBeenCalled();
+
+      });       
+
 
     });
 
