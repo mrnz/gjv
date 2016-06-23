@@ -41,7 +41,7 @@ angular.module('starter')
         };
 
         angular.extend(def, settings);
-
+        
         $ionicLoading.show(def);
 
       }

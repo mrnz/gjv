@@ -38,7 +38,7 @@ angular.module('starter')
 				if(toWhat === 1){
 					$scope.openModal();
 				}else{
-					console.log('dsadsa')
+					console.log('dsadsa');
 					$scope.openModal2();
 				}
 			}, 500);

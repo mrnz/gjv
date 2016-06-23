@@ -3,9 +3,8 @@ angular.module('starter')
 .factory('$cordovaNetwork',[ 
   '$rootScope', 
   '$timeout', 
-  'messageFactory', 
   '$cordovaToast', 
-  function($rootScope, $timeout, messageFactory, $cordovaToast) {
+  function($rootScope, $timeout, $cordovaToast) {
 
   var network = true;
 
@@ -17,10 +16,6 @@ angular.module('starter')
       if (network) {
         network = false;
         $cordovaToast.show('No network', 3000, 'center');
-        // messageFactory.showLoading({
-        //   template: '<div>No network</div>',
-        //   duration: 3000
-        // });
       }
 
     });
@@ -35,10 +30,6 @@ angular.module('starter')
       if (!network) {
         network = true;
         $cordovaToast.show('You are now online', 3000, 'bottom');
-        // messageFactory.showLoading({
-        //   template: '<div>You are now online</div>',
-        //   duration: 3000
-        // });
       }
 
     });
