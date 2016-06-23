@@ -1,11 +1,10 @@
 angular.module('starter')
 
 .factory('dataFactory', [
-	'$http', 
 	'$q', 
 	'APIAddress', 
 	'URLFactory', 
-	function($http, $q, APIAddress, URLFactory){
+	function($q, APIAddress, URLFactory){
 	
 	return{
 		brands: function(){

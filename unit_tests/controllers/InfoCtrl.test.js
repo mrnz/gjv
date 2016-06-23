@@ -13,7 +13,7 @@ describe('InfoCtrl test', function () {
         state.params.modelName = 'Corsa'
         state.params.volumeName = '1999'
         
-        dataFactory = {
+        ad = {
           info: function() {
             var defer = $q.defer();
             defer.resolve({
@@ -26,12 +26,12 @@ describe('InfoCtrl test', function () {
           }
         };
 
-        spyOn(dataFactory, 'info').and.callThrough(); 
+        spyOn(ad, 'info').and.callThrough(); 
  
 
         var options = { $scope: scope, 
                         $state: state, 
-                        dataFactory: dataFactory, 
+                        dataFactory: ad, 
                         Settings: {appName: 'abc'}
                       };
         
@@ -64,10 +64,10 @@ describe('InfoCtrl test', function () {
     
       it('after get data from server success cb should be call', function () {
 
-        dataFactory.info(); 
+        ad.info(); 
         scope.$digest();
 
-        expect(dataFactory.info).toHaveBeenCalled();
+        expect(ad.info).toHaveBeenCalled();
         expect(scope.ready).toBe(true);
 
         expect(scope.items[0].src).toBe('http://www.gdziejestvin.pl/file/src1');

@@ -9,7 +9,7 @@ describe('BrandsCtrl', function () {
         scope = $rootScope.$new();
         state = $state;
         
-        dataFactory = {
+        ad = {
           brands: function() {
             var defer = $q.defer();
             defer.resolve('result');
@@ -20,12 +20,12 @@ describe('BrandsCtrl', function () {
           }
         };
 
-        spyOn(dataFactory, 'brands').and.callThrough(); 
-        spyOn(dataFactory, 'formatListData').and.callThrough(); 
+        spyOn(ad, 'brands').and.callThrough(); 
+        spyOn(ad, 'formatListData').and.callThrough(); 
 
         var options = { $scope: scope, 
                         $state: state, 
-                        dataFactory: dataFactory, 
+                        dataFactory: ad, 
                         Settings: {appName: 'abc'}
                       };
         
@@ -51,11 +51,11 @@ describe('BrandsCtrl', function () {
       
       it('after get data from server success cb should be call', function () {
 
-        dataFactory.brands(); 
+        ad.brands(); 
         scope.$digest();
 
-        expect(dataFactory.brands).toHaveBeenCalled();
-        expect(dataFactory.formatListData).toHaveBeenCalled();
+        expect(ad.brands).toHaveBeenCalled();
+        expect(ad.formatListData).toHaveBeenCalled();
         expect(scope.listEmpty).toBe(false);
 
         expect(scope.items).toBe('result');

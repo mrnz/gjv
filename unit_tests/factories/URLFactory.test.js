@@ -16,13 +16,14 @@ describe('URL factory test', function () {
     afterEach(function() {
     	httpBackend.verifyNoOutstandingExpectation();
     	httpBackend.verifyNoOutstandingRequest();
+        appCacheFactory.destroy();
   	});
 
     describe('functions test', function () {
     
       it('after success authenticate userFactory should be call', function () {
 
-				appCacheFactory.removeAll();
+			appCacheFactory.removeAll();
 	    	var returnData = { excited: true };
 	    	httpBackend.expectGET('/brands').respond(returnData);
 
@@ -35,8 +36,9 @@ describe('URL factory test', function () {
 	    	
 
 	    	httpBackend.flush();
-			 	expect(TokenFactory.setUserToken).toHaveBeenCalled();
-			 	expect(result.excited).toBe(true)
+			expect(TokenFactory.setUserToken).toHaveBeenCalled();
+			expect(result.excited).toBe(true);
+
       });
 
     

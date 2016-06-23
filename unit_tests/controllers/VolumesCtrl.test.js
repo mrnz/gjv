@@ -10,7 +10,7 @@ describe('VolumesCtrl', function () {
         state = $state;
         state.params.brandName = 'Opel'
         state.params.modelName = 'Corsa'
-        dataFactory = {
+        a = {
           volumes: function() {
             var defer = $q.defer();
             defer.resolve('result');
@@ -21,12 +21,12 @@ describe('VolumesCtrl', function () {
           }
         };
 
-        spyOn(dataFactory, 'volumes').and.callThrough(); 
-        spyOn(dataFactory, 'formatListData').and.callThrough(); 
+        spyOn(a, 'volumes').and.callThrough(); 
+        spyOn(a, 'formatListData').and.callThrough(); 
 
         var options = { $scope: scope, 
                         $state: state, 
-                        dataFactory: dataFactory, 
+                        dataFactory: a, 
                         Settings: {appName: 'abc'}
                       };
         
@@ -56,11 +56,11 @@ describe('VolumesCtrl', function () {
     
       it('after get data from server success cb should be call', function () {
 
-        dataFactory.volumes(); 
+        a.volumes(); 
         scope.$digest();
 
-        expect(dataFactory.volumes).toHaveBeenCalled();
-        expect(dataFactory.formatListData).toHaveBeenCalled();
+        expect(a.volumes).toHaveBeenCalled();
+        expect(a.formatListData).toHaveBeenCalled();
         expect(scope.listEmpty).toBe(false);
 
         expect(scope.items).toBe('result');
