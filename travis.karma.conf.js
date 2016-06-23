@@ -19,7 +19,7 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-        'www/js/**/!(cordova*).js': ['coverage']
+        'www/js/**/*.js': ['coverage']
     },
     reporters: ['progress', 'coverage'],
     coverageReporter: {
