@@ -1,15 +1,13 @@
 angular.module('starter')
 
-.factory('userFactory', [
-	'$http', 
+.factory('userFactory', [ 
 	'$q', 
 	'$auth', 
 	'$timeout', 
 	'$state', 
-	'$ionicLoading', 
 	'TokenFactory', 
 	'messageFactory',
-	function($http, $q, $auth, $timeout, $state, $ionicLoading, TokenFactory, messageFactory){
+	function($q, $auth, $timeout, $state, TokenFactory, messageFactory){
 	
 	return{
 		
@@ -87,13 +85,10 @@ angular.module('starter')
 		postActionError: function(reason){
 			
 			messageFactory.showLoading({
-				template: '<div>'+ (reason.data.message || reason.message) +'</div>',
+				template: '<div>'+ (reason.message || reason.data.message ) +'</div>',
 				duration: 3000
 			});
 	
-		},
-		passwordForgot: function(email){
-			console.log('email: ' + email);
 		}
 
 	};

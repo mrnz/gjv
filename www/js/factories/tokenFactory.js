@@ -19,27 +19,26 @@ angular.module('starter')
 				return true;
 
 			}else{
-	
+				
 				if(typeof $http.defaults.headers.common['X-USER'] === 'undefined'){
 					
 					// token undefined - try get it from localStorage;
 					localStorageToken = $auth.getToken();
 					
-					if( typeof localStorageToken !== 'undefined' ){
-						
+					if( localStorageToken !==  null){
+
 						// token in localStorage exist - set it 
 						$http.defaults.headers.common['X-USER'] = localStorageToken;
 						return true;
 
 					}else{
-						
+
 						//token doesn't exist - return FALSE
 						return false; 
 
 					}
 
 				}else{
-	
 					// token already set - nothing to do
 					return true;
 
