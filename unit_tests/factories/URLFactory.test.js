@@ -23,24 +23,43 @@ describe('URL factory test', function () {
     
       it('after success authenticate userFactory should be call', function () {
 
-			appCacheFactory.removeAll();
-	    	var returnData = { excited: true };
-	    	httpBackend.expectGET('/brands').respond(returnData);
+		appCacheFactory.removeAll();
+    	var returnData = { excited: true };
+    	httpBackend.expectGET('/brands').respond(returnData);
 
-	    	var returnedPromise = URLFactory.get({url:'/brands'});
+    	var returnedPromise = URLFactory.get({url:'/brands'});
 
-		    var result;
-		    returnedPromise.then(function(response) {
-		       result = response;
-		    });
-	    	
+	    var result;
+	    returnedPromise.then(function(response) {
+	       result = response;
+	    });
+    	
 
-	    	httpBackend.flush();
-			expect(TokenFactory.setUserToken).toHaveBeenCalled();
-			expect(result.excited).toBe(true);
+    	httpBackend.flush();
+		expect(TokenFactory.setUserToken).toHaveBeenCalled();
+		expect(result.excited).toBe(true);
 
       });
 
+      it('after success authenticate userFactory should be call', function () {
+        spyOn(TokenFactory,'logOut');
+        
+        var returnData = { excited: true };
+        httpBackend.expectGET('/brands').respond(401, {});
+
+        var returnedPromise = URLFactory.call({url:'/brands'});
+
+        var result;
+        returnedPromise.then(function(response) {
+           result = response;
+        });
+        
+
+        httpBackend.flush();
+        expect(TokenFactory.logOut).toHaveBeenCalled();
+        // expect(result.excited).toBe(true);
+
+      });
     
 
     });

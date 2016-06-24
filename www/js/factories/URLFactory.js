@@ -34,8 +34,10 @@ angular.module('starter')
 					defer.resolve(resultObj);
 				})
 				.error(function(errorObj,status,headerFunc){
-
+console.log(status)
 					if( status === 401 ){
+						console.log('popopopopop')
+
 						TokenFactory.logOut();
 					}
 					
