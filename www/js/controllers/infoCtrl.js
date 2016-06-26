@@ -16,7 +16,6 @@ angular.module('starter')
 		$scope.items = [];
 
     if (ionic.Platform.isWebView()) {
-    	console.log('pppppp-----------------ppppppppppppppppppppppppppppppppppppp')
 			$cordovaGoogleAnalytics.trackView( brandName  + '_' + modelName +  '_' + volumeName ); 
 		};
 		
