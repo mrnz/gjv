@@ -1,13 +1,14 @@
 describe('InfoCtrl test', function () {
 
-    var scope, state;
+    var scope, state, $cordovaGoogleAnalytics;
 
     beforeEach(module('starter'));
 
-    beforeEach(inject(function($rootScope, $controller, $q, $state) {
+    beforeEach(inject(function($rootScope, $controller, $q, $state, _$cordovaGoogleAnalytics_) {
  
         scope = $rootScope.$new();
         state = $state;
+        $cordovaGoogleAnalytics = _$cordovaGoogleAnalytics_;
 
         state.params.brandName = 'Opel'
         state.params.modelName = 'Corsa'
@@ -27,15 +28,14 @@ describe('InfoCtrl test', function () {
         };
 
         spyOn(ad, 'info').and.callThrough(); 
- 
-
+        
         var options = { $scope: scope, 
                         $state: state, 
                         dataFactory: ad, 
                         Settings: {appName: 'abc'}
                       };
-        
-    
+        spyOn($cordovaGoogleAnalytics, 'trackView').and.returnValue(true);  
+        spyOn(ionic.Platform, 'isWebView').and.returnValue(true)
      
         $controller('InfoCtrl', options);
     }));
@@ -60,7 +60,7 @@ describe('InfoCtrl test', function () {
       
     });
 
-    describe('VolumesCtrl functions test', function () {
+    describe('Functions test', function () {
     
       it('after get data from server success cb should be call', function () {
 
@@ -75,5 +75,13 @@ describe('InfoCtrl test', function () {
       });      
 
     });
+    describe('google analytics test', function () {
+    
+      it('google factory should be called', function () {        
 
+        expect($cordovaGoogleAnalytics.trackView).toHaveBeenCalled();
+
+      });      
+
+    });
 });

@@ -14,13 +14,14 @@ angular.module('starter')
 		$scope.ready = false;
 		$scope.title = brandName; 
 		$scope.items = [];
+
+    if (ionic.Platform.isWebView()) {
+    	console.log('pppppp-----------------ppppppppppppppppppppppppppppppppppppp')
+			$cordovaGoogleAnalytics.trackView( brandName  + '_' + modelName +  '_' + volumeName ); 
+		};
 		
     dataFactory.info( brandName, modelName, volumeName ).then(function (result){
 
-	    if (ionic.Platform.isWebView()) {
-				$cordovaGoogleAnalytics.trackView( brandName  + '_' + modelName +  '_' + volumeName ); 
-			};
-				
 			$scope.ready = true;
 			$scope.info = result.info; 
 			var base = 'http://www.gdziejestvin.pl/file/';
