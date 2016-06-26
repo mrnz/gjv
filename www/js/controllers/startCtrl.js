@@ -6,8 +6,14 @@ angular.module('starter')
 	'userFactory', 
 	'$ionicModal', 
 	'TokenFactory', 
-	'effectMaterialFactory', 
-	function($scope, $state, userFactory, $ionicModal, TokenFactory, effectMaterialFactory){
+	'effectMaterialFactory',
+	'$cordovaGoogleAnalytics', 
+	function($scope, $state, userFactory, $ionicModal, TokenFactory, effectMaterialFactory, $cordovaGoogleAnalytics){
+
+
+		if (ionic.Platform.isWebView()) {
+			$cordovaGoogleAnalytics.trackView( 'start list' ); 
+		};
 
 		effectMaterialFactory.switchOnEffects();
 

@@ -2,8 +2,9 @@ angular.module('starter')
 .controller('InfoCtrl', [
 	'$scope', 
 	'$state', 
-	'dataFactory', 
-	function($scope, $state, dataFactory){
+	'dataFactory',
+	'$cordovaGoogleAnalytics', 
+	function($scope, $state, dataFactory, $cordovaGoogleAnalytics){
 	
 		var brandName = $state.params.brandName,
 				modelName = $state.params.modelName,
@@ -15,6 +16,11 @@ angular.module('starter')
 		$scope.items = [];
 		
     dataFactory.info( brandName, modelName, volumeName ).then(function (result){
+
+	    if (ionic.Platform.isWebView()) {
+				$cordovaGoogleAnalytics.trackView( brandName  + '_' + modelName +  '_' + volumeName ); 
+			};
+				
 			$scope.ready = true;
 			$scope.info = result.info; 
 			var base = 'http://www.gdziejestvin.pl/file/';

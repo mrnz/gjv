@@ -27,8 +27,9 @@ APP.run([
   '$cordovaStatusbar', 
   '$cordovaToast', 
   'translate', 
-  'TokenFactory', 
-  function($rootScope,$state, $ionicPlatform, $auth, messageFactory, $cordovaGlobalization, $cordovaNetwork, $cordovaAppRate, $cordovaAppVersion, $cordovaSplashscreen, $cordovaStatusbar, $cordovaToast, translate, TokenFactory) {
+  'TokenFactory',
+  '$cordovaGoogleAnalytics', 
+  function($rootScope,$state, $ionicPlatform, $auth, messageFactory, $cordovaGlobalization, $cordovaNetwork, $cordovaAppRate, $cordovaAppVersion, $cordovaSplashscreen, $cordovaStatusbar, $cordovaToast, translate, TokenFactory, $cordovaGoogleAnalytics) {
 
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
 
@@ -55,7 +56,12 @@ APP.run([
     };
 
     if (ionic.Platform.isWebView()) {
-
+      
+      $cordovaGoogleAnalytics.startTrackerWithId("UA-79857561-1").then(
+        function(r) {console.log(r)},
+        function(r) {console.log(r)}
+      );
+      
       document.addEventListener("backbutton", onBackKeyDown, false);
       
       translate.setPreferredLanguage();
