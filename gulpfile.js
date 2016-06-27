@@ -97,7 +97,7 @@ gulp.task('templates', function () {
     .pipe(gulp.dest('./www/js/'));
 });
 
-gulp.task('usemin',['copyfonts', 'copyimg', 'templates'], function () {
+gulp.task('usemin',['sass', 'copyfonts', 'copyimg', 'templates'], function () {
   return gulp.src('./www/index.html')
       .pipe(usemin({
         // js: [concat('js/all.js'), ngAnnotate(), uglify()],
@@ -109,5 +109,5 @@ gulp.task('usemin',['copyfonts', 'copyimg', 'templates'], function () {
       .pipe(gulp.dest('./www/dist/'));
 });
 
-gulp.task('build-android', ['usemin'], shell.task('sudo ionic build android') );
+gulp.task('build-android', ['usemin'], shell.task('ionic build android') );
 
