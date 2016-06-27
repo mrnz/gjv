@@ -12,7 +12,7 @@ angular.module('starter')
 
 
 		if (ionic.Platform.isWebView()) {
-			$cordovaGoogleAnalytics.trackView( 'start list' ); 
+			// $cordovaGoogleAnalytics.trackView( 'start list' ); 
 		};
 
 		effectMaterialFactory.switchOnEffects();
