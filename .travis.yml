@@ -27,6 +27,8 @@ env:
     - ANDROID_TARGET=android-19 ANDROID_ABI=armeabi-v7a
 before_script:
 - nvm install 5
+- npm install -g cordova
+- npm install -g ionic
 - npm i
 - npm i -g appium
 - export DISPLAY=:99.0
