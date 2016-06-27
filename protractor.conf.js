@@ -6,7 +6,7 @@ exports.config = {
     // Reference: https://github.com/appium/sample-code/blob/master/sample-code/examples/node/helpers/caps.js
     capabilities: {
         platformName: 'android',
-        platformVersion: '4.4.2',
+        platformVersion: '5.0.1',
         deviceName: 'lg g3',
         browserName: "",
         autoWebview: true,
