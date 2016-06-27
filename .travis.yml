@@ -44,8 +44,6 @@ script:
 - android-wait-for-emulator
 - adb devices
 - adb shell input keyevent 82 &
-# - grunt build
-# - grunt e2e-travis
-# - if [ "$TRAVIS_BRANCH" == "master" ]; then grunt ftp_push --ftpUser=$USERNAME --ftpPass=$PASSWORD; fi
+- ./node_modules/protractor/bin/protractor protractor.conf.js
 after_success:
   - cat coverage/*/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js

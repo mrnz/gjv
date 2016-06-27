@@ -6,12 +6,12 @@ exports.config = {
     // Reference: https://github.com/appium/sample-code/blob/master/sample-code/examples/node/helpers/caps.js
     capabilities: {
         platformName: 'android',
-        platformVersion: '5.0.1',
+        platformVersion: '4.4.2',
         deviceName: 'lg g3',
         browserName: "",
         autoWebview: true,
         //CHANGE THIS TO YOUR ABSOLUTE PATH
-        app: '/home/marciniakp/gjv/platforms/android/build/outputs/apk/android-debug.apk'
+        app: __dirname + '/platforms/android/build/outputs/apk/android-debug.apk'
         //newCommandTimeout: 60
     },
     baseUrl: 'http://10.0.2.2:8000',
