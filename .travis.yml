@@ -22,6 +22,9 @@ android:
     # if you need to run emulator(s) during your tests
     - sys-img-armeabi-v7a-android-19
     - sys-img-x86-android-17
+env:
+  matrix:
+    - ANDROID_TARGET=android-19 ANDROID_ABI=armeabi-v7a
 before_script:
 - nvm install 5
 - npm i
@@ -29,6 +32,8 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 - sleep 3
 - ./node_modules/.bin/bower install --allow-root
+- echo no | android create avd --force --name test --target $ANDROID_TARGET --abi $ANDROID_ABI
+- emulator -avd test -no-skin -no-audio -no-window &amp;
 # - ./node_modules/protractor/bin/webdriver-manager update --standalone --firefox
 # - ./node_modules/protractor/bin/webdriver-manager start 2>&1 &
 # - sleep 3
@@ -36,6 +41,9 @@ script:
 # - ./node_modules/bithound/bin/bithound check git@github.com:mrnz/vin-ver2.git
 # - grunt templates
 - gulp unit-travis
+- android-wait-for-emulator
+- adb devices
+- adb shell input keyevent 82 &amp;
 # - grunt build
 # - grunt e2e-travis
 # - if [ "$TRAVIS_BRANCH" == "master" ]; then grunt ftp_push --ftpUser=$USERNAME --ftpPass=$PASSWORD; fi
