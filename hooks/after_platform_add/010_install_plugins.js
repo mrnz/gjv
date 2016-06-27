@@ -24,6 +24,6 @@ var cmd = process.platform === 'win32' ? 'cordova.cmd' : 'cordova';
 packageJSON.cordovaPlugins = packageJSON.cordovaPlugins || [];
 packageJSON.cordovaPlugins.forEach(function (plugin) {
   exec('cordova plugin add ' + plugin, function (error, stdout, stderr) {
-    sys.puts(stdout);
+    console.log(stdout);
   });
 });

@@ -11,6 +11,7 @@ android:
 
     # The SDK version used to compile your project
     - android-19
+    - android-23
 
     # Additional components
     - extra-google-google_play_services
@@ -29,24 +30,21 @@ before_script:
 - nvm install 5
 - npm install -g cordova
 - npm install -g ionic
-- npm i
 - npm i -g appium
+- npm i
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 - sleep 3
 - ./node_modules/.bin/bower install --allow-root
 - appium &
+- sleep 5
 - echo no | android create avd --force --name test --target $ANDROID_TARGET --abi $ANDROID_ABI
-- emulator -avd test -no-skin -no-audio -no-window &
-# - ./node_modules/protractor/bin/webdriver-manager update --standalone --firefox
-# - ./node_modules/protractor/bin/webdriver-manager start 2>&1 &
-# - sleep 3
+- sleep 3
 script:
-# - ./node_modules/bithound/bin/bithound check git@github.com:mrnz/vin-ver2.git
-# - grunt templates
 - gulp unit-travis
 - ionic platform add android
 - gulp build-android
+- emulator -avd test -no-skin -no-audio -no-window &
 - android-wait-for-emulator
 - adb devices
 - adb shell input keyevent 82 &
