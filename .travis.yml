@@ -43,6 +43,8 @@ script:
 # - ./node_modules/bithound/bin/bithound check git@github.com:mrnz/vin-ver2.git
 # - grunt templates
 - gulp unit-travis
+- ionic platform add android
+- gulp build-android
 - android-wait-for-emulator
 - adb devices
 - adb shell input keyevent 82 &
