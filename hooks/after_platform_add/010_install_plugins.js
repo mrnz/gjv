@@ -6,7 +6,6 @@
  */
 var exec = require('child_process').exec;
 var path = require('path');
-var sys = require('sys');
 
 var packageJSON = null;
 

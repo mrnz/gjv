@@ -43,6 +43,8 @@ before_script:
 script:
 - gulp unit-travis
 - ionic platform add android
+- ls /home/travis/build/mrnz/gjv/
+- ls /home/travis/build/mrnz/gjv/platforms
 - gulp build-android
 - emulator -avd test -no-skin -no-audio -no-window &
 - android-wait-for-emulator
