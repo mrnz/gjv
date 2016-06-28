@@ -16,14 +16,20 @@ module.exports = function () {
 
   });
 
-  this.Then(/^Go to login screen$/,{timeout: 20000},  function (next) {
+  this.Then(/^Go to login screen$/, {timeout: 60 * 1000}, function (next) {
 
-		browser.setLocation('/menu/brands');
-		browser.getCurrentUrl().then(function(currentUrl){
+    browser.wait(function() {
+      return browser.isElementPresent( element( by.id('login-button') ) );
+    }, 60000).then(function() {
+		  console.log('===============================') ;
+      console.log('===============================') ;
+      console.log('===============================') ;
+      browser.getCurrentUrl().then(function(currentUrl){
     		console.log(currentUrl) 		
      		next();
       });
 
+    });
   });
 
   this.Then(/^Click button with id "([^"]*)"$/, function (ID, next) {
