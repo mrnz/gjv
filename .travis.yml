@@ -2,6 +2,7 @@ sudo: false
 cache:
   directories:
     - node_modules
+    - $(npm config get prefix)/bin
 notifications:
   email: false
 language: android
