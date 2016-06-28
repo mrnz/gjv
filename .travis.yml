@@ -36,7 +36,7 @@ before_script:
 - ./node_modules/.bin/bower install --allow-root
 - appium &
 - sleep 5
-- echo no | android create avd --force --name test --target $ANDROID_TARGET --abi $ANDROID_ABI
+- echo no | android create avd --force --name test --target $ANDROID_TARGET --abi $ANDROID_ABI --skin 540x960
 - sleep 3
 script:
 - gulp unit-travis
@@ -47,7 +47,7 @@ script:
 - ls /home/travis/build/mrnz/gjv/platforms/android/build
 - ls /home/travis/build/mrnz/gjv/platforms/android/build/outputs
 - gulp build-android-travis
-- emulator -avd test -no-skin -no-audio -no-window &
+- emulator -avd test -no-boot-anim -no-audio -no-window &
 - android-wait-for-emulator
 - adb devices
 - adb shell input keyevent 82 &
