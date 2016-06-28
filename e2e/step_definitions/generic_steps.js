@@ -32,12 +32,17 @@ module.exports = function () {
     });
   });
 
-  this.Then(/^Click button with id "([^"]*)"$/, function (ID, next) {
-   	element(by.id(ID)).click().then(function() {
-			next();
-		});
-  });
+  this.Then(/^Click button with id "([^"]*)"$/, {timeout: 60 * 1000}, function (ID, next) {
+   	browser.wait(function() {
+      
+      return browser.isElementPresent( element( by.id(ID) ) );
 
+    }, 60000).then(function() {
+      element(by.id(ID)).click().then(function() {
+  			next();
+      });
+    });
+  });
    this.Then(/^Put "([^"]*)" to inptu with id "([^"]*)"$/, function (text, ID, next) {
      element( by.id(ID) ).sendKeys(text).then(function() {
         next(); 
