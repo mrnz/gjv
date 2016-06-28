@@ -1,24 +1,15 @@
 language: android
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    # - platform-tools
-    # - tools
-
-    # The BuildTools version used by your project
     - build-tools-19.1.0
-
     # The SDK version used to compile your project
     - android-19
     - android-23
-
     # Additional components
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
     - addon-google_apis-google-19
-
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
     - sys-img-armeabi-v7a-android-19
@@ -30,8 +21,8 @@ before_script:
 - nvm install 5
 - npm install -g cordova
 - npm install -g ionic
-- npm i -g appium
-- npm i
+- npm install -g appium
+- npm install
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 - sleep 3
@@ -45,7 +36,10 @@ script:
 - ionic platform add android
 - ls /home/travis/build/mrnz/gjv/
 - ls /home/travis/build/mrnz/gjv/platforms
-- gulp build-android
+- ls /home/travis/build/mrnz/gjv/platforms/android
+- ls /home/travis/build/mrnz/gjv/platforms/android/build
+- ls /home/travis/build/mrnz/gjv/platforms/android/build/outputs
+- gulp build-android-travis
 - emulator -avd test -no-skin -no-audio -no-window &
 - android-wait-for-emulator
 - adb devices

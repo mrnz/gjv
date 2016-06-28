@@ -1,7 +1,12 @@
 exports.config = {
     seleniumAddress: 'http://localhost:4723/wd/hub',
 
-    specs: ['./e2e/*_spec.js'],
+    specs: ['./e2e/features/*.feature'],
+    framework: 'custom',
+    frameworkPath: require.resolve('protractor-cucumber-framework'),
+    cucumberOpts: {
+      require:'./e2e/step_definitions/*.js'
+    }, 
 
     // Reference: https://github.com/appium/sample-code/blob/master/sample-code/examples/node/helpers/caps.js
     capabilities: {

@@ -109,5 +109,6 @@ gulp.task('usemin',['sass', 'copyfonts', 'copyimg', 'templates'], function () {
       .pipe(gulp.dest('./www/dist/'));
 });
 
-gulp.task('build-android', ['usemin'], shell.task('ionic build android') );
+gulp.task('build-android', ['usemin'], shell.task('sudo ionic build android') );
+gulp.task('build-android-travis', ['usemin'], shell.task('ionic build android') );
 
