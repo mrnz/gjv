@@ -138,6 +138,12 @@ module.exports = function () {
   });
 
  this.Then(/^I should see "([^"]*)" list$/, {timeout: 60 * 1000}, function (arg1, next) {
+    var elem = element.all(by.repeater('item in items')).get(0)
+    browser.wait(function() {      
+      return elem.isDisplayed();
+    }, 60000).then(function() {
+      next();
+    }) 
    next(); 
  });
 

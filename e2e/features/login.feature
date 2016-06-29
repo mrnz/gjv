@@ -32,10 +32,10 @@ Feature: Login
 		Then I check If I am on login screen
 		Then Click button with id "open-signin-modal"
 		And Wait for element with id "sign-in-email"
-		# Then Wait 2 second(s)
 		Then Put "mrnz@wp.pl" to inptu with id "sign-in-email"
 		And Put "kalikali" to inptu with id "sign-in-password"
 		Then Click button with id "submit"
+		Then Wait 10 second(s)
 		And I should see "brands" list
 		Then Open side menu
 		And Click button with id "logout-button-side-menu"
