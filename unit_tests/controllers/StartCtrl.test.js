@@ -75,11 +75,11 @@ describe('StartCtrl test', function () {
       it('after closeModal modal.hide should be called', function () {
 
         scope.closeModal(); 
-        expect(scope.modal.hide).toHaveBeenCalled();
+        expect(scope.modal.remove).toHaveBeenCalled();
 
       });
 
-      it('after closeModal modal.hide should be called', function () {
+      it('after closeModal modal.remove should be called', function () {
 
         scope.openModal();
         scope.$digest(); 
