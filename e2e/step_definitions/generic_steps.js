@@ -60,12 +60,12 @@ module.exports = function () {
     });
   });
 
-  this.Then(/^Open side menu$/, {timeout: 60 * 1000}, function (next) {
+  this.Then(/^Open side menu$/, {timeout: 180 * 1000}, function (next) {
 
     // TODO: I don't know why there is more then one element with this ID.
     // I've already checked different names for this ID with the same result
     // var elem = element.all( by.id("open-menu-button") ).get(1);
-    var elem = element.all(by.xpath('//button[@menu-toggle="right"]')).get(1);
+    var elem = element.all(by.id('open-menu-button')).get(1);
     // var elem = element.all( by.xpath("//button[@menu-toggle='right']") ) ;
 
     browser.wait(function() {
