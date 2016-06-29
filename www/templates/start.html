@@ -39,12 +39,12 @@
                 <table class="signup-line">
                     <tr>
                         <td>
-                            <div class="first-line">Sign up with your <span ng-click="openModal()">Email address</span></div>
+                            <div class="first-line">Sign up with your <span  id="open-signup-modal" ng-click="openModal()">Email address</span></div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="second-line">Have an account? <span id="login-button" ng-click="openModal2()">Log In</span></div>
+                            <div class="second-line">Have an account? <span  id="open-signin-modal" ng-click="openModal2()">Log In</span></div>
                         </td>
                     </tr>
                 </table>
@@ -61,9 +61,9 @@
 <script id="my-modal.html" type="text/ng-template">
     
     <ion-modal-view class="signup-modal" >
-        <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+        <div id="close-signup-modal" class="button button-clear" ng-click="closeModal()"><span class="icon ion-close"></span></div>
         <ion-content scroll="false">
-            <div class="modal-content-wrapper">
+            <div id="signup-modal" class="modal-content-wrapper">
 
                 <div class="inner-modal-content-wrapper">
                 <div class="title-name">
@@ -132,7 +132,7 @@
             </div>     
             </div>     
         </ion-content>
-        <span class="bottomLink" ng-click="switchTo(2)">Already have an account? Sign In!</span>  
+        <span id="switch-modal-to-signin" class="bottomLink" ng-click="switchTo(2)">Already have an account? Sign In!</span>  
       </ion-modal-view>
     </script>
 
@@ -140,9 +140,9 @@
 <script id="my-modal2.html" type="text/ng-template">
 
     <ion-modal-view class="signup-modal" >
-        <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+        <div id="close-signin-modal" class="button button-clear" ng-click="closeModal()"><span class="icon ion-close"></span></div>
         <ion-content scroll="false">
-            <div class="modal-content-wrapper">
+            <div id="signin-modal" class="modal-content-wrapper">
 
                 <div class="inner-modal-content-wrapper">
                 <div class="title-name">
@@ -201,7 +201,7 @@
             </div>
             </div>     
         </ion-content>
-        <span class="bottomLink"  ng-click="switchTo(1)">Don't have an account yet? Sign Up!</span>
+        <span id="switch-modal-to-signup" class="bottomLink"  ng-click="switchTo(1)">Don't have an account yet? Sign Up!</span>
       </ion-modal-view>
 
     </script>

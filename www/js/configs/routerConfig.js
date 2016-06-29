@@ -105,7 +105,7 @@ angular.module('starter')
     });
 
   $urlRouterProvider.otherwise(function(a, b, c, d) {
-    // console.log('otherwise - from: ' + b.$$urlr);
+    console.log('otherwise - from: ' + b.$$urlr);
     return "/";
   });
 

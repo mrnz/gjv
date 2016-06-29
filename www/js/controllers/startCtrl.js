@@ -71,15 +71,20 @@ angular.module('starter')
 		  }).then(function(modal) {
 		    effectMaterialFactory.switchOnEffects();
 		    $scope.modal = modal;
+		    
 		    $scope.modal.show();
 		  });
 	  };
 	  
 	  $scope.closeModal = function() {
-	    $scope.modal.hide();
+	    $scope.modal.remove().then(function() {
+	    	console.log('RRRRRRRRR')
+	    });
+	    
 	  };
 	  
 	  $scope.$on('$destroy', function() {
+	  	console.log('destroy')
 	    if($scope.modal){
 	    	$scope.modal.remove();	
 	    }
@@ -90,7 +95,7 @@ angular.module('starter')
 
 	  var close = function() {
 	  	if($scope.modal){
-	    	$scope.modal.hide();
+	    	$scope.modal.remove();
 	    }
 	  	
 	  };

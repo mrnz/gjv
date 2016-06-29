@@ -34,7 +34,7 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 - sleep 3
 - ./node_modules/.bin/bower install --allow-root
-- appium &
+- appium --log-level error &
 - sleep 5
 - echo no | android create avd --force --name test --target $ANDROID_TARGET --abi $ANDROID_ABI --skin 540x960
 - sleep 3

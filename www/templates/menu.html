@@ -15,7 +15,7 @@
      		<ion-nav-buttons side="right">
        	
           <span class="right-buttons">
-              <button class="button button-balanced button-fab activated" menu-toggle="right">
+              <button id="open-menu-button" class="button button-balanced button-fab activated" menu-toggle="right">
                   <i class="icon ion-navicon"></i>
               </button>
           </span>
@@ -71,7 +71,7 @@
               Rate the app  
           </ion-item>
 
-          <ion-item nav-clear menu-close ng-click="logout()">
+          <ion-item nav-clear menu-close id="logout-button-side-menu" ng-click="logout()">
               Log Out
           </ion-item>
 
