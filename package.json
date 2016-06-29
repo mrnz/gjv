@@ -42,10 +42,11 @@
   },
   "cordovaPlugins": [
     "com.ionic.keyboard",
-    "org.pushandplay.cordova.apprate",
     "cordova-plugin-inappbrowser",
     "cordova-plugin-whitelist",
     "cordova-plugin-google-analytics@0.8.0"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android"
+  ]
 }

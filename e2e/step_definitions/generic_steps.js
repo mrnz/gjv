@@ -62,11 +62,7 @@ module.exports = function () {
 
   this.Then(/^Open side menu$/, {timeout: 180 * 1000}, function (next) {
 
-    // TODO: I don't know why there is more then one element with this ID.
-    // I've already checked different names for this ID with the same result
-    // var elem = element.all( by.id("open-menu-button") ).get(1);
-    var elem = element.all(by.id('open-menu-button')).get(1);
-    // var elem = element.all( by.xpath("//button[@menu-toggle='right']") ) ;
+    var elem = element(by.xpath("//*[@nav-bar='active']//*//div//span//button"));
 
     browser.wait(function() {
       
@@ -77,7 +73,7 @@ module.exports = function () {
       
       var EC = protractor.ExpectedConditions;
       // Waits for the element with id 'abc' to be clickable.
-      browser.wait(EC.elementToBeClickable( item1 ), 5000).then(function() {
+      browser.wait(EC.elementToBeClickable( item1 ), 60000).then(function() {
       
       item1.click().then( function(location){
         next();
@@ -137,15 +133,14 @@ module.exports = function () {
     });
   });
 
- this.Then(/^I should see "([^"]*)" list$/, {timeout: 60 * 1000}, function (arg1, next) {
+  this.Then(/^I should see "([^"]*)" list$/, {timeout: 60 * 1000}, function (arg1, next) {
     var elem = element.all(by.repeater('item in items')).get(0)
     browser.wait(function() {      
       return elem.isDisplayed();
     }, 60000).then(function() {
       next();
     }) 
-   next(); 
- });
+  });
 
   this.Then(/^I should see element with ID "([^"]*)"$/, {timeout: 60 * 1000}, function (ID, next) {
     
@@ -157,6 +152,34 @@ module.exports = function () {
 
   });
 
+
+  this.Then(/^Button with id "([^"]*)" should be "([^"]*)"$/, {timeout: 60 * 1000}, function (ID, status, next) {
+
+    var elem = element( by.id(ID) );
+    browser.wait(function() {      
+      return browser.isElementPresent( elem );
+    }, 60000).then(function() {
+
+      var variable = status === 'enabled' ? true : false; 
+      elem.isEnabled().then(function(result) {
+        expect( result ).to.equal(variable);
+        next();
+      });
+      
+    });
+   
+  });
+
+
+  this.Then(/^I click first element on the list$/, {timeout: 60 * 1000}, function (next) {
+    var elem = element.all(by.repeater('item in items')).get(0)
+    browser.wait(function() {      
+      return elem.isDisplayed();
+    }, 60000).then(function() {
+      elem.click()
+      next();
+    }) 
+  });
 
 
   this.Then(/^Wait (\d+) second\(s\)$/, {timeout: 60 * 1000}, function (seconds, next) {
