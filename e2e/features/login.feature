@@ -58,11 +58,11 @@ Feature: Login
 		Then Put "mrnz@wp.pl" to inptu with id "sign-in-email"
 		And Put "kalikali" to inptu with id "sign-in-password"
 		Then Click button with id "submit"
-		And I should see "brands" list
+		# And I should see "brands" list
 		Then I click first element on the list
-		And I should see "models" list
+		# And I should see "models" list
 		Then I click first element on the list
-		And I should see "volumes" list	
+		# And I should see "volumes" list	
 		Then I click first element on the list	
 		Then Open side menu
 		And Click button with id "logout-button-side-menu"
