@@ -5,7 +5,7 @@ exports.config = {
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
-      require:'./e2e/step_definitions/*.js'
+      require:['./e2e/step_definitions/*.js', './e2e/support/env.js']
     }, 
 
     allScriptsTimeout: 60000,
