@@ -32,7 +32,7 @@ module.exports = function () {
 
     browser.wait(function() {
       
-      return browser.isElementPresent( element( by.id('open-signin-modasl') ) );
+      return browser.isElementPresent( element( by.id('open-signin-modal') ) );
 
     }).then(function() {
 
