@@ -8,7 +8,7 @@ exports.config = {
       require:['./e2e/step_definitions/*.js', './e2e/support/env.js']
     }, 
 
-    allScriptsTimeout: 60000,
+    allScriptsTimeout: 180000,
     // Reference: https://github.com/appium/sample-code/blob/master/sample-code/examples/node/helpers/caps.js
     capabilities: {
         platformName: 'android',
