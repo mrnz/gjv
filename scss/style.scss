@@ -1,29 +1,36 @@
+$blue: #40c0ff;
+$fb: #4e6bac;
+$google: #ea4335;
+$light: #FFFFFF;
+
+$car: url('../img/fura.svg');
+$logo: url('../img/logo.svg');
 
 
-// @font-face {
-  //  font-family: $socicon-font-family;
-  //  src: url("#{$socicon-font-path}/socicon.eot");
-  //  src: url("#{$socicon-font-path}/socicon.eot?#iefix") format("embedded-opentype"), //   url("#{$socicon-font-path}/socicon.ttf") format("truetype"), //   url("#{$socicon-font-path}/socicon.woff") format("woff"), //   url("#{$socicon-font-path}/socicon.svg#sociconregular") format("svg");
-  //   font-weight: normal;
-  //   font-style: normal;
-  //   text-transform: initial;
-  //
-//}
-// .isoc {
-  //   display: inline-block;
-  //   font-family: $socicon-font-family;
-  //   speak: none;
-  //   font-style: normal;
-  //   font-weight: normal;
-  //   font-variant: normal;
-  //   text-transform: none;
-  //   text-rendering: auto;
-  //   line-height: 1;
-  //   -webkit-font-smoothing: antialiased;
-  //   -moz-osx-font-smoothing: grayscale;
-  //
-//}
-// @import  'fonts/font-awesome';
+@font-face {
+  font-family: 'HL';
+  src: url('../fonts/HelveticaNeueLight/HelveticaNeueLight.eot');
+  src: url('../fonts/HelveticaNeueLight/HelveticaNeueLight.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/HelveticaNeueLight/HelveticaNeueLight.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueLight/HelveticaNeueLight.woff') format('woff'),
+    url('../fonts/HelveticaNeueLight/HelveticaNeueLight.ttf') format('truetype'),
+    url('../fonts/HelveticaNeueLight/HelveticaNeueLight.svg#HelveticaNeue-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HB';
+  src: url('../fonts/HelveticaNeueBold/HelveticaNeueBold.eot');
+  src: url('../fonts/HelveticaNeueBold/HelveticaNeueBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/HelveticaNeueBold/HelveticaNeueBold.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueBold/HelveticaNeueBold.woff') format('woff'),
+    url('../fonts/HelveticaNeueBold/HelveticaNeueBold.ttf') format('truetype'),
+    url('../fonts/HelveticaNeueBold/HelveticaNeueBold.svg#HelveticaNeue-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
 .menu-open .avatar{
   left: auto !important;
   right: 16px !important;
@@ -147,65 +154,47 @@
 }
 
 
-$buttos-height-half: 75px;
+
 div.halves{
   position: absolute;
   left: 0px;
   right: 0px;
   height: 50%;
+  background: $blue;
   &.top{
     top: 0px;
     z-index: 2;
-    #top-wrapper{
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      right: 0px;
-      bottom: $buttos-height-half;
-      .logo{
-        height: 154px;
-        width: 100%;
-        position: absolute;
-        top: -50%;
-        text-align: center;
-        margin-top: 50%;
-        background: url("../img/logo.png") no-repeat center center;
-      }
-    }
-    #buttons-wrapper{
-      position: absolute;
-      bottom: -$buttos-height-half;
-      height: $buttos-height-half*2;
+    .car-bg{
+      height: 100%;
       width: 100%;
-      button.social-button{
+      position: absolute;
+      top:0;
+      text-align: center;
+      background: $car no-repeat center center;
+      background-size: contain; 
+    }
+    .logo-wrapper{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      .logo{
+        height: 50%;
         width: 50%;
-        line-height: normal;
-        padding: 20px 0;
+        position: relative;
+        top:0;
+        margin: 0 auto;
+        text-align: center;
+        background: $logo no-repeat center bottom;
+        background-size: contain;
+      }
+      .phrase{
+        position: relative;
+        width: 100%;
+        text-align: center;
+        font-family: HB;
+        color: $light;
         font-size: 16px;
-        border-width: 0px;
-        border-radius: 0px;
-        height: 100%;
-        i{
-          font-size: 40px;
-          display: block;
-        }
-        .provider-name{
-          font-weight: bold;
-        }
-        &.color-facebook.button-positive {
-          background: #2D4A96;
-          float: left;
-          &:active {
-
-          }
-        }
-        &.color-google.button-assertive {
-          background: #DD4B39;
-          float: left;
-          &:before {
-            font-size: 30px;
-          }
-        }
+        // text-shadow: 0px 0px 1px rgba(15, 15, 15, 0.5)
       }
     }
   }
@@ -214,37 +203,39 @@ div.halves{
     z-index: 1;
     #bottom-wrapper{
       position: absolute;
-      top: $buttos-height-half;
-      left: 0px;
-      right: 0px;
+      left: 20px;
+      right: 20px;
+      top: 0px;
       bottom: 0px;
+      .button{
+        height: 20%;
+        margin: 3% 0;
+        font-size: 14px;
+        text-transform: none;
+        .connect{
+          font-family: HB;
+        }
+        .provider-name{
+          font-family: HL; 
+        }
+      }
       .signup-line{
-        height: 100px;
+        height: 20%;
+        margin: 3% 0;
+        font-size: 14px;
         width: 100%;
-        position: absolute;
-        top: 50%;
         text-align: center;
-        margin-top: -50px;
         td{
+          height: 100%;
           vertical-align: middle;
-          div{
-            height: 35px;
-            line-height: 35px;
-            span{
-              display: inline-block;
-              height: 35px;
-              line-height: 35px;
-              color: #00ACED;
-              font-weight: bold;
-              cursor: pointer;
-              &:active{
-                color: darken(#00ACED, 20%);
-              }
-            }
+          font-family: HL;
+          span.bold{
+            font-family: HB;
           }
         }
       }
     }
+
   }
 }
 

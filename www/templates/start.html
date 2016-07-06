@@ -8,46 +8,54 @@
 
         <div class="halves top">
             <div id="top-wrapper">
-              <!-- <div class="logo"></div> -->
-            </div>
-            <div id="buttons-wrapper">
-                <button 
-                    menu-close 
-                    class="button button-positive color-facebook social-button ink" 
-                    ng-click="authenticate('facebook')">
-                    <i class="ion-social-facebook"></i>
-                    <br>
-                    <span class="connect">{{ 'BUTTON_CONNECT' | translate }}</span>
-                    <br>
-                    <span class="provider-name">Facebook</span>
-                </button>
-
-                <button 
-                    menu-close 
-                    class="button button-assertive color-google social-button ink icon-left" 
-                    ng-click="authenticate('google')">
-                    <i class="ion-social-google"></i>
-                    <br>
-                    <span class="connect">{{ 'BUTTON_CONNECT' | translate }}</span>
-                    <br>
-                    <span class="provider-name">Google</span>
-                </button>                  
+              <div class="car-bg"></div>
+              <div class="logo-wrapper">
+                <div class="logo"></div>
+                <div class="phrase">Look up Vehicle Identification Number</div>
+              </div>
             </div>
         </div>
         <div class="halves bottom">
+            
+                
+  
+
             <div id="bottom-wrapper">
+
+                <button menu-close 
+                    class="button button-block button-positive color-facebook social-button ink" 
+                    ng-click="authenticate('facebook')">
+                    <!--  <i class="ion-social-facebook"></i>  -->
+                    <span class="connect">{{ 'BUTTON_CONNECT' | translate }}</span>
+                    <span class="provider-name">Facebook</span>
+                </button>
+
+                <button menu-close 
+                    class="button button-block button-assertive color-google social-button ink icon-left" 
+                    ng-click="authenticate('google')">
+                    <!-- <i class="ion-social-google"></i> -->
+                    <span class="connect">{{ 'BUTTON_CONNECT' | translate }}</span>
+                    <span class="provider-name">Google</span>
+                </button>  
+
+                <button menu-close id="open-signup-modal"
+                    class="button button-block button-light social-button ink icon-left" 
+                    ng-click="openModal()"
+                    ng-click="authenticate('google')">
+                    <span class="connect">Sign up with</span>
+                    <span class="provider-name">Email</span>
+                </button>                  
+
                 <table class="signup-line">
                     <tr>
                         <td>
-                            <div class="first-line">Sign up with your <span  id="open-signup-modal" ng-click="openModal()">Email address</span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="second-line">Have an account? <span  id="open-signin-modal" ng-click="openModal2()">Log In</span></div>
+                            <span id="open-signin-modal" ng-click="openModal2()">Have an account? 
+                                <span class="bold">Log In</span>
+                            </span>
                         </td>
                     </tr>
                 </table>
+
             </div>
         </div>
      

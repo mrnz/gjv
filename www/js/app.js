@@ -89,8 +89,14 @@ APP.run([
 
       //$cordovaSplashscreen.show(); 
       //$cordovaSplashscreen.hide(); 
-
+      
       if (ionic.Platform.isAndroid()) {
+
+        // if(AndroidFullScreen){
+        //   AndroidFullScreen.isSupported(function(a) {
+        //     AndroidFullScreen.showUnderStatusBar(function() {}, function() {}); 
+        //   });
+        // }
         // code for android
         //$cordovaToast.showShortBottom('Android');
 

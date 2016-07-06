@@ -44,7 +44,9 @@
     "com.ionic.keyboard",
     "cordova-plugin-inappbrowser",
     "cordova-plugin-whitelist",
-    "cordova-plugin-google-analytics@0.8.0"
+    "cordova-plugin-google-analytics@0.8.0",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-fullscreen"
   ],
   "cordovaPlatforms": [
     "android"

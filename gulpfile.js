@@ -82,7 +82,12 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('copyfonts', function() {
-   gulp.src(['./www/lib/ionic/release/fonts/**/*.{ttf,woff,eof,svg}'])
+   gulp.src(['./www/lib/ionic/release/fonts/**/*.{ttf,woff,eof,svg,eot,woff2}'])
+   .pipe(gulp.dest('./www/dist/fonts'));
+});
+
+gulp.task('copyfonts2', function() {
+   gulp.src(['./www/fonts/**/*.{ttf,woff,eof,svg,eot,woff2}'])
    .pipe(gulp.dest('./www/dist/fonts'));
 });
 
@@ -97,7 +102,7 @@ gulp.task('templates', function () {
     .pipe(gulp.dest('./www/js/'));
 });
 
-gulp.task('usemin',['sass', 'copyfonts', 'copyimg', 'templates'], function () {
+gulp.task('usemin',['sass', 'copyfonts', 'copyfonts2', 'copyimg', 'templates'], function () {
   return gulp.src('./www/index.html')
       .pipe(usemin({
         // js: [concat('js/all.js'), ngAnnotate(), uglify()],
