@@ -68,9 +68,8 @@ gulp.task('rp', shell.task([
 
 gulp.task('default', ['sass']);
 
-
 gulp.task('sass', function(done) {
-  gulp.src(['./scss/style.scss'])
+  gulp.src(['./scss/style.scss', './scss/ionic.app.scss'])
     .pipe(sass())
     .pipe(gulp.dest('./www/css/'))
     .pipe(minifyCss({
@@ -82,7 +81,12 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('copyfonts', function() {
-   gulp.src(['./www/lib/ionic/release/fonts/**/*.{ttf,woff,eof,svg}'])
+   gulp.src(['./www/lib/ionic/release/fonts/**/*.{ttf,woff,eof,svg,eot,woff2}'])
+   .pipe(gulp.dest('./www/dist/fonts'));
+});
+
+gulp.task('copyfonts2', function() {
+   gulp.src(['./www/fonts/**/*.{ttf,woff,eof,svg,eot,woff2}'])
    .pipe(gulp.dest('./www/dist/fonts'));
 });
 
@@ -97,7 +101,7 @@ gulp.task('templates', function () {
     .pipe(gulp.dest('./www/js/'));
 });
 
-gulp.task('usemin',['copyfonts', 'copyimg', 'templates'], function () {
+gulp.task('usemin',['sass', 'copyfonts', 'copyfonts2', 'copyimg', 'templates'], function () {
   return gulp.src('./www/index.html')
       .pipe(usemin({
         // js: [concat('js/all.js'), ngAnnotate(), uglify()],
@@ -110,4 +114,5 @@ gulp.task('usemin',['copyfonts', 'copyimg', 'templates'], function () {
 });
 
 gulp.task('build-android', ['usemin'], shell.task('sudo ionic build android') );
+gulp.task('build-android-travis', ['usemin'], shell.task('ionic build android') );
 

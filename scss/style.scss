@@ -1,29 +1,83 @@
+$blue: #40c0ff;
+
+$fb: #3f51b5;
+$fb-hover: #4255bc;
+$google: #ea4335;
+$google-hover: #f75347;
+$email: #ffffff;
+$email-hover: #f1f1f1;
+
+$light: #FFFFFF;
+
+$car: url('../img/fura.svg');
+$car-blue: url('../img/fura-blue.svg');
+$logo: url('../img/logo.svg');
 
 
-// @font-face {
-  //  font-family: $socicon-font-family;
-  //  src: url("#{$socicon-font-path}/socicon.eot");
-  //  src: url("#{$socicon-font-path}/socicon.eot?#iefix") format("embedded-opentype"), //   url("#{$socicon-font-path}/socicon.ttf") format("truetype"), //   url("#{$socicon-font-path}/socicon.woff") format("woff"), //   url("#{$socicon-font-path}/socicon.svg#sociconregular") format("svg");
-  //   font-weight: normal;
-  //   font-style: normal;
-  //   text-transform: initial;
-  //
-//}
-// .isoc {
-  //   display: inline-block;
-  //   font-family: $socicon-font-family;
-  //   speak: none;
-  //   font-style: normal;
-  //   font-weight: normal;
-  //   font-variant: normal;
-  //   text-transform: none;
-  //   text-rendering: auto;
-  //   line-height: 1;
-  //   -webkit-font-smoothing: antialiased;
-  //   -moz-osx-font-smoothing: grayscale;
-  //
-//}
-// @import  'fonts/font-awesome';
+@font-face {
+  font-family: 'HL';
+  src: url('../fonts/HelveticaNeueLight/HelveticaNeueLight.eot');
+  src: url('../fonts/HelveticaNeueLight/HelveticaNeueLight.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/HelveticaNeueLight/HelveticaNeueLight.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueLight/HelveticaNeueLight.woff') format('woff'),
+    url('../fonts/HelveticaNeueLight/HelveticaNeueLight.ttf') format('truetype'),
+    url('../fonts/HelveticaNeueLight/HelveticaNeueLight.svg#HelveticaNeue-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HB';
+  src: url('../fonts/HelveticaNeueBold/HelveticaNeueBold.eot');
+  src: url('../fonts/HelveticaNeueBold/HelveticaNeueBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/HelveticaNeueBold/HelveticaNeueBold.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueBold/HelveticaNeueBold.woff') format('woff'),
+    url('../fonts/HelveticaNeueBold/HelveticaNeueBold.ttf') format('truetype'),
+    url('../fonts/HelveticaNeueBold/HelveticaNeueBold.svg#HelveticaNeue-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+.list-content{
+  background: $car-blue;
+  background-position: 0 center;
+  background-repeat: no-repeat;
+}
+.blue-bg{
+  background: $blue;
+}
+.blue-color{
+  color: $blue;
+}
+
+.logo-in-header{
+  background-image: $logo;
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: 40px center;
+}
+
+.button-fb{
+  background: $fb !important;
+  &:hover {
+    background: $fb-hover !important;
+  }
+}
+
+.button-google{
+  background: $google !important;
+  &:hover {
+    background: $google-hover !important;
+  }
+}
+
+.button-email{
+  background: $email !important;
+  &:hover {
+    background: $email-hover !important;
+  }
+}
+
+
 .menu-open .avatar{
   left: auto !important;
   right: 16px !important;
@@ -32,9 +86,7 @@
 .hide-first{
   opacity: 0;
 }
-.gjv-bg {
-  //background: darken($gjv-color, 15%);
-}
+
 .login-form {
   .roundnes-top {
     border-radius: 10px 10px 0 0;
@@ -147,65 +199,47 @@
 }
 
 
-$buttos-height-half: 75px;
+
 div.halves{
   position: absolute;
   left: 0px;
   right: 0px;
   height: 50%;
+  background: $blue;
   &.top{
     top: 0px;
     z-index: 2;
-    #top-wrapper{
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      right: 0px;
-      bottom: $buttos-height-half;
-      .logo{
-        height: 154px;
-        width: 100%;
-        position: absolute;
-        top: -50%;
-        text-align: center;
-        margin-top: 50%;
-        background: url("../img/logo.png") no-repeat center center;
-      }
-    }
-    #buttons-wrapper{
-      position: absolute;
-      bottom: -$buttos-height-half;
-      height: $buttos-height-half*2;
+    .car-bg{
+      height: 100%;
       width: 100%;
-      button.social-button{
+      position: absolute;
+      top:0;
+      text-align: center;
+      background: $car no-repeat center center;
+      background-size: contain; 
+    }
+    .logo-wrapper{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      .logo{
+        height: 50%;
         width: 50%;
-        line-height: normal;
-        padding: 20px 0;
+        position: relative;
+        top:0;
+        margin: 0 auto;
+        text-align: center;
+        background: $logo no-repeat center bottom;
+        background-size: contain;
+      }
+      .phrase{
+        position: relative;
+        width: 100%;
+        text-align: center;
+        font-family: HB;
+        color: $light;
         font-size: 16px;
-        border-width: 0px;
-        border-radius: 0px;
-        height: 100%;
-        i{
-          font-size: 40px;
-          display: block;
-        }
-        .provider-name{
-          font-weight: bold;
-        }
-        &.color-facebook.button-positive {
-          background: #2D4A96;
-          float: left;
-          &:active {
-
-          }
-        }
-        &.color-google.button-assertive {
-          background: #DD4B39;
-          float: left;
-          &:before {
-            font-size: 30px;
-          }
-        }
+        // text-shadow: 0px 0px 1px rgba(15, 15, 15, 0.5)
       }
     }
   }
@@ -214,37 +248,39 @@ div.halves{
     z-index: 1;
     #bottom-wrapper{
       position: absolute;
-      top: $buttos-height-half;
-      left: 0px;
-      right: 0px;
+      left: 20px;
+      right: 20px;
+      top: 0px;
       bottom: 0px;
+      .button{
+        height: 20%;
+        margin: 3% 0;
+        font-size: 14px;
+        text-transform: none;
+        .connect{
+          font-family: HB;
+        }
+        .provider-name{
+          font-family: HL; 
+        }
+      }
       .signup-line{
-        height: 100px;
+        height: 20%;
+        margin: 3% 0;
+        font-size: 14px;
         width: 100%;
-        position: absolute;
-        top: 50%;
         text-align: center;
-        margin-top: -50px;
         td{
+          height: 100%;
           vertical-align: middle;
-          div{
-            height: 35px;
-            line-height: 35px;
-            span{
-              display: inline-block;
-              height: 35px;
-              line-height: 35px;
-              color: #00ACED;
-              font-weight: bold;
-              cursor: pointer;
-              &:active{
-                color: darken(#00ACED, 20%);
-              }
-            }
+          font-family: HL;
+          span.bold{
+            font-family: HB;
           }
         }
       }
     }
+
   }
 }
 
@@ -318,76 +354,12 @@ button.color-email {
 .imageContainer {
   position: relative;
 }
-
-/*
-  We're using CSS transitions for when
-  the enter and move events are triggered
-  for the element that has the .repeated-item
-  class
-*/
-.repeated-item.ng-enter, .repeated-item.ng-move {
-  -webkit-transition: 0.5s linear all;
-  -moz-transition: 0.5s linear all;
-  -o-transition: 0.5s linear all;
-  transition: 0.5s linear all;
-  opacity: 0;
+.repeated-item{
+  font-family: HB;
+  font-size: 18px;
+  padding: 18px !important; 
 }
-
-/*
- The ng-enter-active and ng-move-active
- are where the transition destination properties
- are set so that the animation knows what to
- animate.
-*/
-.repeated-item.ng-enter.ng-enter-active, .repeated-item.ng-move.ng-move-active {
-  opacity: 1;
-}
-
-/*
-  We're using CSS keyframe animations for when
-  the leave event is triggered for the element
-  that has the .repeated-item class
-*/
-.repeated-item.ng-leave {
-  -webkit-animation: 0.5s my_animation;
-  -moz-animation: 0.5s my_animation;
-  -o-animation: 0.5s my_animation;
-  animation: 0.5s my_animation;
-}
-@keyframes my_animation {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-/*
-  Unfortunately each browser vendor requires
-  its own definition of keyframe animation code...
-*/
-@-webkit-keyframes my_animation {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@-moz-keyframes my_animation {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@-o-keyframes my_animation {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+.move-icon-to-right{
+  float: right;
+  margin-right: 10px; 
 }

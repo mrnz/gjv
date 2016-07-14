@@ -2,11 +2,11 @@
   	
   	<ion-side-menu-content>
     
-    	<ion-nav-bar class="bar-royal-900" align-title="center">
+    	<ion-nav-bar class="blue-bg logo-in-header"  align-title="center">
        	
-       	<ion-nav-title >
+<!--        	<ion-nav-title >
           VIN Finder
-      	</ion-nav-title>
+      	</ion-nav-title> -->
 
         <ion-nav-back-button class="button-clear">
           <i class="icon ion-ios-arrow-back"></i>
@@ -15,9 +15,8 @@
      		<ion-nav-buttons side="right">
        	
           <span class="right-buttons">
-              <button class="button button-balanced button-fab activated" menu-toggle="right">
-                  <i class="icon ion-navicon"></i>
-              </button>
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+            </button>
           </span>
         	
      		</ion-nav-buttons>
@@ -71,7 +70,7 @@
               Rate the app  
           </ion-item>
 
-          <ion-item nav-clear menu-close ng-click="logout()">
+          <ion-item nav-clear menu-close id="logout-button-side-menu" ng-click="logout()">
               Log Out
           </ion-item>
 
