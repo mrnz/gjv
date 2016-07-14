@@ -23,7 +23,7 @@
             <div id="bottom-wrapper">
 
                 <button menu-close 
-                    class="button button-block button-positive color-facebook social-button ink" 
+                    class="button button-block button-positive ink button-fb" 
                     ng-click="authenticate('facebook')">
                     <!--  <i class="ion-social-facebook"></i>  -->
                     <span class="connect">{{ 'BUTTON_CONNECT' | translate }}</span>
@@ -31,7 +31,7 @@
                 </button>
 
                 <button menu-close 
-                    class="button button-block button-assertive color-google social-button ink icon-left" 
+                    class="button button-block button-assertive button-google ink" 
                     ng-click="authenticate('google')">
                     <!-- <i class="ion-social-google"></i> -->
                     <span class="connect">{{ 'BUTTON_CONNECT' | translate }}</span>
@@ -39,7 +39,7 @@
                 </button>  
 
                 <button menu-close id="open-signup-modal"
-                    class="button button-block button-light social-button ink icon-left" 
+                    class="button button-block button-light button-email ink " 
                     ng-click="openModal()"
                     ng-click="authenticate('google')">
                     <span class="connect">Sign up with</span>

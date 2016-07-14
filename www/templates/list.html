@@ -1,7 +1,9 @@
-<ion-view title="{{title}}" class="">
+<!-- title="{{title}}"  -->
+<ion-view class="">
     
     <ion-content  
-    	padding="false">
+    	padding="false"
+    	class="list-content">
 	
 		<div class="listEmpty repeated-item" ng-if="listEmpty">
 			<br><br><br>
@@ -18,12 +20,10 @@
 		      ng-click="selectItem(this,item.name)"
 		      list-item="">
 
-					<button class="button button-balanced button-fab activated" menu-toggle="right" ng-class="{'hide-first': !item.first}">
-										{{item.name[0]}}	
-          </button>
-
 					{{item.name}}
-		    
+
+		    	<i class="ion-chevron-right move-icon-to-right"></i>
+
 		  	</ion-item>
 
 		</ion-list>

@@ -68,9 +68,8 @@ gulp.task('rp', shell.task([
 
 gulp.task('default', ['sass']);
 
-
 gulp.task('sass', function(done) {
-  gulp.src(['./scss/style.scss'])
+  gulp.src(['./scss/style.scss', './scss/ionic.app.scss'])
     .pipe(sass())
     .pipe(gulp.dest('./www/css/'))
     .pipe(minifyCss({
