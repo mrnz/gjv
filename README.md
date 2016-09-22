@@ -6,9 +6,7 @@ VIN Finder
 [![bitHound Overall Score](https://www.bithound.io/github/mrnz/gjv/badges/score.svg)](https://www.bithound.io/github/mrnz/gjv)
 [![bitHound Dev Dependencies](https://www.bithound.io/github/mrnz/gjv/badges/devDependencies.svg)](https://www.bithound.io/github/mrnz/gjv/master/dependencies/npm)
 
-mobile version of gdzieJestVin.pl web app
-
-
+Where is VIN - is an mobile application which shows where is the hidden vehicle identification number located.
 
 <!--  [![Codecov](https://img.shields.io/codecov/c/github/mrnz/gjv.svg?maxAge=1&style=plastic)](https://codecov.io/gh/mrnz/gjv) 
 
